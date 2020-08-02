@@ -17,9 +17,11 @@ public class GameController : MonoBehaviour
 
 	// Update is called once per frame
 	void Update()
-    {
-		// Handle recording input
-		if (Input.GetKeyDown(KeyCode.Space)) PlayerIsRecording = !PlayerIsRecording;
+	{
+		if (Input.GetButtonDown("Play")) Play();
+		if (Input.GetButtonDown("Rewind")) Rewind();
+		if (Input.GetButtonDown("Record")) Record();
+		if (Input.GetButtonDown("Submit")) Submit();
 
 		// Grab the current sentiments
 		Recording.Sentiment[] Sentiments = Recordings[CurrentRecording].Sentiments;
@@ -38,5 +40,25 @@ public class GameController : MonoBehaviour
 
 		// Set the transcript text on the UI every frame
 		TranscriptLabel.SetText(Recordings[CurrentRecording].Sentiments);
+	}
+
+    public void Play()
+    {
+		print("play");
+    }
+
+	public void Rewind()
+	{
+		print("rewind");
+	}
+
+	public void Record()
+	{
+		PlayerIsRecording = !PlayerIsRecording;
+	}
+
+	public void Submit()
+	{
+		print("submit");
 	}
 }
