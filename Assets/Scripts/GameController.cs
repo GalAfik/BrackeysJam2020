@@ -1,118 +1,77 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-	public int CurrentRecording = 0;
+	public enum PlayerState { Ready, Playing, Recording, Done, Rewinding, Submitted };
+	private PlayerState playerState = PlayerState.Ready;
+
 	public Recording[] Recordings;
 	public Transcript TranscriptLabel;
-	private float Timer;
+	private int CurrentRecording = 0;
+	private float Timer = 0;
 
 	public Button RecordButton;
 	private Color RecordButtonColor;
 	public Color RecordingColor;
 
-	private bool PlayerIsPlaying;
-	private bool PlayerIsRecording;
-
 	private void Start()
 	{
-		Timer = 0;
-
 		// Grab the initial record button color
-		if (RecordButton != null)
-		{
-			RecordButtonColor = RecordButton.GetComponent<Image>().color;
-		}
+		RecordButtonColor = RecordButton.GetComponent<Image>().color;
 	}
 
-	// Update is called once per frame
-	void Update()
+	private void Update()
 	{
-		if (Input.GetButtonDown("Play")) Play();
-		if (Input.GetButtonDown("Rewind")) Rewind();
-		if (Input.GetButtonDown("Record")) Record();
-		if (Input.GetButtonDown("Submit")) Submit();
+		HandleInputs();
+		UpdatePlayerState();
 
-		// Grab the current sentiments
-		Recording.Sentiment[] Sentiments = Recordings[CurrentRecording].Sentiments;
-		foreach (var sentiment in Sentiments)
-		{
-			// Change the color of the sentiment phrase depending on if it is being recorded or has already been played
-			if (Timer >= sentiment.Timestamp && sentiment.Current == false)
-			{
-				sentiment.Current = true;
-				if (PlayerIsRecording) sentiment.Recorded = true;
-			}
-		}
-
-		// Count up the timer if the player is playing the recording
-		if (PlayerIsPlaying) Timer += Time.deltaTime;
-
-		// Set the transcript text on the UI every frame
-		TranscriptLabel?.SetText(Recordings[CurrentRecording].Sentiments);
+		ResetButtonColor();
+		TranscriptLabel.SetText(Recordings[CurrentRecording].Sentiments);
 	}
 
     public void Play()
     {
-		if (PlayerIsPlaying == false)
-		{
-			PlayerIsPlaying = true;
-			// Play the audio source
-			Recordings[CurrentRecording].Play();
-		}
+		if (playerState != PlayerState.Ready) return;
+
+		playerState = PlayerState.Playing;
+		Recordings[CurrentRecording].Play();
 	}
 
 	public void Rewind()
 	{
-		if (PlayerIsPlaying)
-		{
-			Timer = 0;
-			PlayerIsPlaying = false;
-			PlayerIsRecording = false;
-			ResetButtonColor();
+		if (playerState != PlayerState.Playing &&
+			playerState != PlayerState.Recording &&
+			playerState != PlayerState.Done) return;
 
-			// Reset all sentiments
-			Recording.Sentiment[] Sentiments = Recordings[CurrentRecording].Sentiments;
-			foreach (var sentiment in Sentiments)
-			{
-				sentiment.Current = false;
-				sentiment.Recorded = false;
-			}
-	
-			// Play the audio source "in reverse" 
-			Recordings[CurrentRecording].Rewind();
-		}
-	}
-
-	private void ResetButtonColor()
-	{
-		// Toggle record button color
-		if (RecordButton != null)
-		{
-			RecordButton.GetComponent<Image>().color = (PlayerIsRecording ? RecordingColor : RecordButtonColor);
-		}
+		playerState = PlayerState.Rewinding;
+		Recordings[CurrentRecording].Rewind();
 	}
 
 	public void Record()
 	{
-		// Toggle recording state
-		PlayerIsRecording = !PlayerIsRecording;
-
-		// Toggle record button color
-		ResetButtonColor();
+		if (playerState == PlayerState.Playing)
+		{
+			playerState = PlayerState.Recording;
+		}
+		else if (playerState == PlayerState.Recording)
+		{
+			playerState = PlayerState.Playing;
+		}
 	}
 
 	public void Submit()
 	{
+		if (playerState != PlayerState.Done) return;
+
+		playerState = PlayerState.Submitted;
+
 		string recordedTranscript = "";
 		// Grab the current sentiments that are recorded
 		Recording.Sentiment[] Sentiments = Recordings[CurrentRecording].Sentiments;
 		foreach (var sentiment in Sentiments)
 		{
-			if (!sentiment.Current)
+			if (!sentiment.Played)
 			{
 				return;
 			}
@@ -127,5 +86,83 @@ public class GameController : MonoBehaviour
 
 		// TODO
 		print(recordedTranscript);
+	}
+
+	private void HandleInputs()
+    {
+		if (Input.GetButtonDown("Play")) Play();
+		if (Input.GetButtonDown("Rewind")) Rewind();
+		if (Input.GetButtonDown("Record")) Record();
+		if (Input.GetButtonDown("Submit")) Submit();
+	}
+
+	private void UpdatePlayerState()
+    {
+		Recording recording = Recordings[CurrentRecording];
+		Recording.Sentiment sentiment = GetCurrentSentiment();
+
+		switch (playerState)
+		{
+			case PlayerState.Playing:
+				Timer += Time.deltaTime;
+				if (sentiment != null)
+                {
+					sentiment.Played = true;
+				}
+
+				if (!recording.IsAudioSourcePlaying())
+				{
+					playerState = PlayerState.Done;
+				}
+
+				break;
+			case PlayerState.Recording:
+				Timer += Time.deltaTime;
+				if (sentiment != null)
+                {
+					sentiment.Played = true;
+					sentiment.Recorded = true;
+				}
+
+				if (!recording.IsAudioSourcePlaying())
+				{
+					playerState = PlayerState.Done;
+				}
+
+				break;
+			case PlayerState.Rewinding:
+				Timer -= Time.deltaTime * Recording.AudioReverseSpeed;
+				if (sentiment != null)
+				{
+					sentiment.Played = false;
+					sentiment.Recorded = false;
+				}
+
+				if (Timer < 0)
+				{
+					playerState = PlayerState.Ready;
+					Timer = 0;
+				}
+
+				break;
+		}
+	}
+
+	private Recording.Sentiment GetCurrentSentiment()
+    {
+		Recording.Sentiment[] sentiments = Recordings[CurrentRecording].Sentiments;
+		for (int i = sentiments.Length; i --> 0;)
+		{
+			if (Timer >= sentiments[i].Timestamp)
+			{
+				return sentiments[i];
+			}
+		}
+		return null;
+	}
+
+	private void ResetButtonColor()
+	{
+		RecordButton.GetComponent<Image>().color = playerState == PlayerState.Recording ? RecordingColor : RecordButtonColor;
 	}
 }
