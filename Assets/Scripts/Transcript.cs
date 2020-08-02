@@ -12,6 +12,8 @@ public class Transcript : MonoBehaviour
 	public Color RecordedColor = Color.red;
 	private TMP_Text Text;
 
+	public float TextFadeSpeed = 2f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,5 +45,14 @@ public class Transcript : MonoBehaviour
 
 		// Set the transcript label
 		Text?.SetText(transcript);
+	}
+
+	public IEnumerator FadeNonRecordedWords()
+	{
+		while(CurrentColor.a > 0)
+		{
+			CurrentColor.a -= .01f / TextFadeSpeed;
+			yield return new WaitForSeconds(.01f);
+		}
 	}
 }

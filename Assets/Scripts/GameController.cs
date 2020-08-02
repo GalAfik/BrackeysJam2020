@@ -52,27 +52,38 @@ public class GameController : MonoBehaviour
 		if (PlayerIsPlaying) Timer += Time.deltaTime;
 
 		// Set the transcript text on the UI every frame
-		TranscriptLabel.SetText(Recordings[CurrentRecording].Sentiments);
+		TranscriptLabel?.SetText(Recordings[CurrentRecording].Sentiments);
 	}
 
     public void Play()
     {
-		PlayerIsPlaying = true;
+		if (PlayerIsPlaying == false)
+		{
+			PlayerIsPlaying = true;
+			// Play the audio source
+			Recordings[CurrentRecording].Play();
+		}
 	}
 
 	public void Rewind()
 	{
-		Timer = 0;
-		PlayerIsPlaying = false;
-		PlayerIsRecording = false;
-		ResetButtonColor();
-
-		// Reset all sentiments
-		Recording.Sentiment[] Sentiments = Recordings[CurrentRecording].Sentiments;
-		foreach (var sentiment in Sentiments)
+		if (PlayerIsPlaying)
 		{
-			sentiment.Current = false;
-			sentiment.Recorded = false;
+			Timer = 0;
+			PlayerIsPlaying = false;
+			PlayerIsRecording = false;
+			ResetButtonColor();
+
+			// Reset all sentiments
+			Recording.Sentiment[] Sentiments = Recordings[CurrentRecording].Sentiments;
+			foreach (var sentiment in Sentiments)
+			{
+				sentiment.Current = false;
+				sentiment.Recorded = false;
+			}
+	
+			// Play the audio source "in reverse" 
+			Recordings[CurrentRecording].Rewind();
 		}
 	}
 
@@ -101,11 +112,18 @@ public class GameController : MonoBehaviour
 		Recording.Sentiment[] Sentiments = Recordings[CurrentRecording].Sentiments;
 		foreach (var sentiment in Sentiments)
 		{
+			if (!sentiment.Current)
+			{
+				return;
+			}
 			if (sentiment.Recorded)
 			{
 				recordedTranscript += sentiment.Phrase + " ";
 			}
 		}
+
+		// Fade out the unrecorded text
+		StartCoroutine(TranscriptLabel.FadeNonRecordedWords());
 
 		// TODO
 		print(recordedTranscript);
