@@ -38,20 +38,7 @@ public class Recording : MonoBehaviour
 				if (sentiment != null)
 				{
 					sentiment.Played = true;
-				}
-
-				if (!IsAudioSourcePlaying())
-				{
-					Player.State = PlayerState.Done;
-				}
-
-				break;
-			case PlayerState.Recording:
-				Timer += Time.deltaTime;
-				if (sentiment != null)
-				{
-					sentiment.Played = true;
-					sentiment.Recorded = true;
+					sentiment.Recorded = Player.IsRecording;
 				}
 
 				if (!IsAudioSourcePlaying())

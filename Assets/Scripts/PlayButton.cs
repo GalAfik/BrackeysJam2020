@@ -18,7 +18,7 @@ public class PlayButton : MonoBehaviour
     private void ChangeIcon(PlayerState newState, PlayerState oldState)
     {
         if (newState == PlayerState.Playing ||
-            newState == PlayerState.Recording)
+            newState == PlayerState.Rewinding)
         {
             GetComponent<Image>().sprite = PauseSprite;
             return;

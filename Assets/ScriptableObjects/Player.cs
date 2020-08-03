@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public enum PlayerState { Ready, Playing, Recording, Paused, Done, Rewinding, Submitted };
+public enum PlayerState { Ready, Playing, Paused, Done, Rewinding, Submitted };
 
 [System.Serializable] public class _UnityEventPlayerState : UnityEvent<PlayerState, PlayerState> { }
 
@@ -19,6 +19,7 @@ public class Player : ScriptableObject
             state = value;
         }
     }
+	public bool IsRecording;
 
     private PlayerState state;
     private _UnityEventPlayerState OnStateChange;
@@ -32,7 +33,8 @@ public class Player : ScriptableObject
 		recording.Activate();
 		Recording = recording;
 		State = PlayerState.Ready;
-    }
+		IsRecording = false;
+	}
 
     public void AddListener(UnityAction<PlayerState, PlayerState> call)
     {
@@ -47,21 +49,28 @@ public class Player : ScriptableObject
 	public void Play()
 	{
 		if (State == PlayerState.Ready ||
-			State == PlayerState.Paused ||
-			State == PlayerState.Rewinding)
+			State == PlayerState.Paused)
 		{
 			State = PlayerState.Playing;
 		}
-		else if (State == PlayerState.Playing || State == PlayerState.Recording)
+		else if (State == PlayerState.Playing ||
+			State == PlayerState.Rewinding)
 		{
 			State = PlayerState.Paused;
 		}
 	}
 
+	public void Pause()
+    {
+		if (State != PlayerState.Playing &&
+			State != PlayerState.Rewinding) return;
+
+		State = PlayerState.Paused;
+	}
+
 	public void Rewind()
 	{
 		if (State != PlayerState.Playing &&
-			State != PlayerState.Recording &&
 			State != PlayerState.Paused &&
 			State != PlayerState.Done) return;
 
@@ -70,14 +79,7 @@ public class Player : ScriptableObject
 
 	public void Record()
 	{
-		if (State == PlayerState.Playing)
-		{
-			State = PlayerState.Recording;
-		}
-		else if (State == PlayerState.Recording)
-		{
-			State = PlayerState.Playing;
-		}
+		IsRecording = !IsRecording;
 	}
 
 	public void Submit()

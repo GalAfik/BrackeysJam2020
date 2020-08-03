@@ -23,7 +23,12 @@ public class GameController : MonoBehaviour
 
 	private void HandleInputs()
     {
-		if (Input.GetKeyDown("n")) StartLevel();
+		if (Input.GetKeyDown(KeyCode.N)) StartLevel();
+
+		if (Input.GetKeyDown(KeyCode.A)) Player.Rewind();
+		if (Input.GetKeyUp(KeyCode.A)) Player.Pause();
+		if (Input.GetKeyDown(KeyCode.S)) Player.Play();
+		if (Input.GetKeyDown(KeyCode.D)) Player.Record();
 
 		if (Input.GetButtonDown("Play")) Player.Play();
 		if (Input.GetButtonDown("Rewind")) Player.Rewind();
