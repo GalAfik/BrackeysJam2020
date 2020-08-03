@@ -21,14 +21,6 @@ public class GameController : MonoBehaviour
 
 	private void Start()
 	{
-		var recordings = GameObject.FindGameObjectsWithTag("recording");
-		foreach (var obj in recordings)
-        {
-			Recording recording = obj.GetComponent<Recording>();
-			string jsonString = ((TextAsset)Resources.Load(recording.LevelResource)).text;
-			JsonUtility.FromJsonOverwrite(jsonString, recording);
-		}
-
 		// Grab the initial record button color
 		RecordButtonColor = RecordButton.GetComponent<Image>().color;
 	}
@@ -125,6 +117,7 @@ public class GameController : MonoBehaviour
 				if (!recording.IsAudioSourcePlaying())
 				{
 					playerState = PlayerState.Done;
+					PlayButton.GetComponent<Image>().sprite = PlaySprite;
 				}
 
 				break;
@@ -139,6 +132,7 @@ public class GameController : MonoBehaviour
 				if (!recording.IsAudioSourcePlaying())
 				{
 					playerState = PlayerState.Done;
+					PlayButton.GetComponent<Image>().sprite = PlaySprite;
 				}
 
 				break;

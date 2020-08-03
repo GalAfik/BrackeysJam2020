@@ -26,8 +26,12 @@ public class Recording : MonoBehaviour
 
 	void Start()
     {
-		AudioSource = GetComponent<AudioSource>(); 
-    }
+		AudioSource = GetComponent<AudioSource>();
+
+		Recording recording = gameObject.GetComponent<Recording>();
+		string jsonString = ((TextAsset)Resources.Load(recording.LevelResource)).text;
+		JsonUtility.FromJsonOverwrite(jsonString, recording);
+	}
 
 	public void Play()
 	{
