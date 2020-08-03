@@ -27,18 +27,7 @@ public class Recording : MonoBehaviour
 	private AudioSource AudioSource;
 	private float Timer = 0;
 
-	private void Start()
-    {
-		Player = AssetDatabase.LoadAssetAtPath<Player>("Assets/States/Player.asset");
-		Player.AddListener(ControlAudio);
-		AudioSource = GetComponent<AudioSource>();
-
-		Recording recording = gameObject.GetComponent<Recording>();
-		string jsonString = ((TextAsset)Resources.Load(recording.LevelResource)).text;
-		JsonUtility.FromJsonOverwrite(jsonString, recording);
-	}
-
-	private void Update()
+    private void Update()
 	{
 		Sentiment sentiment = GetCurrentSentiment();
 
@@ -83,19 +72,40 @@ public class Recording : MonoBehaviour
 				{
 					Player.State = PlayerState.Ready;
 					Timer = 0;
+					AudioSource.timeSamples = 0;
 				}
 
 				break;
 		}
 	}
 
-    public void Reset()
-    {
-		Timer = 0;
-		AudioSource.timeSamples = 0;
-    }
+	public void Activate()
+	{
+		gameObject.SetActive(true);
 
-    private Sentiment GetCurrentSentiment()
+		Player = AssetDatabase.LoadAssetAtPath<Player>("Assets/States/Player.asset");
+		Player.AddListener(ControlAudio);
+		AudioSource = GetComponent<AudioSource>();
+		AudioSource.timeSamples = 0;
+		Timer = 0;
+
+		Recording recording = gameObject.GetComponent<Recording>();
+		string jsonString = ((TextAsset)Resources.Load(recording.LevelResource)).text;
+		JsonUtility.FromJsonOverwrite(jsonString, recording);
+
+		foreach (var sentiment in Sentiments)
+        {
+			sentiment.Played = sentiment.Recorded = false;
+        }
+	}
+
+	public void Deactivate()
+	{
+		Player.RemoveListener(ControlAudio);
+		gameObject.SetActive(false);
+	}
+
+	private Sentiment GetCurrentSentiment()
 	{
 		for (int i = Sentiments.Length; i-- > 0;)
 		{

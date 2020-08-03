@@ -25,15 +25,24 @@ public class Player : ScriptableObject
 
 	public void Reset(Recording recording)
     {
+		if (Recording != null)
+        {
+			Recording.Deactivate();
+        }
+		recording.Activate();
 		Recording = recording;
-		recording.Reset();
-		state = PlayerState.Paused;
+		State = PlayerState.Ready;
     }
 
     public void AddListener(UnityAction<PlayerState, PlayerState> call)
     {
         OnStateChange.AddListener(call);
     }
+
+	public void RemoveListener(UnityAction<PlayerState, PlayerState> call)
+	{
+		OnStateChange.RemoveListener(call);
+	}
 
 	public void Play()
 	{

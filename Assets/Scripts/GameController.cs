@@ -23,11 +23,19 @@ public class GameController : MonoBehaviour
 
 	private void HandleInputs()
     {
+		if (Input.GetKeyDown("n")) StartLevel();
+
 		if (Input.GetButtonDown("Play")) Player.Play();
 		if (Input.GetButtonDown("Rewind")) Player.Rewind();
 		if (Input.GetButtonDown("Record")) Player.Record();
 		if (Input.GetButtonDown("Submit")) Player.Submit();
 	}
+
+	private void StartLevel()
+    {
+		CurrentRecording = (CurrentRecording + 1) % Recordings.Length;
+		Player.Reset(Recordings[CurrentRecording]);
+    }
 
 	private void OnSubmit(PlayerState newState, PlayerState oldState)
     {
