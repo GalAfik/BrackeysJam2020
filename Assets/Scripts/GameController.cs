@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 	public Recording[] Recordings;
-	public Transcript TranscriptLabel;
 	
 	private Level Level;
 	private Player Player;
@@ -67,9 +66,6 @@ public class GameController : MonoBehaviour
 		if (Player.State != PlayerState.Done) return;
 
 		Player.State = PlayerState.Submitted;
-
-		// Fade out the unrecorded text
-		StartCoroutine(TranscriptLabel.FadeNonRecordedWords());
 
         Recording recording = Recordings[CurrentRecording];
         Recording.Sentiment[] sentiments = Level.Sentiments;

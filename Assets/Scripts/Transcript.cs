@@ -13,12 +13,14 @@ public class Transcript : MonoBehaviour
 	public float TextFadeSpeed = 2f;
 
 	private Level Level;
+	private Player Player;
 	private TMP_Text Text;
 
-    // Start is called before the first frame update
     void Start()
     {
 		Level = AssetDatabase.LoadAssetAtPath<Level>("Assets/States/Level.asset");
+		Player = AssetDatabase.LoadAssetAtPath<Player>("Assets/States/Player.asset");
+		Player.AddListener(StartFade);
 		Text = GetComponent<TMP_Text>();
     }
 
@@ -28,7 +30,15 @@ public class Transcript : MonoBehaviour
 		Text.SetText(transcript);
 	}
 
-	public IEnumerator FadeNonRecordedWords()
+	private void StartFade(PlayerState newState, PlayerState oldState)
+    {
+		if (newState == PlayerState.Submitted)
+        {
+			StartCoroutine(FadeNonRecordedWords());
+		}
+	}
+
+	private IEnumerator FadeNonRecordedWords()
 	{
 		while (CurrentColor.a > 0)
 		{

@@ -9,14 +9,15 @@ public class RecordButton : MonoBehaviour
     private Player Player;
     private Color RecordButtonColor;
 
-    void Start()
+    public void Start()
     {
         Player = AssetDatabase.LoadAssetAtPath<Player>("Assets/States/Player.asset");
+        Player.AddListener(ChangeRecordButtonColor);
         RecordButtonColor = gameObject.GetComponent<Image>().color;
     }
 
-    void Update()
+    public void ChangeRecordButtonColor(PlayerState newState, PlayerState oldState)
     {
-        gameObject.GetComponent<Image>().color = Player.State == PlayerState.Recording ? RecordingColor : RecordButtonColor;
+        gameObject.GetComponent<Image>().color = newState == PlayerState.Recording ? RecordingColor : RecordButtonColor;
     }
 }

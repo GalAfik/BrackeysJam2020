@@ -9,15 +9,16 @@ public class PlayButton : MonoBehaviour
 
     private Player Player;
 
-    void Start()
+    public void Start()
     {
         Player = AssetDatabase.LoadAssetAtPath<Player>("Assets/States/Player.asset");
+        Player.AddListener(ChangeIcon);
     }
 
-    void Update()
+    private void ChangeIcon(PlayerState newState, PlayerState oldState)
     {
-        if (Player.State == PlayerState.Playing ||
-            Player.State == PlayerState.Recording)
+        if (newState == PlayerState.Playing ||
+            newState == PlayerState.Recording)
         {
             GetComponent<Image>().sprite = PauseSprite;
             return;
