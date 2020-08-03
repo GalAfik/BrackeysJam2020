@@ -1,89 +1,78 @@
 ﻿using System.Linq;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-	public enum PlayerState { Paused, Playing, Recording, Done, Rewinding, Submitted };
-	private PlayerState playerState = PlayerState.Paused;
-
 	public Recording[] Recordings;
 	public Transcript TranscriptLabel;
+	
+	private Level Level;
+	private Player Player;
 	private int CurrentRecording = 0;
 	private float Timer = 0;
 
-	public Button RecordButton;
-	public Button PlayButton;
-	public Sprite PlaySprite;
-	public Sprite PauseSprite;
-	private Color RecordButtonColor;
-	public Color RecordingColor;
-
 	private void Start()
 	{
-		// Grab the initial record button color
-		RecordButtonColor = RecordButton.GetComponent<Image>().color;
+		Level = AssetDatabase.LoadAssetAtPath<Level>("Assets/States/Level.asset");
+		Player = AssetDatabase.LoadAssetAtPath<Player>("Assets/States/Player.asset");
+		Level.Sentiments = Recordings[CurrentRecording].Sentiments;
+		Player.State = PlayerState.Paused;
 	}
 
 	private void Update()
 	{
 		HandleInputs();
 		UpdatePlayerState();
-
-		ResetButtonColor();
-		TranscriptLabel.SetText(Recordings[CurrentRecording].Sentiments);
 	}
 
     public void Play()
     {
-		if (playerState == PlayerState.Paused || playerState == PlayerState.Rewinding)
+		if (Player.State == PlayerState.Paused || Player.State == PlayerState.Rewinding)
 		{
-			playerState = PlayerState.Playing;
-			PlayButton.GetComponent<Image>().sprite = PauseSprite;
+			Player.State = PlayerState.Playing;
 			Recordings[CurrentRecording].Play();
 		}
-		else if (playerState == PlayerState.Playing)
+		else if (Player.State == PlayerState.Playing || Player.State == PlayerState.Recording)
 		{
-			playerState = PlayerState.Paused;
-			PlayButton.GetComponent<Image>().sprite = PlaySprite;
+			Player.State = PlayerState.Paused;
 			Recordings[CurrentRecording].Pause();
 		}
 	}
 
 	public void Rewind()
 	{
-		if (playerState != PlayerState.Playing &&
-			playerState != PlayerState.Recording &&
-			playerState != PlayerState.Done) return;
+		if (Player.State != PlayerState.Playing &&
+			Player.State != PlayerState.Recording &&
+			Player.State != PlayerState.Done) return;
 
-		playerState = PlayerState.Rewinding;
-		PlayButton.GetComponent<Image>().sprite = PlaySprite;
+		Player.State = PlayerState.Rewinding;
 		Recordings[CurrentRecording].Rewind();
 	}
 
 	public void Record()
 	{
-		if (playerState == PlayerState.Playing)
+		if (Player.State == PlayerState.Playing)
 		{
-			playerState = PlayerState.Recording;
+			Player.State = PlayerState.Recording;
 		}
-		else if (playerState == PlayerState.Recording)
+		else if (Player.State == PlayerState.Recording)
 		{
-			playerState = PlayerState.Playing;
+			Player.State = PlayerState.Playing;
 		}
 	}
 
 	public void Submit()
 	{
-		if (playerState != PlayerState.Done) return;
+		if (Player.State != PlayerState.Done) return;
 
-		playerState = PlayerState.Submitted;
+		Player.State = PlayerState.Submitted;
 
 		// Fade out the unrecorded text
 		StartCoroutine(TranscriptLabel.FadeNonRecordedWords());
 
         Recording recording = Recordings[CurrentRecording];
-        Recording.Sentiment[] sentiments = recording.Sentiments;
+        Recording.Sentiment[] sentiments = Level.Sentiments;
 
         string attempt = string.Join(",", sentiments.Where(sentiment => sentiment.Recorded).Select(sentiment => sentiment.ID));
         bool solved = recording.Solutions.Contains(attempt);
@@ -105,7 +94,7 @@ public class GameController : MonoBehaviour
 		Recording recording = Recordings[CurrentRecording];
 		Recording.Sentiment sentiment = GetCurrentSentiment();
 
-		switch (playerState)
+		switch (Player.State)
 		{
 			case PlayerState.Playing:
 				Timer += Time.deltaTime;
@@ -116,8 +105,7 @@ public class GameController : MonoBehaviour
 
 				if (!recording.IsAudioSourcePlaying())
 				{
-					playerState = PlayerState.Done;
-					PlayButton.GetComponent<Image>().sprite = PlaySprite;
+					Player.State = PlayerState.Done;
 				}
 
 				break;
@@ -131,8 +119,7 @@ public class GameController : MonoBehaviour
 
 				if (!recording.IsAudioSourcePlaying())
 				{
-					playerState = PlayerState.Done;
-					PlayButton.GetComponent<Image>().sprite = PlaySprite;
+					Player.State = PlayerState.Done;
 				}
 
 				break;
@@ -146,7 +133,7 @@ public class GameController : MonoBehaviour
 
 				if (Timer < 0)
 				{
-					playerState = PlayerState.Paused;
+					Player.State = PlayerState.Paused;
 					Timer = 0;
 				}
 
@@ -156,7 +143,7 @@ public class GameController : MonoBehaviour
 
 	private Recording.Sentiment GetCurrentSentiment()
     {
-		Recording.Sentiment[] sentiments = Recordings[CurrentRecording].Sentiments;
+		Recording.Sentiment[] sentiments = Level.Sentiments;
 		for (int i = sentiments.Length; i --> 0;)
 		{
 			if (Timer >= sentiments[i].Timestamp)
@@ -165,10 +152,5 @@ public class GameController : MonoBehaviour
 			}
 		}
 		return null;
-	}
-
-	private void ResetButtonColor()
-	{
-		RecordButton.GetComponent<Image>().color = playerState == PlayerState.Recording ? RecordingColor : RecordButtonColor;
 	}
 }
