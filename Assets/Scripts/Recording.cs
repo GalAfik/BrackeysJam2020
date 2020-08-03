@@ -5,19 +5,26 @@
 public class Recording : MonoBehaviour
 {
 	public static float AudioReverseSpeed = 3.5f;
-	private AudioSource AudioSource;
 
 	[System.Serializable]
 	public class Sentiment
 	{
+		public int ID;
 		public float Timestamp;
 		public string Phrase;
 		public bool Played;
 		public bool Recorded;
 	}
-	public Sentiment[] Sentiments;
 
-    void Start()
+	public string LevelResource;
+	[HideInInspector]
+	public Sentiment[] Sentiments;
+	[HideInInspector]
+    public string[] Solutions;
+
+	private AudioSource AudioSource;
+
+	void Start()
     {
 		AudioSource = GetComponent<AudioSource>(); 
     }

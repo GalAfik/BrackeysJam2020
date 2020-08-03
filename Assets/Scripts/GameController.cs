@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
@@ -17,6 +18,14 @@ public class GameController : MonoBehaviour
 
 	private void Start()
 	{
+		var recordings = GameObject.FindGameObjectsWithTag("recording");
+		foreach (var obj in recordings)
+        {
+			Recording recording = obj.GetComponent<Recording>();
+			string jsonString = ((TextAsset)Resources.Load(recording.LevelResource)).text;
+			JsonUtility.FromJsonOverwrite(jsonString, recording);
+		}
+
 		// Grab the initial record button color
 		RecordButtonColor = RecordButton.GetComponent<Image>().color;
 	}
@@ -66,27 +75,18 @@ public class GameController : MonoBehaviour
 
 		playerState = PlayerState.Submitted;
 
-		string recordedTranscript = "";
-		// Grab the current sentiments that are recorded
-		Recording.Sentiment[] Sentiments = Recordings[CurrentRecording].Sentiments;
-		foreach (var sentiment in Sentiments)
-		{
-			if (!sentiment.Played)
-			{
-				return;
-			}
-			if (sentiment.Recorded)
-			{
-				recordedTranscript += sentiment.Phrase + " ";
-			}
-		}
-
 		// Fade out the unrecorded text
 		StartCoroutine(TranscriptLabel.FadeNonRecordedWords());
 
-		// TODO - Grade the player's final recorded semtiments
-		print(recordedTranscript);
-	}
+        Recording recording = Recordings[CurrentRecording];
+        Recording.Sentiment[] sentiments = recording.Sentiments;
+
+        string attempt = string.Join(",", sentiments.Where(sentiment => sentiment.Recorded).Select(sentiment => sentiment.ID));
+        bool solved = recording.Solutions.Contains(attempt);
+
+        // TODO
+        print(solved ? "Success!" : "Try again");
+    }
 
 	private void HandleInputs()
     {
