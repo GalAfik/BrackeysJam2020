@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: c9f61e9a813f5824cafe491de6f35a9a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Portia
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c0e6d4b309969bf429ac9176959ee8d5, type: 3}
+  - {fileID: 12800000, guid: e14075f543cb8bd46a798eb5b1df185a, type: 3}
+  - {fileID: 12800000, guid: 7023227a560d5a4438e1acfacaef80a9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

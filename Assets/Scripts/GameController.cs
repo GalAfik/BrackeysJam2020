@@ -84,7 +84,7 @@ public class GameController : MonoBehaviour
 		// Fade out the unrecorded text
 		StartCoroutine(TranscriptLabel.FadeNonRecordedWords());
 
-		// TODO
+		// TODO - Grade the player's final recorded semtiments
 		print(recordedTranscript);
 	}
 
