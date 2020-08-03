@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-	public enum PlayerState { Ready, Playing, Recording, Done, Rewinding, Submitted };
-	private PlayerState playerState = PlayerState.Ready;
+	public enum PlayerState { Paused, Playing, Recording, Done, Rewinding, Submitted };
+	private PlayerState playerState = PlayerState.Paused;
 
 	public Recording[] Recordings;
 	public Transcript TranscriptLabel;
@@ -13,6 +13,9 @@ public class GameController : MonoBehaviour
 	private float Timer = 0;
 
 	public Button RecordButton;
+	public Button PlayButton;
+	public Sprite PlaySprite;
+	public Sprite PauseSprite;
 	private Color RecordButtonColor;
 	public Color RecordingColor;
 
@@ -41,10 +44,18 @@ public class GameController : MonoBehaviour
 
     public void Play()
     {
-		if (playerState != PlayerState.Ready) return;
-
-		playerState = PlayerState.Playing;
-		Recordings[CurrentRecording].Play();
+		if (playerState == PlayerState.Paused || playerState == PlayerState.Rewinding)
+		{
+			playerState = PlayerState.Playing;
+			PlayButton.GetComponent<Image>().sprite = PauseSprite;
+			Recordings[CurrentRecording].Play();
+		}
+		else if (playerState == PlayerState.Playing)
+		{
+			playerState = PlayerState.Paused;
+			PlayButton.GetComponent<Image>().sprite = PlaySprite;
+			Recordings[CurrentRecording].Pause();
+		}
 	}
 
 	public void Rewind()
@@ -54,6 +65,7 @@ public class GameController : MonoBehaviour
 			playerState != PlayerState.Done) return;
 
 		playerState = PlayerState.Rewinding;
+		PlayButton.GetComponent<Image>().sprite = PlaySprite;
 		Recordings[CurrentRecording].Rewind();
 	}
 
@@ -140,7 +152,7 @@ public class GameController : MonoBehaviour
 
 				if (Timer < 0)
 				{
-					playerState = PlayerState.Ready;
+					playerState = PlayerState.Paused;
 					Timer = 0;
 				}
 

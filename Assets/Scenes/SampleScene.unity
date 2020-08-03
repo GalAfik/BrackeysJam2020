@@ -271,6 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d384520ce518fca408ed921db2d4a2ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SwayAxis: 2
   SwayAmount: 2
   SwaySpeed: 0.4
 --- !u!4 &359645015
@@ -668,6 +669,17 @@ Transform:
 --- !u!114 &1438599573 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 479960092156056322, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+  m_PrefabInstance: {fileID: 479960093424360087}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1507016467 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 479960092069101796, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
   m_PrefabInstance: {fileID: 479960093424360087}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -1145,6 +1157,18 @@ PrefabInstance:
       propertyPath: RecordButton
       value: 
       objectReference: {fileID: 1438599573}
+    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
+      propertyPath: PlayButton
+      value: 
+      objectReference: {fileID: 1507016467}
+    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
+      propertyPath: PauseSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 93cf743acc4da4de3a12d580f88d80d9, type: 3}
+    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
+      propertyPath: PlaySprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 613fd78701f10f743aa2e271033de328, type: 3}
     - target: {fileID: 7009835157033639831, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
       propertyPath: m_Name
       value: GameController

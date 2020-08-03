@@ -31,10 +31,15 @@ public class Recording : MonoBehaviour
 
 	public void Play()
 	{
-		AudioSource.timeSamples = 0;
-		AudioSource.pitch = 1;
+        AudioSource.timeSamples = AudioSource.timeSamples;
+        AudioSource.pitch = 1;
 		AudioSource.Play();
 	}
+
+	public void Pause()
+    {
+		AudioSource.Pause();
+    }
 
 	public void Rewind()
 	{
