@@ -9,7 +9,7 @@ public class PlayButton : MonoBehaviour
 
     private Player Player;
 
-    public void Start()
+    private void Start()
     {
         Player = AssetDatabase.LoadAssetAtPath<Player>("Assets/States/Player.asset");
         Player.AddListener(ChangeIcon);

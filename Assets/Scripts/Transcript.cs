@@ -12,21 +12,19 @@ public class Transcript : MonoBehaviour
 	public Color RecordedColor = Color.red;
 	public float TextFadeSpeed = 2f;
 
-	private Level Level;
 	private Player Player;
 	private TMP_Text Text;
 
-    void Start()
+    private void Start()
     {
-		Level = AssetDatabase.LoadAssetAtPath<Level>("Assets/States/Level.asset");
 		Player = AssetDatabase.LoadAssetAtPath<Player>("Assets/States/Player.asset");
 		Player.AddListener(StartFade);
 		Text = GetComponent<TMP_Text>();
     }
 
-    public void Update()
+    private void Update()
     {
-		string transcript = string.Join(" ", Level.Sentiments.Select(sentiment => WrapPhrase(sentiment)));
+		string transcript = string.Join(" ", Player.Recording.Sentiments.Select(sentiment => WrapPhrase(sentiment)));
 		Text.SetText(transcript);
 	}
 

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor;
+using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 
@@ -22,10 +23,14 @@ public class Recording : MonoBehaviour
 	[HideInInspector]
     public string[] Solutions;
 
+	private Player Player;
 	private AudioSource AudioSource;
+	private float Timer = 0;
 
-	void Start()
+	private void Start()
     {
+		Player = AssetDatabase.LoadAssetAtPath<Player>("Assets/States/Player.asset");
+		Player.AddListener(ControlAudio);
 		AudioSource = GetComponent<AudioSource>();
 
 		Recording recording = gameObject.GetComponent<Recording>();
@@ -33,27 +38,112 @@ public class Recording : MonoBehaviour
 		JsonUtility.FromJsonOverwrite(jsonString, recording);
 	}
 
-	public void Play()
+	private void Update()
 	{
-        AudioSource.timeSamples = AudioSource.timeSamples;
-        AudioSource.pitch = 1;
-		AudioSource.Play();
+		Sentiment sentiment = GetCurrentSentiment();
+
+		switch (Player.State)
+		{
+			case PlayerState.Playing:
+				Timer += Time.deltaTime;
+				if (sentiment != null)
+				{
+					sentiment.Played = true;
+				}
+
+				if (!IsAudioSourcePlaying())
+				{
+					Player.State = PlayerState.Done;
+				}
+
+				break;
+			case PlayerState.Recording:
+				Timer += Time.deltaTime;
+				if (sentiment != null)
+				{
+					sentiment.Played = true;
+					sentiment.Recorded = true;
+				}
+
+				if (!IsAudioSourcePlaying())
+				{
+					Player.State = PlayerState.Done;
+				}
+
+				break;
+			case PlayerState.Rewinding:
+				Timer -= Time.deltaTime * AudioReverseSpeed;
+				if (sentiment != null)
+				{
+					sentiment.Played = false;
+					sentiment.Recorded = false;
+				}
+
+				if (Timer < 0)
+				{
+					Player.State = PlayerState.Ready;
+					Timer = 0;
+				}
+
+				break;
+		}
 	}
 
-	public void Pause()
+    public void Reset()
     {
-		AudioSource.Pause();
+		Timer = 0;
+		AudioSource.timeSamples = 0;
     }
 
-	public void Rewind()
+    private Sentiment GetCurrentSentiment()
 	{
-		AudioSource.timeSamples = IsAudioSourcePlaying() ? AudioSource.timeSamples : AudioSource.clip.samples - 1;
-		AudioSource.pitch = -AudioReverseSpeed;
-		AudioSource.Play();
+		for (int i = Sentiments.Length; i-- > 0;)
+		{
+			if (Timer >= Sentiments[i].Timestamp)
+			{
+				return Sentiments[i];
+			}
+		}
+		return null;
 	}
 
-	public bool IsAudioSourcePlaying()
+	private bool IsAudioSourcePlaying()
     {
 		return AudioSource.isPlaying;
     }
+
+	private void ControlAudio(PlayerState newState, PlayerState oldState)
+    {
+		if (newState == PlayerState.Playing)
+        {
+			Play();
+        }
+		else if (newState == PlayerState.Paused)
+        {
+			Pause();
+        }
+		else if (newState == PlayerState.Rewinding)
+        {
+			Rewind();
+        }
+	}
+
+	private void Play()
+	{
+		AudioSource.timeSamples = AudioSource.timeSamples;
+		AudioSource.pitch = 1;
+		AudioSource.Play();
+	}
+
+	private void Pause()
+	{
+		AudioSource.Pause();
+	}
+
+	private void Rewind()
+	{
+		AudioSource.timeSamples = AudioSource.timeSamples == 0 ? AudioSource.clip.samples - 1 : AudioSource.timeSamples;
+		AudioSource.pitch = -AudioReverseSpeed;
+		AudioSource.Play();
+	}
 }

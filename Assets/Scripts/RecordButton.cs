@@ -9,7 +9,7 @@ public class RecordButton : MonoBehaviour
     private Player Player;
     private Color RecordButtonColor;
 
-    public void Start()
+    private void Start()
     {
         Player = AssetDatabase.LoadAssetAtPath<Player>("Assets/States/Player.asset");
         Player.AddListener(ChangeRecordButtonColor);
