@@ -8,7 +8,8 @@ using UnityEditor;
 
 public class Transcript : MonoBehaviour
 {
-	public Color CurrentColor = Color.white;
+	private Color HiddenColor = new Color(0,0,0,0);
+	public Color PlayedColor = Color.white;
 	public Color RecordedColor = Color.red;
 	public float TextFadeSpeed = 2f;
 
@@ -42,19 +43,19 @@ public class Transcript : MonoBehaviour
 
 	private IEnumerator FadeOutNonRecordedWords()
 	{
-		while (CurrentColor.a > 0)
+		while (PlayedColor.a > 0)
 		{
-			CurrentColor.a -= .01f / TextFadeSpeed;
+			PlayedColor.a -= .01f / TextFadeSpeed;
 			yield return new WaitForSeconds(.01f);
 		}
 	}
 
 	private IEnumerator FadeInNonRecordedWords()
 	{
-		if (CurrentColor.a < 0) CurrentColor.a = 0;
-		while (CurrentColor.a < 1)
+		if (PlayedColor.a < 0) PlayedColor.a = 0;
+		while (PlayedColor.a < 1)
 		{
-			CurrentColor.a += .01f / TextFadeSpeed;
+			PlayedColor.a += .01f / TextFadeSpeed;
 			yield return new WaitForSeconds(.01f);
 		}
 	}
@@ -67,7 +68,11 @@ public class Transcript : MonoBehaviour
 		}
 		else if (sentiment.Played)
 		{
-			return "<color=#" + ColorUtility.ToHtmlStringRGBA(CurrentColor) + ">" + sentiment.Phrase + "</color>";
+			return "<color=#" + ColorUtility.ToHtmlStringRGBA(PlayedColor) + ">" + sentiment.Phrase + "</color>";
+		}
+		else if (!sentiment.Demoed)
+		{
+			return "<color=#" + ColorUtility.ToHtmlStringRGBA(HiddenColor) + ">" + sentiment.Phrase + "</color>";
 		}
 		return sentiment.Phrase;
 	}

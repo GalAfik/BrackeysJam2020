@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
 	private void Start()
 	{
 		Player = AssetDatabase.LoadAssetAtPath<Player>("Assets/States/Player.asset");
-		Player.Reset(Recordings[CurrentRecording]);
+		Player.Reset(Recordings[CurrentRecording], true);
 		Player.AddListener(OnSubmit);
 	}
 
@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour
 	private void StartLevel()
 	{
 		CurrentRecording = (CurrentRecording + 1) % Recordings.Length;
-		Player.Reset(Recordings[CurrentRecording]);
+		Player.Reset(Recordings[CurrentRecording], true);
 	}
 
 	private void OnSubmit(PlayerState newState, PlayerState oldState)

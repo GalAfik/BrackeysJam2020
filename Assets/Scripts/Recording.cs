@@ -13,6 +13,7 @@ public class Recording : MonoBehaviour
 		public int ID;
 		public float Timestamp;
 		public string Phrase;
+		public bool Demoed;
 		public bool Played;
 		public bool Recorded;
 	}
@@ -33,6 +34,23 @@ public class Recording : MonoBehaviour
 
 		switch (Player.State)
 		{
+			case PlayerState.Demo:
+				Timer += Time.deltaTime;
+				if (sentiment != null)
+				{
+					sentiment.Demoed = true;
+					sentiment.Played = true;
+				}
+
+				if (!IsAudioSourcePlaying())
+				{
+					Player.State = PlayerState.Done;
+				}
+
+				AudioSource.pitch = 1;
+
+				break;
+
 			case PlayerState.Playing:
 				Timer += Time.deltaTime;
 				if (sentiment != null)
@@ -114,6 +132,10 @@ public class Recording : MonoBehaviour
 
 	private void ControlAudio(PlayerState newState, PlayerState oldState)
     {
+		if (newState == PlayerState.Demo)
+		{
+			Play();
+		}
 		if (newState == PlayerState.Playing)
         {
 			Play();

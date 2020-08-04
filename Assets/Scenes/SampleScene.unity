@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SwayAxis: 2
-  SwayAmount: 1
+  SwayAmount: 0.5
   SwaySpeed: 0.3
 --- !u!4 &359645015
 Transform:
@@ -1415,6 +1415,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[3].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 479960091418397019, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+      propertyPath: HiddenColor.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 479960092738741516, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -100
@@ -1530,6 +1534,10 @@ PrefabInstance:
     - target: {fileID: 1670385309970707734, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1670385309970707734, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+      propertyPath: m_Name
+      value: Text (TMP)
       objectReference: {fileID: 0}
     - target: {fileID: 2042639307442133789, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
       propertyPath: m_text

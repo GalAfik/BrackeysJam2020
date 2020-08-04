@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public enum PlayerState { Ready, Playing, Paused, Done, Rewinding, Submitted };
+public enum PlayerState { Ready, Demo, Playing, Paused, Done, Rewinding, Submitted };
 
 [System.Serializable] public class _UnityEventPlayerState : UnityEvent<PlayerState, PlayerState> { }
 
@@ -24,7 +24,7 @@ public class Player : ScriptableObject
     private PlayerState state;
     private _UnityEventPlayerState OnStateChange;
 
-	public void Reset(Recording recording)
+	public void Reset(Recording recording, bool demo)
     {
 		if (Recording != null)
         {
@@ -32,7 +32,7 @@ public class Player : ScriptableObject
         }
 		recording.Activate();
 		Recording = recording;
-		State = PlayerState.Ready;
+		State = demo ? PlayerState.Demo : PlayerState.Ready;
 		IsRecording = false;
 	}
 
