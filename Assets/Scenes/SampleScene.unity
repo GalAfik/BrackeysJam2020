@@ -769,9 +769,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: a16e9ba748bef4a4cbc6c78ff2f268d1, type: 2}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: Submit
+      - m_Target: {fileID: 1071913930}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1845,6 +1845,17 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &1071913930 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
+  m_PrefabInstance: {fileID: 7009835157116945925}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf1f932ff27d69b4497a5f172755846d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1084066083 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1670385309970707734, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
@@ -2862,7 +2873,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: a16e9ba748bef4a4cbc6c78ff2f268d1, type: 2}
     - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
       propertyPath: EmptyFailureMessage
-      value: '"I have to record something. The jury will want to see some evidence..."'
+      value: I have to record something. The jury will want to see some evidence..."
       objectReference: {fileID: 0}
     - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
       propertyPath: FailureMessages.Array.data[0]

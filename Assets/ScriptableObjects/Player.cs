@@ -22,7 +22,7 @@ public class Player : ScriptableObject
 	public bool IsRecording;
 
     private PlayerState state = PlayerState.Ready;
-    private _UnityEventPlayerState OnStateChange;
+	private _UnityEventPlayerState OnStateChange = new _UnityEventPlayerState();
 
 	public void Reset(Recording recording, bool demo)
     {

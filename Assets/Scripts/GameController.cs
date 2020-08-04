@@ -30,31 +30,22 @@ public class GameController : MonoBehaviour
 	public void Exit()
 	{
 		FindObjectOfType<FadeCanvas>().FadeOut();
+		// Exit to level select
+		MenuController.LoadLevel("TitleMenu");
 	}
 
 	private void HandleInputs()
 	{
-		if (Input.GetKeyDown(KeyCode.N)) StartLevel();
-
-		if (Input.GetKeyDown(KeyCode.A)) Player.Rewind();
-		if (Input.GetKeyUp(KeyCode.A)) Player.Pause();
-		if (Input.GetKeyDown(KeyCode.S)) Player.Play();
-		if (Input.GetKeyDown(KeyCode.D)) Player.Record();
-		if (Input.GetKeyDown(KeyCode.F)) Player.FastForward(true);
-		else if (Input.GetKeyUp(KeyCode.F)) Player.FastForward(false);
+		if (Player.State == PlayerState.Demo ||
+			Player.State == PlayerState.Submitted) return;
 
 		if (Input.GetButtonDown("Play")) Player.Play();
 		if (Input.GetButtonDown("Rewind")) Player.Rewind();
 		if (Input.GetButtonDown("Record")) Player.Record();
 		if (Input.GetButtonDown("Submit")) Player.Submit();
+		if (Input.GetButtonDown("Exit")) Exit();
 		if (Input.GetButtonDown("FastForward")) Player.FastForward(true);
 		else if (Input.GetButtonUp("FastForward")) Player.FastForward(false);
-	}
-
-	private void StartLevel()
-	{
-		CurrentRecording = (CurrentRecording + 1) % Recordings.Length;
-		Player.Reset(Recordings[CurrentRecording], true);
 	}
 
 	private void OnSubmit(PlayerState newState, PlayerState oldState)
