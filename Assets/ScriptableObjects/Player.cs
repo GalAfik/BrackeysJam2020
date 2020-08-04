@@ -88,4 +88,18 @@ public class Player : ScriptableObject
 
 		State = PlayerState.Submitted;
 	}
+
+	public void ReverseSubmission()
+	{
+		if (State != PlayerState.Submitted) return;
+
+		State = PlayerState.Done;
+	}
+
+	public void FastForward(bool status)
+	{
+		if (State != PlayerState.Playing) return;
+
+		Time.timeScale = (status ? 2f : 1f);
+	}
 }

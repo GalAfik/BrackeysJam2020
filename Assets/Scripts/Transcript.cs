@@ -30,17 +30,31 @@ public class Transcript : MonoBehaviour
 
 	private void StartFade(PlayerState newState, PlayerState oldState)
     {
-		if (newState == PlayerState.Submitted)
+		if (oldState == PlayerState.Done && newState == PlayerState.Submitted)
         {
-			StartCoroutine(FadeNonRecordedWords());
+			StartCoroutine(FadeOutNonRecordedWords());
+		}
+		else if (oldState == PlayerState.Submitted && newState == PlayerState.Done)
+		{
+			StartCoroutine(FadeInNonRecordedWords());
 		}
 	}
 
-	private IEnumerator FadeNonRecordedWords()
+	private IEnumerator FadeOutNonRecordedWords()
 	{
 		while (CurrentColor.a > 0)
 		{
 			CurrentColor.a -= .01f / TextFadeSpeed;
+			yield return new WaitForSeconds(.01f);
+		}
+	}
+
+	private IEnumerator FadeInNonRecordedWords()
+	{
+		if (CurrentColor.a < 0) CurrentColor.a = 0;
+		while (CurrentColor.a < 1)
+		{
+			CurrentColor.a += .01f / TextFadeSpeed;
 			yield return new WaitForSeconds(.01f);
 		}
 	}

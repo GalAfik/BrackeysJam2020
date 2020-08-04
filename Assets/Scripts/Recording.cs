@@ -46,6 +46,9 @@ public class Recording : MonoBehaviour
 					Player.State = PlayerState.Done;
 				}
 
+				// Audio pitch should always be set to timescale if the player is playing
+				AudioSource.pitch = Time.timeScale;
+
 				break;
 			case PlayerState.Rewinding:
 				Timer -= Time.deltaTime * AudioReverseSpeed;
@@ -128,7 +131,6 @@ public class Recording : MonoBehaviour
 	private void Play()
 	{
 		AudioSource.timeSamples = AudioSource.timeSamples;
-		AudioSource.pitch = 1;
 		AudioSource.Play();
 	}
 
