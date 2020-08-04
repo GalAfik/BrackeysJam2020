@@ -18,7 +18,7 @@ public class LightFixture : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void Update()
+	private void Update()
     {
 		Vector3 newRotation = InitialRotation;
 		switch (SwayAxis)
