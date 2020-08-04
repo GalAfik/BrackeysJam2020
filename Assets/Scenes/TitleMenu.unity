@@ -782,6 +782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 685772104}
   - component: {fileID: 685772103}
+  - component: {fileID: 685772105}
   m_Layer: 0
   m_Name: MenuController
   m_TagString: Untagged
@@ -817,6 +818,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &685772105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685772102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56fc4f3af48a9694d9aac5586133354c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &759063982 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8388350499635630056, guid: b468238b29106a84f91ba3df5d207cce, type: 3}
@@ -1376,7 +1389,7 @@ MonoBehaviour:
 
 
 
-    Art & Music Resourcing
+    Game Psychology
 
     -
 
@@ -3972,6 +3985,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 3262038856037241576, guid: ea2c78b4365742c43913c3d934aeb7f1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3262038856037241588, guid: ea2c78b4365742c43913c3d934aeb7f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4056,6 +4073,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3262038856037241591, guid: ea2c78b4365742c43913c3d934aeb7f1, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3388664874421819761, guid: ea2c78b4365742c43913c3d934aeb7f1, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -74.99999
@@ -4098,6 +4119,22 @@ PrefabInstance:
     - target: {fileID: 536177898855637066, guid: 90a19a5ac42300b48ad0add28914e70a, type: 3}
       propertyPath: m_Name
       value: FadeOutCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 536177898855637066, guid: 90a19a5ac42300b48ad0add28914e70a, type: 3}
+      propertyPath: m_TagString
+      value: FadeCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 536177898855637066, guid: 90a19a5ac42300b48ad0add28914e70a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004979607168004933, guid: 90a19a5ac42300b48ad0add28914e70a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1570212188948172869, guid: 90a19a5ac42300b48ad0add28914e70a, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7075150516716869729, guid: 90a19a5ac42300b48ad0add28914e70a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4185,6 +4222,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90a19a5ac42300b48ad0add28914e70a, type: 3}
+--- !u!1 &3828714947474659685 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 536177898855637066, guid: 90a19a5ac42300b48ad0add28914e70a, type: 3}
+  m_PrefabInstance: {fileID: 3828714947474659684}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3828714947474659686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3828714947474659685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee7f9c34760e6d4780d7380a58a9263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4365226941315386035
 GameObject:
   m_ObjectHideFlags: 0
@@ -4610,6 +4664,10 @@ PrefabInstance:
     - target: {fileID: 2566901004535954433, guid: b468238b29106a84f91ba3df5d207cce, type: 3}
       propertyPath: m_LocalPosition.z
       value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2566901005208551963, guid: b468238b29106a84f91ba3df5d207cce, type: 3}
+      propertyPath: scenePath
+      value: Assets/Scenes/SampleScene.unity
       objectReference: {fileID: 0}
     - target: {fileID: 3290304983695051164, guid: b468238b29106a84f91ba3df5d207cce, type: 3}
       propertyPath: m_LocalPosition.y

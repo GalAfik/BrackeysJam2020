@@ -11,10 +11,12 @@ public class Level : MonoBehaviour
 	public bool Completed { get; private set; }
 
 	private Light SpotLight;
+	private Animator Animator;
 
 	private void Start()
 	{
 		SpotLight = GetComponentInChildren<Light>();
+		Animator = GetComponent<Animator>();
 	}
 
 	private void Update()
@@ -30,13 +32,21 @@ public class Level : MonoBehaviour
 		Completed = true;
 	}
 
-	private void OnMouseOver()
+	private void OnMouseEnter()
 	{
 		// Check if the level is locked
 		if (Locked) return;
 
 		// Highlight the level by increasing the spotlight's intensity and size
-		print("hover");
+		Animator.SetBool("Selected", true);
+	}
+
+	private void OnMouseExit()
+	{
+		// Check if the level is locked
+		if (Locked) return;
+
+		Animator.SetBool("Selected", false);
 	}
 
 	private void OnMouseDown()

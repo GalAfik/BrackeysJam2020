@@ -37,6 +37,7 @@ public class LevelSelectState : IMenuState
 {
 	public void Enter(Animator animator)
 	{
+		MonoBehaviour.FindObjectOfType<FadeCanvas>()?.FadeIn();
 		animator.SetBool("Levels", true);
 	}
 

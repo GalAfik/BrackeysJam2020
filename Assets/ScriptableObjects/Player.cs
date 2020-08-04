@@ -21,7 +21,7 @@ public class Player : ScriptableObject
     }
 	public bool IsRecording;
 
-    private PlayerState state;
+    private PlayerState state = PlayerState.Ready;
     private _UnityEventPlayerState OnStateChange;
 
 	public void Reset(Recording recording, bool demo)

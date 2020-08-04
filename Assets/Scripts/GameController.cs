@@ -6,7 +6,11 @@ using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
+	public MessageSystem MessageSystem;
 	public Recording[] Recordings;
+
+	public string EmptyFailureMessage;
+	public string[] FailureMessages;
 
 	private Player Player;
 	private int CurrentRecording = 0;
@@ -21,6 +25,11 @@ public class GameController : MonoBehaviour
 	private void Update()
 	{
 		HandleInputs();
+	}
+
+	public void Exit()
+	{
+		FindObjectOfType<FadeCanvas>().FadeOut();
 	}
 
 	private void HandleInputs()
@@ -55,15 +64,27 @@ public class GameController : MonoBehaviour
 			string attempt = string.Join(",", Player.Recording.Sentiments.Where(sentiment => sentiment.Recorded).Select(sentiment => sentiment.ID));
 			bool solved = Player.Recording.Solutions.Contains(attempt);
 
-			// TODO
-			StartCoroutine(GradeSubmission(solved));
+			// Grade the player
+			if (!solved)
+			{
+				if (attempt == "") MessageSystem?.DisplayMessage(EmptyFailureMessage);
+				else
+				{
+					int randomIndex = Random.Range(0, FailureMessages.Length - 1);
+					MessageSystem?.DisplayMessage(FailureMessages[randomIndex]);
+				}
+			}
+			else
+			{
+				StartCoroutine(GradeSubmission(solved));
+			}
+
 			Debug.Log(solved ? "Success!" : "Try again");
 		}
 	}
 
 	private IEnumerator GradeSubmission(bool solved)
 	{
-		yield return new WaitForSeconds(4);
-		if (!solved) Player.ReverseSubmission();
+		yield return new WaitForSeconds(2);
 	}
 }

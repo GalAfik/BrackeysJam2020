@@ -28,7 +28,7 @@ public class Recording : MonoBehaviour
 	private AudioSource AudioSource;
 	private float Timer = 0;
 
-    private void Update()
+	private void Update()
 	{
 		Sentiment sentiment = GetCurrentSentiment();
 
@@ -46,8 +46,6 @@ public class Recording : MonoBehaviour
 				{
 					Player.State = PlayerState.Done;
 				}
-
-				AudioSource.pitch = 1;
 
 				break;
 
