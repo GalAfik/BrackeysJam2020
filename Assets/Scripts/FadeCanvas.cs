@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class FadeCanvas : MonoBehaviour
 {
+	private static FadeCanvas self;
+
 	private Animator Animator;
 
-    // Start is called before the first frame update
-    void Start()
+	private void Awake()
+	{
+		if (self == null)
+		{
+			self = this;
+			return;
+		}
+		Destroy(gameObject);
+	}
+
+	// Start is called before the first frame update
+	void Start()
     {
 		Animator = GetComponent<Animator>();
     }

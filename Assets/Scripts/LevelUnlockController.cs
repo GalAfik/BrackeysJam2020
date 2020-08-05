@@ -6,11 +6,23 @@ using TMPro;
 
 public class LevelUnlockController : MonoBehaviour
 {
+	private static LevelUnlockController self;
+
 	public Level TutorialLevel;
 	public Level FinalLevel;
 	public Level[] Levels;
 
 	public TMP_Text FinalLevelUnlockLabel;
+
+	private void Awake()
+	{
+		if (self == null)
+		{
+			self = this;
+			return;
+		}
+		Destroy(gameObject);
+	}
 
 	private void Update()
 	{

@@ -31,7 +31,14 @@ public class GameController : MonoBehaviour
 	{
 		FindObjectOfType<FadeCanvas>().FadeOut();
 		// Exit to level select
+		Invoke("GoToTitleMenu", 1);
+	}
+
+	private void GoToTitleMenu()
+    {
 		MenuController.LoadLevel("TitleMenu");
+		MenuController menuController = FindObjectOfType<MenuController>();
+		menuController.SetState(menuController.TitleState);
 	}
 
 	private void HandleInputs()
