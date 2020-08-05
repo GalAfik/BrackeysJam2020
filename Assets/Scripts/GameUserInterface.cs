@@ -3,18 +3,23 @@ using UnityEditor;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 public class GameUserInterface : MonoBehaviour
 {
 	private Animator Animator;
 	private Player Player;
+	public TMP_Text NumberPhrasesRequired;
 
 	// Start is called before the first frame update
 	void Start()
     {
 		Animator = GetComponent<Animator>();
-		Player = AssetDatabase.LoadAssetAtPath<Player>("Assets/States/Player.asset");
+		Player = Resources.Load<Player>("Player");
 		Player.AddListener(SetButtonPosition);
+
+		// Set the number of phrases required in the UI
+		NumberPhrasesRequired?.SetText(Player.Recording.NumberOfSentimentsInSolution.ToString());
 	}
 
 	private void SetButtonPosition(PlayerState newState, PlayerState oldState)

@@ -16,7 +16,7 @@ public class MessageSystem : MonoBehaviour
     void Start()
     {
 		Animator = GetComponent<Animator>();
-		Player = AssetDatabase.LoadAssetAtPath<Player>("Assets/States/Player.asset");
+		Player = Resources.Load<Player>("Player");
 	}
 	
 	public void DisplayMessage(string message)

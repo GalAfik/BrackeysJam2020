@@ -8,7 +8,7 @@ public class FastForwardButton : MonoBehaviour
 
 	private void Start()
 	{
-		Player = AssetDatabase.LoadAssetAtPath<Player>("Assets/States/Player.asset");
+		Player = Resources.Load<Player>("Player");
 	}
 
 	public void onPress()

@@ -22,7 +22,9 @@ public class Recording : MonoBehaviour
 	[HideInInspector]
 	public Sentiment[] Sentiments;
 	[HideInInspector]
-    public string[] Solutions;
+    public string Solution;
+	[HideInInspector]
+	public int NumberOfSentimentsInSolution;
 
 	private Player Player;
 	private AudioSource AudioSource;
@@ -89,7 +91,7 @@ public class Recording : MonoBehaviour
 	{
 		gameObject.SetActive(true);
 
-		Player = AssetDatabase.LoadAssetAtPath<Player>("Assets/States/Player.asset");
+		Player = Resources.Load<Player>("Player");
 		Player.AddListener(ControlAudio);
 		AudioSource = GetComponent<AudioSource>();
 		AudioSource.timeSamples = 0;

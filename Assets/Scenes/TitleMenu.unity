@@ -5322,6 +5322,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3262038856037241590, guid: ea2c78b4365742c43913c3d934aeb7f1, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3262038856037241591, guid: ea2c78b4365742c43913c3d934aeb7f1, type: 3}
       propertyPath: m_BlockingMask.m_Bits
       value: 4294967295
@@ -5389,9 +5393,29 @@ PrefabInstance:
       propertyPath: m_ReferenceResolution.x
       value: 1920
       objectReference: {fileID: 0}
+    - target: {fileID: 3747202795681524839, guid: 90a19a5ac42300b48ad0add28914e70a, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3747202795681524839, guid: 90a19a5ac42300b48ad0add28914e70a, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3747202795681524839, guid: 90a19a5ac42300b48ad0add28914e70a, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4734318899631088504, guid: 90a19a5ac42300b48ad0add28914e70a, type: 3}
       propertyPath: m_SortingOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734318899631088504, guid: 90a19a5ac42300b48ad0add28914e70a, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734318899631088504, guid: 90a19a5ac42300b48ad0add28914e70a, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7075150516716869729, guid: 90a19a5ac42300b48ad0add28914e70a, type: 3}
       propertyPath: m_LocalPosition.x

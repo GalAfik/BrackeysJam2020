@@ -13,7 +13,7 @@ public class RecordButton : MonoBehaviour
 
     private void Start()
     {
-        Player = AssetDatabase.LoadAssetAtPath<Player>("Assets/States/Player.asset");
+        Player = Resources.Load<Player>("Player");
         RecordButtonColor = gameObject.GetComponent<Image>().color;
     }
 

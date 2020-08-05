@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
 		Menu.transform.position = new Vector3(-1000, 0, 0);
 		Menu.transform.Find("UI").GetComponent<Canvas>().enabled = false;
 
-		Player = AssetDatabase.LoadAssetAtPath<Player>("Assets/States/Player.asset");
+		Player = Resources.Load<Player>("Player");
 		Player.Reset(Recording, true);
 		Player.AddListener(OnSubmit);
 	}
@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour
 		if (newState == PlayerState.Submitted)
 		{
 			string attempt = string.Join(",", Player.Recording.Sentiments.Where(sentiment => sentiment.Recorded).Select(sentiment => sentiment.ID));
-			bool solved = Player.Recording.Solutions.Contains(attempt);
+			bool solved = Player.Recording.Solution.Equals(attempt);
 
 			// Grade the player
 			if (!solved)

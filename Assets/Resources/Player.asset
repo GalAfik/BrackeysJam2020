@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a994a3b730f994116a7a90fcd8e23c92, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
+  Recording: {fileID: 0}
+  IsRecording: 0
