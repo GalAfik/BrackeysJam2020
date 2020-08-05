@@ -6,23 +6,13 @@ using TMPro;
 
 public class LevelUnlockController : MonoBehaviour
 {
-	private static LevelUnlockController self;
-
 	public Level TutorialLevel;
 	public Level FinalLevel;
 	public Level[] Levels;
 
 	public TMP_Text FinalLevelUnlockLabel;
 
-	private void Awake()
-	{
-		if (self == null)
-		{
-			self = this;
-			return;
-		}
-		Destroy(gameObject);
-	}
+	public Level CurrentLevel;
 
 	private void Update()
 	{
@@ -30,9 +20,7 @@ public class LevelUnlockController : MonoBehaviour
 
 		if (FinalLevel.Completed == false)
 		{
-			// Lock the TutorialLevel once it has been completed
-			if (TutorialLevel.Completed) TutorialLevel.Locked = true;
-			else TutorialLevel.Locked = false;
+			TutorialLevel.Locked = false;
 
 			// Check if each level should be locked or unlocked
 			foreach (var level in Levels)

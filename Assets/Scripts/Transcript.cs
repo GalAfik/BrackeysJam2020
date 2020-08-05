@@ -19,7 +19,6 @@ public class Transcript : MonoBehaviour
     private void Start()
     {
 		Player = AssetDatabase.LoadAssetAtPath<Player>("Assets/States/Player.asset");
-		Player.AddListener(StartFade);
 		Text = GetComponent<TMP_Text>();
     }
 
@@ -29,19 +28,7 @@ public class Transcript : MonoBehaviour
 		Text.SetText(transcript);
 	}
 
-	private void StartFade(PlayerState newState, PlayerState oldState)
-    {
-		if (oldState == PlayerState.Done && newState == PlayerState.Submitted)
-        {
-			StartCoroutine(FadeOutNonRecordedWords());
-		}
-		else if (oldState == PlayerState.Submitted && newState == PlayerState.Done)
-		{
-			StartCoroutine(FadeInNonRecordedWords());
-		}
-	}
-
-	private IEnumerator FadeOutNonRecordedWords()
+	public IEnumerator FadeOutNonRecordedWords()
 	{
 		while (PlayedColor.a > 0)
 		{

@@ -13,12 +13,10 @@ public class TitleScreenState : IMenuState
 {
 	public void Enter(Animator animator)
 	{
-		MonoBehaviour.FindObjectOfType<FadeCanvas>()?.FadeIn();
 	}
 
 	public void Exit(Animator animator)
 	{
-		MonoBehaviour.FindObjectOfType<FadeCanvas>()?.FadeOut();
 	}
 }
 
@@ -39,7 +37,6 @@ public class LevelSelectState : IMenuState
 {
 	public void Enter(Animator animator)
 	{
-		MonoBehaviour.FindObjectOfType<FadeCanvas>()?.FadeIn();
 		animator.SetBool("Levels", true);
 	}
 
@@ -51,8 +48,6 @@ public class LevelSelectState : IMenuState
 
 public class MenuController : MonoBehaviour
 {
-	private static MenuController self;
-
 	public string WebsiteURL;
 
 	// Set up a state machine for the main menu
@@ -67,16 +62,6 @@ public class MenuController : MonoBehaviour
 	{
 		// Set the initial state
 		SetState(TitleState);
-	}
-
-	private void Awake()
-	{
-		if (self == null)
-		{
-			self = this;
-			return;
-		}
-		Destroy(gameObject);
 	}
 
 	public void SetState(IMenuState state)
@@ -106,9 +91,17 @@ public class MenuController : MonoBehaviour
 		else if (CurrentState == LevelsState) SetState(TitleState);
 	}
 
-	public static void LoadLevel(string sceneName)
+	public void LoadLevel(Level level)
 	{
-		SceneManager.LoadScene(sceneName);
+		FindObjectOfType<LevelUnlockController>().CurrentLevel = level;
+		StartCoroutine(LoadScene(level.GetComponent<ScenePicker>().scenePath));
+	}
+
+	private IEnumerator LoadScene(string sceneName)
+	{
+		FindObjectOfType<FadeCanvas>().FadeOut();
+		yield return new WaitForSecondsRealtime(1);
+		SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
 	}
 
 	public static void Quit()

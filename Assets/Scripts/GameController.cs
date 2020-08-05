@@ -3,22 +3,30 @@ using UnityEditor;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
 	public MessageSystem MessageSystem;
-	public Recording[] Recordings;
+	public Recording Recording;
 
 	public string EmptyFailureMessage;
 	public string[] FailureMessages;
 
 	private Player Player;
-	private int CurrentRecording = 0;
+	private Menu Menu;
 
 	private void Start()
 	{
+		FindObjectOfType<FadeCanvas>().FadeIn();
+
+		// Get the Menu object to move away
+		Menu = FindObjectOfType<Menu>();
+		Menu.transform.position = new Vector3(-1000, 0, 0);
+		Menu.transform.Find("UI").GetComponent<Canvas>().enabled = false;
+
 		Player = AssetDatabase.LoadAssetAtPath<Player>("Assets/States/Player.asset");
-		Player.Reset(Recordings[CurrentRecording], true);
+		Player.Reset(Recording, true);
 		Player.AddListener(OnSubmit);
 	}
 
@@ -31,18 +39,23 @@ public class GameController : MonoBehaviour
 	{
 		FindObjectOfType<FadeCanvas>().FadeOut();
 		// Exit to level select
-		Invoke("GoToTitleMenu", 1);
+		Invoke("GoToLevelMenu", 1);
 	}
 
-	private void GoToTitleMenu()
+	private void GoToLevelMenu()
     {
-		MenuController.LoadLevel("TitleMenu");
 		MenuController menuController = FindObjectOfType<MenuController>();
-		menuController.SetState(menuController.TitleState);
+		menuController.SetState(menuController.LevelsState);
+		SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(gameObject.scene.name));
+		Menu.transform.position = new Vector3(0, 0, 0);
+		Menu.transform.Find("UI").GetComponent<Canvas>().enabled = true;
+		FindObjectOfType<FadeCanvas>().FadeIn();
 	}
 
 	private void HandleInputs()
 	{
+		if (Input.GetButtonDown("Exit")) Exit();
+
 		if (Player.State == PlayerState.Demo ||
 			Player.State == PlayerState.Submitted) return;
 
@@ -50,7 +63,6 @@ public class GameController : MonoBehaviour
 		if (Input.GetButtonDown("Rewind")) Player.Rewind();
 		if (Input.GetButtonDown("Record")) Player.Record();
 		if (Input.GetButtonDown("Submit")) Player.Submit();
-		if (Input.GetButtonDown("Exit")) Exit();
 		if (Input.GetButtonDown("FastForward")) Player.FastForward(true);
 		else if (Input.GetButtonUp("FastForward")) Player.FastForward(false);
 	}
@@ -74,15 +86,30 @@ public class GameController : MonoBehaviour
 			}
 			else
 			{
-				StartCoroutine(GradeSubmission(solved));
+				// WINNER WINNER CHICKEN DINNER
+				StartCoroutine(FinishLevel());
 			}
 
 			Debug.Log(solved ? "Success!" : "Try again");
 		}
 	}
 
-	private IEnumerator GradeSubmission(bool solved)
+	private IEnumerator FinishLevel()
 	{
-		yield return new WaitForSeconds(2);
+		// Mark level as complete
+		FindObjectOfType<LevelUnlockController>().CurrentLevel.CompleteLevel();
+
+		// Fade all non-recorded text
+		FindObjectOfType<Transcript>().FadeOutNonRecordedWords();
+
+		yield return new WaitForSecondsRealtime(4);
+
+		// Show the newspaper
+		FindObjectOfType<Newspaper>().Display();
+
+		yield return new WaitForSecondsRealtime(4);
+
+		// Go back to the level select screen
+		Exit();
 	}
 }
