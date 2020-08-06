@@ -1,0 +1,50 @@
+﻿{
+    "Sentiments": [
+        {
+            "ID": 0,
+            "Phrase": "I was just",
+            "Timestamp": 0
+        },
+        {
+            "ID": 1,
+            "Phrase": "walking",
+            "Timestamp": 1
+        },
+        {
+            "ID": 2,
+            "Phrase": "at",
+            "Timestamp": 2
+        },
+        {
+            "ID": 3,
+            "Phrase": "the park by",
+            "Timestamp": 3
+        },
+        {
+            "ID": 4,
+            "Phrase": "the speakeasy",
+            "Timestamp": 4
+        },
+        {
+            "ID": 5,
+            "Phrase": "to see my wife. She's buried in the cemetery near there. You know, we got married fifty years ago on this very day. Let me tell you, that night",
+            "Timestamp": 5
+        },
+        {
+            "ID": 6,
+            "Phrase": "the drinks were flowing,",
+            "Timestamp": 6
+        },
+        {
+            "ID": 7,
+            "Phrase": "my wife was beaming. Folks were generous,",
+            "Timestamp": 7
+        },
+        {
+            "ID": 8,
+            "Phrase": "and we left richer than we'd every been!",
+            "Timestamp": 8
+        }
+    ],
+    "Solutions": [0, 2, 4, 6, 8]
+}
