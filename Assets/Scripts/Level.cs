@@ -8,7 +8,7 @@ public class Level : MonoBehaviour
 {
 	public int NumberNeededToUnlock = 1;
 	public bool Locked { get; set; }
-	public bool Completed;//{ get; private set; }
+	public bool Completed { get; private set; }
 
 	private Light SpotLight;
 	private Animator Animator;

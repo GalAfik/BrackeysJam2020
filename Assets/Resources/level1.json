@@ -1,57 +1,40 @@
 ﻿{
-    "Sentiments": [
-        {
-            "ID": 0,
-            "Phrase": "Mickey?",
-            "Timestamp": 0.75
-        },
-        {
-            "ID": 1,
-            "Phrase": "Yeah, I know Mickey!",
-            "Timestamp": 1.75
-        },
-        {
-            "ID": 2,
-            "Phrase": "That darn gosh sunvubitch",
-            "Timestamp": 3.5
-        },
-        {
-            "ID": 3,
-            "Phrase": "owes me a cool grandio!",
-            "Timestamp": 5.5
-        },
-        {
-            "ID": 4,
-            "Phrase": "You tell that mouseketeer",
-            "Timestamp": 8
-        },
-        {
-            "ID": 5,
-            "Phrase": "if I ever see his shady ears again",
-            "Timestamp": 9.5
-        },
-        {
-            "ID": 6,
-            "Phrase": "I'll stick pluto so far up his castle",
-            "Timestamp": 11.5
-        },
-        {
-            "ID": 7,
-            "Phrase": "he'll be seeing",
-            "Timestamp": 13.5
-        },
-        {
-            "ID": 8,
-            "Phrase": "fairy dust",
-            "Timestamp": 14.5
-        },
-        {
-            "ID": 9,
-            "Phrase": "for weeks!",
-            "Timestamp": 15
-        }
-    ],
-    "Solutions": [
-        "0,1,2,3,4,5,6,7,8,9"
-    ]
+  "Sentiments": [
+    {
+      "ID": 0,
+      "Phrase": "Sir,",
+      "Timestamp": 0.75
+    },
+    {
+      "ID": 1,
+      "Phrase": "I did",
+      "Timestamp": 1.75
+    },
+    {
+      "ID": 2,
+      "Phrase": "not",
+      "Timestamp": 3.5
+    },
+    {
+      "ID": 3,
+      "Phrase": "steal that necklace. It looked like the one my mother gave me",
+      "Timestamp": 5.5
+    },
+    {
+      "ID": 4,
+      "Phrase": "but I was already wearing it, I swear!",
+      "Timestamp": 8
+    },
+    {
+      "ID": 5,
+      "Phrase": "I love that necklace with all my heart!",
+      "Timestamp": 9.5
+    },
+    {
+      "ID": 6,
+      "Phrase": "It’s not stolen!",
+      "Timestamp": 11.5
+    }
+  ],
+  "Solution": [ 1, 3, 5 ]
 }

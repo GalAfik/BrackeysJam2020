@@ -17,14 +17,11 @@ public class GameUserInterface : MonoBehaviour
 		Animator = GetComponent<Animator>();
 		Player = Resources.Load<Player>("Player");
 		Player.AddListener(SetButtonPosition);
-
-		// Set the number of phrases required in the UI
-		NumberPhrasesRequired?.SetText(Player.Recording.NumberOfSentimentsInSolution.ToString());
 	}
 
 	private void SetButtonPosition(PlayerState newState, PlayerState oldState)
 	{
-		if (newState == PlayerState.Submitted)
+		if (newState == PlayerState.Submitted || newState == PlayerState.Off)
 		{
 			Animator.SetBool("Visible", false);
 		}
@@ -34,5 +31,17 @@ public class GameUserInterface : MonoBehaviour
 			// If the demo just ended, show the Press Rewind animation
 			if (oldState == PlayerState.Demo) Animator.SetTrigger("PressRewind");
 		}
+	}
+
+	public void OnSplashComplete()
+	{
+		// Just started the level. Turn on the player to the DEMO state
+		StartCoroutine(FindObjectOfType<GameController>().StartLevel());
+	}
+
+	public void SetPhrasesRequiredText(int phrasesRequired)
+	{
+		// Set the number of phrases required in the UI
+		NumberPhrasesRequired?.SetText(phrasesRequired.ToString());
 	}
 }

@@ -11,7 +11,6 @@ public class Transcript : MonoBehaviour
 	private Color HiddenColor = new Color(0,0,0,0);
 	public Color PlayedColor = Color.white;
 	public Color RecordedColor = Color.red;
-	public float TextFadeSpeed = 2f;
 
 	private Player Player;
 	private TMP_Text Text;
@@ -24,25 +23,28 @@ public class Transcript : MonoBehaviour
 
     private void Update()
     {
-		string transcript = string.Join(" ", Player.Recording.Sentiments.Select(sentiment => WrapPhrase(sentiment)));
-		Text.SetText(transcript);
+		if (Player.Recording != null)
+		{
+			string transcript = string.Join(" - ", Player.Recording.Sentiments.Select(sentiment => WrapPhrase(sentiment)));
+			Text.SetText(transcript);
+		}
 	}
 
-	public IEnumerator FadeOutNonRecordedWords()
+	public IEnumerator FadeOutNonRecordedWords(float textFadeSpeed = 2.5f)
 	{
 		while (PlayedColor.a > 0)
 		{
-			PlayedColor.a -= .01f / TextFadeSpeed;
+			PlayedColor.a -= .01f / textFadeSpeed;
 			yield return new WaitForSeconds(.01f);
 		}
 	}
 
-	private IEnumerator FadeInNonRecordedWords()
+	private IEnumerator FadeInNonRecordedWords(float textFadeSpeed = 2.5f)
 	{
 		if (PlayedColor.a < 0) PlayedColor.a = 0;
 		while (PlayedColor.a < 1)
 		{
-			PlayedColor.a += .01f / TextFadeSpeed;
+			PlayedColor.a += .01f / textFadeSpeed;
 			yield return new WaitForSeconds(.01f);
 		}
 	}

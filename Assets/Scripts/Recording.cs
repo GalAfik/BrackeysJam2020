@@ -22,9 +22,7 @@ public class Recording : MonoBehaviour
 	[HideInInspector]
 	public Sentiment[] Sentiments;
 	[HideInInspector]
-    public string Solution;
-	[HideInInspector]
-	public int NumberOfSentimentsInSolution;
+    public int[] Solution;
 
 	private Player Player;
 	private AudioSource AudioSource;

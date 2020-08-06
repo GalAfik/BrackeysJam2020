@@ -18,16 +18,29 @@ public class GameController : MonoBehaviour
 
 	private void Start()
 	{
-		FindObjectOfType<FadeCanvas>().FadeIn();
+		FindObjectOfType<FadeCanvas>()?.FadeIn();
 
 		// Get the Menu object to move away
 		Menu = FindObjectOfType<Menu>();
-		Menu.transform.position = new Vector3(-1000, 0, 0);
-		Menu.transform.Find("UI").GetComponent<Canvas>().enabled = false;
+		if (Menu != null)
+		{
+			Menu.transform.position = new Vector3(-1000, 0, 0);
+			Menu.transform.Find("UI").GetComponent<Canvas>().enabled = false;
+		}
 
 		Player = Resources.Load<Player>("Player");
 		Player.Reset(Recording, true);
 		Player.AddListener(OnSubmit);
+
+		// Set the UI phrases required textbox
+		FindObjectOfType<GameUserInterface>()?.SetPhrasesRequiredText(Recording.Solution.Length);
+	}
+
+	public IEnumerator StartLevel()
+	{
+		yield return new WaitForSeconds(1);
+
+		Player.State = PlayerState.Demo;
 	}
 
 	private void Update()
@@ -49,7 +62,7 @@ public class GameController : MonoBehaviour
 		SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(gameObject.scene.name));
 		Menu.transform.position = new Vector3(0, 0, 0);
 		Menu.transform.Find("UI").GetComponent<Canvas>().enabled = true;
-		FindObjectOfType<FadeCanvas>().FadeIn();
+		FindObjectOfType<FadeCanvas>()?.FadeIn();
 	}
 
 	private void HandleInputs()
@@ -57,6 +70,7 @@ public class GameController : MonoBehaviour
 		if (Input.GetButtonDown("Exit")) Exit();
 
 		if (Player.State == PlayerState.Demo ||
+			Player.State == PlayerState.Off ||
 			Player.State == PlayerState.Submitted) return;
 
 		if (Input.GetButtonDown("Play")) Player.Play();
@@ -71,13 +85,13 @@ public class GameController : MonoBehaviour
 	{
 		if (newState == PlayerState.Submitted)
 		{
-			string attempt = string.Join(",", Player.Recording.Sentiments.Where(sentiment => sentiment.Recorded).Select(sentiment => sentiment.ID));
-			bool solved = Player.Recording.Solution.Equals(attempt);
+			int[] attempt = Player.Recording.Sentiments.Where(sentiment => sentiment.Recorded).Select(sentiment => sentiment.ID).ToArray<int>();
+			bool solved = Player.Recording.Solution.SequenceEqual<int>(attempt);
 
 			// Grade the player
 			if (!solved)
 			{
-				if (attempt == "") MessageSystem?.DisplayMessage(EmptyFailureMessage);
+				if (attempt.Length == 0) MessageSystem?.DisplayMessage(EmptyFailureMessage);
 				else
 				{
 					int randomIndex = Random.Range(0, FailureMessages.Length - 1);
@@ -89,8 +103,6 @@ public class GameController : MonoBehaviour
 				// WINNER WINNER CHICKEN DINNER
 				StartCoroutine(FinishLevel());
 			}
-
-			Debug.Log(solved ? "Success!" : "Try again");
 		}
 	}
 
@@ -99,10 +111,13 @@ public class GameController : MonoBehaviour
 		// Mark level as complete
 		FindObjectOfType<LevelUnlockController>().CurrentLevel.CompleteLevel();
 
-		// Fade all non-recorded text
-		FindObjectOfType<Transcript>().FadeOutNonRecordedWords();
+		yield return new WaitForSecondsRealtime(.5f);
 
-		yield return new WaitForSecondsRealtime(4);
+		// Fade all non-recorded text
+		StartCoroutine(FindObjectOfType<Transcript>().FadeOutNonRecordedWords(1.5f));
+
+		// Play the guilty recording
+		// TODO
 
 		// Show the newspaper
 		FindObjectOfType<Newspaper>().Display();

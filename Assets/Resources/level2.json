@@ -1,58 +1,40 @@
 ﻿{
     "Sentiments": [
-        {
-            "ID": 0,
-            "Phrase": "The fire was",
-            "Timestamp": 0
-        },
-        {
-            "ID": 1,
-            "Phrase": "just a freak accident.",
-            "Timestamp": 1
-        },
-        {
-            "ID": 2,
-            "Phrase": "Walking by that orphanage was",
-            "Timestamp": 2
-        },
-        {
-            "ID": 3,
-            "Phrase": "the best part of my day.",
-            "Timestamp": 3
-        },
-        {
-            "ID": 4,
-            "Phrase": "It's not like",
-            "Timestamp": 4
-        },
-        {
-            "ID": 5,
-            "Phrase": "I wanted it to happen.",
-            "Timestamp": 5
-        },
-        {
-            "ID": 6,
-            "Phrase": "Those kids",
-            "Timestamp": 6
-        },
-        {
-            "ID": 7,
-            "Phrase": "were innocent.",
-            "Timestamp": 7
-        },
-        {
-            "ID": 8,
-            "Phrase": "No one should",
-            "Timestamp": 8
-        },
-        {
-            "ID": 9,
-            "Phrase": "deserve to go out like that.",
-            "Timestamp": 9
-        }
+      {
+        "ID": 0,
+        "Phrase": "It was late at night, and I was",
+        "Timestamp": 0
+      },
+      {
+        "ID": 1,
+        "Phrase": "in the office finishing up some paperwork for Mr. Davenshire.",
+        "Timestamp": 1
+      },
+      {
+        "ID": 2,
+        "Phrase": "Out on the street",
+        "Timestamp": 2
+      },
+      {
+        "ID": 3,
+        "Phrase": "I heard some gunshots, so I rushed to the window.",
+        "Timestamp": 3
+      },
+      {
+        "ID": 4,
+        "Phrase": "There he was, lifeless at my feet. My",
+        "Timestamp": 4
+      },
+      {
+        "ID": 5,
+        "Phrase": "gosh, I couldn’t believe it,",
+        "Timestamp": 5
+      },
+      {
+        "ID": 6,
+        "Phrase": "three bullets in his back.",
+        "Timestamp": 6
+      }
     ],
-    "Solutions": [
-        "0,3,5,6,9",
-        "0,3,4,6,7"
-    ]
+    "Solution": [ 0, 2, 4, 6 ]
 }
