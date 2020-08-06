@@ -1,40 +1,43 @@
 ﻿{
-    "Sentiments": [
-      {
-        "ID": 0,
-        "Phrase": "It was late at night, and I was",
-        "Timestamp": 0
-      },
-      {
-        "ID": 1,
-        "Phrase": "in the office finishing up some paperwork for Mr. Davenshire.",
-        "Timestamp": 1
-      },
-      {
-        "ID": 2,
-        "Phrase": "Out on the street",
-        "Timestamp": 2
-      },
-      {
-        "ID": 3,
-        "Phrase": "I heard some gunshots, so I rushed to the window.",
-        "Timestamp": 3
-      },
-      {
-        "ID": 4,
-        "Phrase": "There he was, lifeless at my feet. My",
-        "Timestamp": 4
-      },
-      {
-        "ID": 5,
-        "Phrase": "gosh, I couldn’t believe it,",
-        "Timestamp": 5
-      },
-      {
-        "ID": 6,
-        "Phrase": "three bullets in his back.",
-        "Timestamp": 6
-      }
-    ],
-    "Solution": [ 0, 2, 4, 6 ]
+  "Sentiments": [
+    {
+      "ID": 0,
+      "Phrase": "It was late at night, and I was",
+      "Timestamp": 0
+    },
+    {
+      "ID": 1,
+      "Phrase": "in the office finishing up some paperwork for Mr. Davenshire.",
+      "Timestamp": 1
+    },
+    {
+      "ID": 2,
+      "Phrase": "Out on the street",
+      "Timestamp": 2
+    },
+    {
+      "ID": 3,
+      "Phrase": "I heard some gunshots, so I rushed to the window.",
+      "Timestamp": 3
+    },
+    {
+      "ID": 4,
+      "Phrase": "There he was, lifeless at my feet. My",
+      "Timestamp": 4
+    },
+    {
+      "ID": 5,
+      "Phrase": "gosh, I couldn’t believe it,",
+      "Timestamp": 5
+    },
+    {
+      "ID": 6,
+      "Phrase": "three bullets in his back.",
+      "Timestamp": 6
+    }
+  ],
+  "Solution": [ 0, 2, 4, 6 ],
+  "Hints": [ "" ],
+  "FailureMessages": [ "" ],
+  "EmptyFailureMessage": ""
 }

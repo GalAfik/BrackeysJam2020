@@ -61,5 +61,18 @@
       "Timestamp": 29.80
     }
   ],
-  "Solution": [ 3, 7 ]
+  "Solution": [ 3, 7 ],
+  "Hints": [
+    "Try pressing the record button when Frank says his name to record his name.",
+    "You can use the rewind button if you need to try again.",
+    "Make sure you record phrases!"
+  ],
+  "FailureMessages": [
+    "No, no! I need to try again.",
+    "This won't hold up in court!",
+    "I need to try again. It's not quite right.",
+    "I don't think the jury will buy this...",
+    "This isn't believable at all..."
+  ],
+  "EmptyFailureMessage": "I have to record something. The jury will want to see some evidence..."
 }

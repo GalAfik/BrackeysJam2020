@@ -27,6 +27,12 @@ public class Recording : MonoBehaviour
 	public Sentiment[] Sentiments;
 	[HideInInspector]
     public int[] Solution;
+	[HideInInspector]
+	public string[] Hints;
+	[HideInInspector]
+	public string[] FailureMessages;
+	[HideInInspector]
+	public string EmptyFailureMessage;
 
 	private Player Player;
 	public AudioSource AudioSource { get; private set; }

@@ -36,5 +36,8 @@
       "Timestamp": 11.5
     }
   ],
-  "Solution": [ 1, 3, 5 ]
+  "Solution": [ 1, 3, 5 ],
+  "Hints": [ "" ],
+  "FailureMessages": [ "" ],
+  "EmptyFailureMessage": ""
 }

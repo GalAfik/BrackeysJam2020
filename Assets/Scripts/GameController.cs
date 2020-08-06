@@ -10,10 +10,6 @@ public class GameController : MonoBehaviour
 	public MessageSystem MessageSystem;
 	public Recording Recording;
 
-	public string EmptyFailureMessage;
-	public string[] FailureMessages;
-	public string[] HintMessages;
-
 	private Player Player;
 	private Menu Menu;
 
@@ -100,14 +96,14 @@ public class GameController : MonoBehaviour
 				if (SubmissionsAttempts >= HintThreshold)
 				{
 					// Display a hint message to the player
-					int randomIndex = Random.Range(0, HintMessages.Length - 1);
-					MessageSystem?.DisplayMessage(HintMessages[randomIndex]);
+					int randomIndex = Random.Range(0, Player.Recording.Hints.Length - 1);
+					MessageSystem?.DisplayMessage(Player.Recording.Hints[randomIndex]);
 				}
-				else if (attempt.Length == 0) MessageSystem?.DisplayMessage(EmptyFailureMessage);
+				else if (attempt.Length == 0) MessageSystem?.DisplayMessage(Player.Recording.EmptyFailureMessage);
 				else
 				{
-					int randomIndex = Random.Range(0, FailureMessages.Length - 1);
-					MessageSystem?.DisplayMessage(FailureMessages[randomIndex]);
+					int randomIndex = Random.Range(0, Player.Recording.FailureMessages.Length - 1);
+					MessageSystem?.DisplayMessage(Player.Recording.FailureMessages[randomIndex]);
 				}
 			}
 			else

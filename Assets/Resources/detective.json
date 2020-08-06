@@ -1,0 +1,83 @@
+﻿{
+  "Sentiments": [
+    {
+      "ID": 0,
+      "Phrase": "Alright.",
+      "Timestamp": 0
+    },
+    {
+      "ID": 1,
+      "Phrase": "You got me.",
+      "Timestamp": 1
+    },
+    {
+      "ID": 2,
+      "Phrase": "What do you want me to say?",
+      "Timestamp": 2
+    },
+    {
+      "ID": 3,
+      "Phrase": "You want a confession? Here's your confession:",
+      "Timestamp": 3
+    },
+    {
+      "ID": 4,
+      "Phrase": "Uncle Frank called in a favor,",
+      "Timestamp": 4
+    },
+    {
+      "ID": 5,
+      "Phrase": "and when Uncle Frank tells you to do something, you do it,",
+      "Timestamp": 5
+    },
+    {
+      "ID": 6,
+      "Phrase": "or you end up swimmin' with the fishes.",
+      "Timestamp": 6
+    },
+    {
+      "ID": 7,
+      "Phrase": "Do I regret what I’d done?",
+      "Timestamp": 7
+    },
+    {
+      "ID": 8,
+      "Phrase": "Those fellas had it coming. And the dames too.",
+      "Timestamp": 8
+    },
+    {
+      "ID": 9,
+      "Phrase": "Everyone ends up behind bars or dead eventually.",
+      "Timestamp": 8
+    },
+    {
+      "ID": 10,
+      "Phrase": "I'd rather it be them than me!",
+      "Timestamp": 8
+    },
+    {
+      "ID": 11,
+      "Phrase": "So no.",
+      "Timestamp": 8
+    },
+    {
+      "ID": 12,
+      "Phrase": "I don’t regret it one bit.",
+      "Timestamp": 8
+    },
+    {
+      "ID": 13,
+      "Phrase": "If I could rewind time, maybe I’d do it different.",
+      "Timestamp": 8
+    },
+    {
+      "ID": 14,
+      "Phrase": "But as it stands, we can’t rewind time...",
+      "Timestamp": 8
+    }
+  ],
+  "Solution": [],
+  "Hints": [ "" ],
+  "FailureMessages": [ "" ],
+  "EmptyFailureMessage": ""
+}
