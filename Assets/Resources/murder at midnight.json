@@ -1,0 +1,54 @@
+﻿{
+  "Sentiments": [
+    {
+      "ID": 0,
+      "Phrase": "It was late at night, and I was",
+      "Timestamp": 0.91
+    },
+    {
+      "ID": 1,
+      "Phrase": "in the office finishing up some paperwork for Mr. Davenshire.",
+      "Timestamp": 2.42
+    },
+    {
+      "ID": 2,
+      "Phrase": "Out on the street",
+      "Timestamp": 5.69
+    },
+    {
+      "ID": 3,
+      "Phrase": "I heard some gunshots, so I rushed to the window.",
+      "Timestamp": 6.64
+    },
+    {
+      "ID": 4,
+      "Phrase": "There he was, lifeless at my feet. My",
+      "Timestamp": 9.84
+    },
+    {
+      "ID": 5,
+      "Phrase": "gosh, I couldn’t believe it,",
+      "Timestamp": 13
+    },
+    {
+      "ID": 6,
+      "Phrase": "three bullets in his back.",
+      "Timestamp": 15.32
+    }
+  ],
+  "Solution": [ 0, 2, 4, 6 ],
+  "Hints": [
+    "I need it to seem like she shot Mr. Davenshire.",
+    "I can combine phrases to form new sentences...",
+    "I need to place her at the scene of the crime.",
+    "It should be her gun that killed Mr. Davenshire..."
+  ],
+  "FailureMessages": [
+    "No, no! I need to try again.",
+    "This won't hold up in court!",
+    "I need to try again. It's not quite right.",
+    "I don't think the jury will buy this...",
+    "This isn't believable at all..."
+  ],
+  "EmptyFailureMessage": "I have to record something. The jury will want to see some evidence..."
+}

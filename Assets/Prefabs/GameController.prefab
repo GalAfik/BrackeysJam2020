@@ -3,7 +3,7 @@
 --- !u!1 &7009835157033639831
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 7186223329540504196, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
@@ -20,7 +20,7 @@ GameObject:
 --- !u!4 &7009835157033639825
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 7186223329540504194, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7009835157033639831}
@@ -34,7 +34,7 @@ Transform:
 --- !u!114 &7009835157033639830
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 7186223329540504197, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7009835157033639831}
@@ -43,16 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf1f932ff27d69b4497a5f172755846d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentRecording: 0
-  Recordings:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  TranscriptLabel: {fileID: 0}
-  RecordButton: {fileID: 0}
-  RecordingColor: {r: 0.7924528, g: 0, b: 0, a: 1}
+  MessageSystem: {fileID: 0}
+  Recording: {fileID: 0}
+  HintThreshold: 2
+  SplashScreenImage: {fileID: 2800000, guid: 799c00fcbd08d3948a5fb30404f5cbd4, type: 3}
+  SplashScreen: {fileID: 0}
+  NewspaperImage: {fileID: 2800000, guid: 76fbbbb4cdb658049a680639d31cf52c, type: 3}
+  Newspaper: {fileID: 0}

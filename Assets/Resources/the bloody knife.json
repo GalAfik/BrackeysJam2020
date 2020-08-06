@@ -1,0 +1,59 @@
+﻿{
+  "Sentiments": [
+    {
+      "ID": 0,
+      "Phrase": "There was a lot of blood on my hands,",
+      "Timestamp": 0.71
+    },
+    {
+      "ID": 1,
+      "Phrase": "but from a workplace accident. I work at the knife shop, you see.",
+      "Timestamp": 2.75
+    },
+    {
+      "ID": 2,
+      "Phrase": "I",
+      "Timestamp": 6.8
+    },
+    {
+      "ID": 3,
+      "Phrase": "used to",
+      "Timestamp": 7.53
+    },
+    {
+      "ID": 4,
+      "Phrase": "hate the bossman so much,",
+      "Timestamp": 7.74
+    },
+    {
+      "ID": 5,
+      "Phrase": "two weeks ago I dreamed",
+      "Timestamp": 9.72
+    },
+    {
+      "ID": 6,
+      "Phrase": "that I stabbed him,",
+      "Timestamp": 10.74
+    },
+    {
+      "ID": 7,
+      "Phrase": "but I tell you he saved my life. He wrapped up the wounds and stopped the bleeding.",
+      "Timestamp": 11.82
+    }
+  ],
+  "Solution": [ 0, 2, 4, 6 ],
+  "Hints": [
+    "I can't let the jury know it was an accident.",
+    "He dreamt that he STABBED him?",
+    "I need to make it seem like they still hate each other.",
+    "What would be his motive for the murder?"
+  ],
+  "FailureMessages": [
+    "No, no! I need to try again.",
+    "This won't hold up in court!",
+    "I need to try again. It's not quite right.",
+    "I don't think the jury will buy this...",
+    "This isn't believable at all..."
+  ],
+  "EmptyFailureMessage": "I have to record something. The jury will want to see some evidence..."
+}

@@ -1,0 +1,49 @@
+﻿{
+  "Sentiments": [
+    {
+      "ID": 0,
+      "Phrase": "I did",
+      "Timestamp": 0.6
+    },
+    {
+      "ID": 1,
+      "Phrase": "not",
+      "Timestamp": 1.5
+    },
+    {
+      "ID": 2,
+      "Phrase": "steal that necklace. It looked like the one my mother gave me",
+      "Timestamp": 1.71
+    },
+    {
+      "ID": 3,
+      "Phrase": "but I was already wearing it, I swear!",
+      "Timestamp": 6
+    },
+    {
+      "ID": 4,
+      "Phrase": "I love that necklace with all my heart!",
+      "Timestamp": 9
+    },
+    {
+      "ID": 5,
+      "Phrase": "It’s not stolen!",
+      "Timestamp": 11.89
+    }
+  ],
+  "Solution": [ 0, 2, 4 ],
+  "Hints": [
+    "I need her to take the fall for the theft.",
+    "Why would she steal the necklace? I need a convincing reason.",
+    "Make sure to record 3 phrases.",
+    "Maybe I should get rid of the word 'not'."
+  ],
+  "FailureMessages": [
+    "No, no! I need to try again.",
+    "This won't hold up in court!",
+    "I need to try again. It's not quite right.",
+    "I don't think the jury will buy this...",
+    "This isn't believable at all..."
+  ],
+  "EmptyFailureMessage": "I have to record something. The jury will want to see some evidence..."
+}

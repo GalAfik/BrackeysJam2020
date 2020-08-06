@@ -6,9 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TitleMenu.unity
+    path: Assets/Scenes/Title Menu.unity
     guid: 2c97f36d055acc347a985f09f515cdc7
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
+  - enabled: 1
+    path: Assets/Scenes/The Bejeweled Burglar.unity
+    guid: f2a2ecc3c879b784a8889777d9ec045d
+  - enabled: 1
+    path: Assets/Scenes/Blackmail at the Station.unity
+    guid: dd9f1801a6019d94790ada22815bb6f3
+  - enabled: 1
+    path: Assets/Scenes/The Moonshine Mule.unity
+    guid: 146722f277f733d4c89b551dd9fdd27e
+  - enabled: 1
+    path: Assets/Scenes/The Bloody Knife.unity
+    guid: de456635969bd3f4ab28d0c4d63bfa25
+  - enabled: 1
+    path: Assets/Scenes/Murder at Midnight.unity
+    guid: bf9fa10408a6d73469c5bcaf4ee311c9
+  - enabled: 1
+    path: Assets/Scenes/The Deviant Detective.unity
+    guid: 95ddf62b8dc54d64783b220bd3ca1155
   m_configObjects: {}

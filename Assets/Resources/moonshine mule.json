@@ -1,0 +1,64 @@
+﻿{
+  "Sentiments": [
+    {
+      "ID": 0,
+      "Phrase": "I was just",
+      "Timestamp": 0.5
+    },
+    {
+      "ID": 1,
+      "Phrase": "walking",
+      "Timestamp": 1.43
+    },
+    {
+      "ID": 2,
+      "Phrase": "at",
+      "Timestamp": 1.6
+    },
+    {
+      "ID": 3,
+      "Phrase": "the park by",
+      "Timestamp": 2.1
+    },
+    {
+      "ID": 4,
+      "Phrase": "the speakeasy",
+      "Timestamp": 2.67
+    },
+    {
+      "ID": 5,
+      "Phrase": "to see my wife. She's buried in the cemetery near there. You know, we got married fifty years ago on this very day. Let me tell you, that night",
+      "Timestamp": 3.65
+    },
+    {
+      "ID": 6,
+      "Phrase": "the drinks were flowing,",
+      "Timestamp": 13.00
+    },
+    {
+      "ID": 7,
+      "Phrase": "my wife was beaming. Folks were generous,",
+      "Timestamp": 14.8
+    },
+    {
+      "ID": 8,
+      "Phrase": "and we left richer than we'd every been!",
+      "Timestamp": 18.28
+    }
+  ],
+  "Solution": [ 0, 2, 4, 6, 8 ],
+  "Hints": [
+    "I need to place the old man at the speakeasy.",
+    "I need to pin the alcohol sale on the old man.",
+    "Let's make sure he ends up with the cash.",
+    "Let's cut out the part about his wife."
+  ],
+  "FailureMessages": [
+    "No, no! I need to try again.",
+    "This won't hold up in court!",
+    "I need to try again. It's not quite right.",
+    "I don't think the jury will buy this...",
+    "This isn't believable at all..."
+  ],
+  "EmptyFailureMessage": "I have to record something. The jury will want to see some evidence..."
+}

@@ -44,17 +44,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f3262f5832d994c8a525d47df01e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LevelResource: Intro
+  AudioClip: {fileID: 8300000, guid: d9e427e48e161c5449961bee4de3db1e, type: 3}
+  EndingAudioClip: {fileID: 8300000, guid: 319ec9c8b86c48440a6d8122333f68ca, type: 3}
   Sentiments:
-  - Timestamp: 0
-    Phrase: I
-  - Timestamp: 0
-    Phrase: did
-  - Timestamp: 0
-    Phrase: not
-  - Timestamp: 0
-    Phrase: kill
-  - Timestamp: 0
-    Phrase: her!
+  - ID: 0
+    Timestamp: 0.1
+    Phrase: Mickey?
+    Demoed: 0
+    Played: 0
+    Recorded: 0
+  - ID: 0
+    Timestamp: 1.9
+    Phrase: Yeah, I know Mickey!
+    Demoed: 0
+    Played: 0
+    Recorded: 0
+  - ID: 0
+    Timestamp: 3.5
+    Phrase: That
+    Demoed: 0
+    Played: 0
+    Recorded: 0
+  - ID: 0
+    Timestamp: 4.1
+    Phrase: darn gosh sunvubitch
+    Demoed: 0
+    Played: 0
+    Recorded: 0
+  - ID: 0
+    Timestamp: 5.6
+    Phrase: owes me
+    Demoed: 0
+    Played: 0
+    Recorded: 0
+  - ID: 0
+    Timestamp: 6.2
+    Phrase: a cool grandio!
+    Demoed: 0
+    Played: 0
+    Recorded: 0
+  - ID: 0
+    Timestamp: 7
+    Phrase: You tell that mouseketeer
+    Demoed: 0
+    Played: 0
+    Recorded: 0
+  - ID: 0
+    Timestamp: 8
+    Phrase: if I ever see his shady ears again
+    Demoed: 0
+    Played: 0
+    Recorded: 0
+  - ID: 0
+    Timestamp: 9
+    Phrase: "I\u2019ll stick pluto so far up"
+    Demoed: 0
+    Played: 0
+    Recorded: 0
+  - ID: 0
+    Timestamp: 10
+    Phrase: his castle
+    Demoed: 0
+    Played: 0
+    Recorded: 0
+  - ID: 0
+    Timestamp: 11
+    Phrase: "he\u2019ll be seeing fairy dust"
+    Demoed: 0
+    Played: 0
+    Recorded: 0
+  - ID: 0
+    Timestamp: 12
+    Phrase: for weeks!
+    Demoed: 0
+    Played: 0
+    Recorded: 0
+  Solution: 
+  Hints: []
+  FailureMessages: []
+  EmptyFailureMessage: 
 --- !u!82 &1367957078508361326
 AudioSource:
   m_ObjectHideFlags: 0
@@ -65,7 +134,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b92b59f0e044f994b8ece511da991446, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

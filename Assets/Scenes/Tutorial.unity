@@ -208,142 +208,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1367957078508361326, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.size
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[0].Timestamp
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[1].Timestamp
-      value: 1.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[2].Timestamp
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[3].Timestamp
-      value: 4.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[4].Timestamp
-      value: 5.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[2].Recorded
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[1].Recorded
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[0].Recorded
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[3].Recorded
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[4].Recorded
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[0].Phrase
-      value: Mickey?
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[1].Phrase
-      value: Yeah, I know Mickey!
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[2].Phrase
-      value: That
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[3].Phrase
-      value: darn gosh sunvubitch
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[4].Phrase
-      value: owes me
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[5].Timestamp
-      value: 6.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[5].Phrase
-      value: a cool grandio!
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[6].Timestamp
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[6].Phrase
-      value: You tell that mouseketeer
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[7].Timestamp
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[7].Phrase
-      value: if I ever see his shady ears again
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[8].Timestamp
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[8].Phrase
-      value: "I\u2019ll stick pluto so far up"
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[9].Timestamp
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[9].Phrase
-      value: his castle
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[10].Timestamp
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[10].Phrase
-      value: "he\u2019ll be seeing fairy dust"
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[11].Timestamp
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: Sentiments.Array.data[11].Phrase
-      value: for weeks!
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: LevelResource
-      value: Intro
-      objectReference: {fileID: 0}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: AudioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4a4200e8b44dfc94ea0af736a422ff6d, type: 3}
-    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: EndingAudioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: c7e96e76d812e6f4aab842b7b8ad6ea8, type: 3}
     - target: {fileID: 7406946656307094015, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -391,14 +255,6 @@ PrefabInstance:
     - target: {fileID: 7420205344429666513, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
       propertyPath: m_Name
       value: Recording
-      objectReference: {fileID: 0}
-    - target: {fileID: 7420205344429666513, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 7420205344429666513, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
@@ -667,26 +523,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a901689ce6933564396364f1ef4b95e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1438599573 stripped
+--- !u!114 &1187786848 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 479960092156056322, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5201437654869105953, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
   m_PrefabInstance: {fileID: 479960093424360087}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1507016467 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 479960092069101796, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
-  m_PrefabInstance: {fileID: 479960093424360087}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: fa546ae2da75b884b9aa1603db87fe18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1687258581
@@ -861,17 +706,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2042074060 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 479960091418397019, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
-  m_PrefabInstance: {fileID: 479960093424360087}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79cb6e04b3b45e54789ea54350137bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &274499991361928203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -936,37 +770,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 515731127, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 515731130, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1071913930}
-    - target: {fileID: 1961372144, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
+    - target: {fileID: 967867432, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 16777215
       objectReference: {fileID: 0}
-    - target: {fileID: 479960092069101797, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
+    - target: {fileID: 1055908351, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+      propertyPath: m_fontColor.a
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 479960092156056323, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
+    - target: {fileID: 1055908351, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 16777215
       objectReference: {fileID: 0}
-    - target: {fileID: 479960092211457696, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
+    - target: {fileID: 1556688501, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+      propertyPath: m_fontColor.a
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 479960092384241583, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
+    - target: {fileID: 1556688501, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 1118709
       objectReference: {fileID: 0}
-    - target: {fileID: 479960092738741516, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
+    - target: {fileID: 1556688501, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.9622642
+      objectReference: {fileID: 0}
+    - target: {fileID: 1556688501, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.0671769
+      objectReference: {fileID: 0}
+    - target: {fileID: 1556688501, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.0671769
       objectReference: {fileID: 0}
     - target: {fileID: 479960093434400258, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
       propertyPath: m_Name
@@ -1058,6 +896,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+--- !u!114 &479960093424360094 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 479960093424360094, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+  m_PrefabInstance: {fileID: 479960093424360087}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7ff758146a71ef4bad24c88eea65ce8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7009835157116945925
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1110,106 +959,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: Recordings.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: FailureMessages.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: Recordings.Array.data[0]
-      value: 
-      objectReference: {fileID: 844431837}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: Recordings.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: Recordings.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: Recordings.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: Recordings.Array.data[4]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: Recordings.Array.data[5]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: Recordings.Array.data[6]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: Recordings.Array.data[7]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: TranscriptLabel
-      value: 
-      objectReference: {fileID: 2042074060}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: RecordButton
-      value: 
-      objectReference: {fileID: 1438599573}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: PlayButton
-      value: 
-      objectReference: {fileID: 1507016467}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: PauseSprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 93cf743acc4da4de3a12d580f88d80d9, type: 3}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: PlaySprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 613fd78701f10f743aa2e271033de328, type: 3}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: levelState
-      value: 
-      objectReference: {fileID: 11400000, guid: a9e3e69d6b17b44f183645c06bf913ae, type: 2}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: LevelState
-      value: 
-      objectReference: {fileID: 11400000, guid: a9e3e69d6b17b44f183645c06bf913ae, type: 2}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: Level
-      value: 
-      objectReference: {fileID: 11400000, guid: a9e3e69d6b17b44f183645c06bf913ae, type: 2}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 11400000, guid: a16e9ba748bef4a4cbc6c78ff2f268d1, type: 2}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: EmptyFailureMessage
-      value: I have to record something. The jury will want to see some evidence..."
-      objectReference: {fileID: 0}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: FailureMessages.Array.data[0]
-      value: No, no! I need to try again.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: FailureMessages.Array.data[1]
-      value: This won't hold up in court!
-      objectReference: {fileID: 0}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: FailureMessages.Array.data[2]
-      value: I need to try again. It's not quite right.
-      objectReference: {fileID: 0}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: FailureMessages.Array.data[3]
-      value: I don't think the jury will buy this...
-      objectReference: {fileID: 0}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
-      propertyPath: FailureMessages.Array.data[4]
-      value: This isn't believable...
-      objectReference: {fileID: 0}
-    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
       propertyPath: MessageSystem
       value: 
       objectReference: {fileID: 1092696816}
@@ -1217,6 +966,14 @@ PrefabInstance:
       propertyPath: Recording
       value: 
       objectReference: {fileID: 844431837}
+    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
+      propertyPath: SplashScreen
+      value: 
+      objectReference: {fileID: 479960093424360094}
+    - target: {fileID: 7009835157033639830, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
+      propertyPath: Newspaper
+      value: 
+      objectReference: {fileID: 1187786848}
     - target: {fileID: 7009835157033639831, guid: 9973afa4764ae2042abbb18e907339e9, type: 3}
       propertyPath: m_Name
       value: GameController

@@ -15,9 +15,17 @@ public class GameController : MonoBehaviour
 
 	private int SubmissionsAttempts;
 	public int HintThreshold = 3;
+	public Texture SplashScreenImage;
+	public SplashScreen SplashScreen;
+	public Texture NewspaperImage;
+	public Newspaper Newspaper;
 
 	private void Start()
 	{
+		// Set the splash screen and newspaper image
+		if (SplashScreen != null && SplashScreenImage != null) SplashScreen.Image.texture = SplashScreenImage;
+		if (Newspaper != null && NewspaperImage != null) Newspaper.Image.texture = NewspaperImage;
+
 		FindObjectOfType<FadeCanvas>()?.FadeIn();
 
 		// Get the Menu object to move away
@@ -128,12 +136,12 @@ public class GameController : MonoBehaviour
 		Player.Recording.PlayEndingAudioClip();
 
 		// Wait for the audio clip to finish
-		yield return new WaitForSecondsRealtime(Player.Recording.AudioSource.clip.length);
+		yield return new WaitForSecondsRealtime(Player.Recording.AudioSource.clip.length - 1);
 
 		// Show the newspaper
 		FindObjectOfType<Newspaper>().Display();
 
-		yield return new WaitForSecondsRealtime(4);
+		yield return new WaitForSecondsRealtime(5);
 
 		// Go back to the level select screen
 		Exit();

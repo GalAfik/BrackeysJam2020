@@ -3,76 +3,73 @@
     {
       "ID": 0,
       "Phrase": "Charlie,",
-      "Timestamp": 0
+      "Timestamp": 2.54
     },
     {
       "ID": 1,
       "Phrase": "I need ya to do somethin’ for me.",
-      "Timestamp": 1.42
+      "Timestamp": 3.63
     },
     {
       "ID": 2,
       "Phrase": "You’ve been workin’ at the station for a few months now, and as your",
-      "Timestamp": 3.52
+      "Timestamp": 5.69
     },
     {
       "ID": 3,
       "Phrase": "UNCLE FRANK",
-      "Timestamp": 6.68
+      "Timestamp": 9.03
     },
     {
       "ID": 4,
       "Phrase": "I’m askin’ for a favor.",
-      "Timestamp": 7.85
+      "Timestamp": 10.08
     },
     {
       "ID": 5,
       "Phrase": "You got some witnesses comin’ in soon, and I need ‘em to take the fall for some... things.",
-      "Timestamp": 9.71
+      "Timestamp": 12.04
     },
     {
       "ID": 6,
       "Phrase": "If you understand what I’m saying, go ahead and",
-      "Timestamp": 15.18
+      "Timestamp": 17.41
     },
     {
       "ID": 7,
       "Phrase": "REWIND",
-      "Timestamp": 17.96
+      "Timestamp": 20.14
     },
     {
       "ID": 8,
       "Phrase": "this message, and record my name, and the word rewind.",
-      "Timestamp": 19
+      "Timestamp": 21.08
     },
     {
       "ID": 9,
       "Phrase": "That’s 2 phrases you need to record.",
-      "Timestamp": 23.51
+      "Timestamp": 25.78
     },
     {
       "ID": 10,
       "Phrase": "If you get confused or something, take a look in the top right.",
-      "Timestamp": 26.19
+      "Timestamp": 28.69
     },
     {
       "ID": 11,
       "Phrase": "capish?",
-      "Timestamp": 29.80
+      "Timestamp": 31.94
     }
   ],
   "Solution": [ 3, 7 ],
   "Hints": [
     "Try pressing the record button when Frank says his name to record his name.",
     "You can use the rewind button if you need to try again.",
-    "Make sure you record phrases!"
+    "Make sure you record 2 phrases. No more or less."
   ],
   "FailureMessages": [
-    "No, no! I need to try again.",
-    "This won't hold up in court!",
-    "I need to try again. It's not quite right.",
-    "I don't think the jury will buy this...",
-    "This isn't believable at all..."
+    "Use the buttons below to rewind and record your answer.",
+    "Try recording 'UNCLE FRANK' and 'REWIND'."
   ],
-  "EmptyFailureMessage": "I have to record something. The jury will want to see some evidence..."
+  "EmptyFailureMessage": "I have to show Frank I can record the correct phrases!"
 }
