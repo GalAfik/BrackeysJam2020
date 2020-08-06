@@ -21,7 +21,11 @@ public class GameUserInterface : MonoBehaviour
 
 	private void SetButtonPosition(PlayerState newState, PlayerState oldState)
 	{
-		if (newState == PlayerState.Submitted || newState == PlayerState.Off)
+		if (newState == PlayerState.Submitted)
+		{
+			Animator.SetBool("EndLevel", true);
+		}
+		else if(newState == PlayerState.Off)
 		{
 			Animator.SetBool("Visible", false);
 		}
@@ -30,6 +34,11 @@ public class GameUserInterface : MonoBehaviour
 			Animator.SetBool("Visible", true);
 			// If the demo just ended, show the Press Rewind animation
 			if (oldState == PlayerState.Demo) Animator.SetTrigger("PressRewind");
+		}
+
+		if (oldState == PlayerState.Submitted)
+		{
+			Animator.SetBool("EndLevel", false);
 		}
 	}
 

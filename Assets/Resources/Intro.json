@@ -3,62 +3,62 @@
     {
       "ID": 0,
       "Phrase": "Charlie,",
-      "Timestamp": 0.75
+      "Timestamp": 0
     },
     {
       "ID": 1,
       "Phrase": "I need ya to do somethin’ for me.",
-      "Timestamp": 1.75
+      "Timestamp": 1.42
     },
     {
       "ID": 2,
       "Phrase": "You’ve been workin’ at the station for a few months now, and as your",
-      "Timestamp": 3.5
+      "Timestamp": 3.52
     },
     {
       "ID": 3,
       "Phrase": "UNCLE FRANK",
-      "Timestamp": 5.5
+      "Timestamp": 6.68
     },
     {
       "ID": 4,
       "Phrase": "I’m askin’ for a favor.",
-      "Timestamp": 8
+      "Timestamp": 7.85
     },
     {
       "ID": 5,
       "Phrase": "You got some witnesses comin’ in soon, and I need ‘em to take the fall for some... things.",
-      "Timestamp": 9.5
+      "Timestamp": 9.71
     },
     {
       "ID": 6,
       "Phrase": "If you understand what I’m saying, go ahead and",
-      "Timestamp": 11.5
+      "Timestamp": 15.18
     },
     {
       "ID": 7,
       "Phrase": "REWIND",
-      "Timestamp": 13.5
+      "Timestamp": 17.96
     },
     {
       "ID": 8,
       "Phrase": "this message, and record my name, and the word rewind.",
-      "Timestamp": 14.5
+      "Timestamp": 19
     },
     {
       "ID": 9,
       "Phrase": "That’s 2 phrases you need to record.",
-      "Timestamp": 15
+      "Timestamp": 23.51
     },
     {
       "ID": 10,
       "Phrase": "If you get confused or something, take a look in the top right.",
-      "Timestamp": 15
+      "Timestamp": 26.19
     },
     {
       "ID": 11,
       "Phrase": "capish?",
-      "Timestamp": 15
+      "Timestamp": 29.80
     }
   ],
   "Solution": [ 3, 7 ]

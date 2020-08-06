@@ -12,9 +12,13 @@ public class GameController : MonoBehaviour
 
 	public string EmptyFailureMessage;
 	public string[] FailureMessages;
+	public string[] HintMessages;
 
 	private Player Player;
 	private Menu Menu;
+
+	private int SubmissionsAttempts;
+	public int HintThreshold = 3;
 
 	private void Start()
 	{
@@ -68,6 +72,7 @@ public class GameController : MonoBehaviour
 	private void HandleInputs()
 	{
 		if (Input.GetButtonDown("Exit")) Exit();
+		if (Input.GetButtonUp("FastForward")) Player.FastForward();
 
 		if (Player.State == PlayerState.Demo ||
 			Player.State == PlayerState.Off ||
@@ -76,22 +81,29 @@ public class GameController : MonoBehaviour
 		if (Input.GetButtonDown("Play")) Player.Play();
 		if (Input.GetButtonDown("Rewind")) Player.Rewind();
 		if (Input.GetButtonDown("Record")) Player.Record();
+		if (Input.GetButtonUp("Record")) Player.Record();
 		if (Input.GetButtonDown("Submit")) Player.Submit();
-		if (Input.GetButtonDown("FastForward")) Player.FastForward(true);
-		else if (Input.GetButtonUp("FastForward")) Player.FastForward(false);
+		if (Input.GetButtonDown("FastForward")) Player.FastForward();
 	}
 
 	private void OnSubmit(PlayerState newState, PlayerState oldState)
 	{
 		if (newState == PlayerState.Submitted)
 		{
+			SubmissionsAttempts++;
 			int[] attempt = Player.Recording.Sentiments.Where(sentiment => sentiment.Recorded).Select(sentiment => sentiment.ID).ToArray<int>();
 			bool solved = Player.Recording.Solution.SequenceEqual<int>(attempt);
 
 			// Grade the player
 			if (!solved)
 			{
-				if (attempt.Length == 0) MessageSystem?.DisplayMessage(EmptyFailureMessage);
+				if (SubmissionsAttempts >= HintThreshold)
+				{
+					// Display a hint message to the player
+					int randomIndex = Random.Range(0, HintMessages.Length - 1);
+					MessageSystem?.DisplayMessage(HintMessages[randomIndex]);
+				}
+				else if (attempt.Length == 0) MessageSystem?.DisplayMessage(EmptyFailureMessage);
 				else
 				{
 					int randomIndex = Random.Range(0, FailureMessages.Length - 1);
@@ -117,7 +129,10 @@ public class GameController : MonoBehaviour
 		StartCoroutine(FindObjectOfType<Transcript>().FadeOutNonRecordedWords(1.5f));
 
 		// Play the guilty recording
-		// TODO
+		Player.Recording.PlayEndingAudioClip();
+
+		// Wait for the audio clip to finish
+		yield return new WaitForSecondsRealtime(Player.Recording.AudioSource.clip.length);
 
 		// Show the newspaper
 		FindObjectOfType<Newspaper>().Display();

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public enum PlayerState { Off, Ready, Demo, Playing, Paused, Done, Rewinding, Submitted };
+public enum PlayerState { Off, Ready, Demo, Playing, Paused, Done, Rewinding, FastForward, Submitted };
 
 [System.Serializable] public class _UnityEventPlayerState : UnityEvent<PlayerState, PlayerState> { }
 
@@ -15,8 +15,9 @@ public class Player : ScriptableObject
         }
         set
         {
-            OnStateChange.Invoke(value, state);
-            state = value;
+			PlayerState oldState = state;
+			state = value;
+			OnStateChange.Invoke(value, oldState);
         }
     }
 	public bool IsRecording;
@@ -60,14 +61,6 @@ public class Player : ScriptableObject
 		}
 	}
 
-	public void Pause()
-    {
-		if (State != PlayerState.Playing &&
-			State != PlayerState.Rewinding) return;
-
-		State = PlayerState.Paused;
-	}
-
 	public void Rewind()
 	{
 		if (State != PlayerState.Playing &&
@@ -75,6 +68,18 @@ public class Player : ScriptableObject
 			State != PlayerState.Done) return;
 
 		State = PlayerState.Rewinding;
+	}
+
+	public void FastForward()
+	{
+		if (State == PlayerState.Playing)
+		{
+			State = PlayerState.FastForward;
+		}
+		else if (State == PlayerState.FastForward)
+		{
+			State = PlayerState.Playing;
+		}
 	}
 
 	public void Record()
@@ -94,12 +99,5 @@ public class Player : ScriptableObject
 		if (State != PlayerState.Submitted) return;
 
 		State = PlayerState.Done;
-	}
-
-	public void FastForward(bool status)
-	{
-		if (State != PlayerState.Playing) return;
-
-		Time.timeScale = (status ? 2f : 1f);
 	}
 }

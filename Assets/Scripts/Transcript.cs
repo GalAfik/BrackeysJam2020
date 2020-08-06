@@ -9,23 +9,32 @@ using UnityEditor;
 public class Transcript : MonoBehaviour
 {
 	private Color HiddenColor = new Color(0,0,0,0);
+	public Color DefaultColor = Color.gray;
 	public Color PlayedColor = Color.white;
 	public Color RecordedColor = Color.red;
 
 	private Player Player;
 	private TMP_Text Text;
 
-    private void Start()
+	private string Dash;
+
+
+	private void Start()
     {
 		Player = Resources.Load<Player>("Player");
 		Text = GetComponent<TMP_Text>();
-    }
+	}
 
     private void Update()
     {
+		Dash = "<color=#" + ColorUtility.ToHtmlStringRGBA(DefaultColor) + "> - </color>";
 		if (Player.Recording != null)
 		{
-			string transcript = string.Join(" - ", Player.Recording.Sentiments.Select(sentiment => WrapPhrase(sentiment)));
+			string transcript = string.Join("", Player.Recording.Sentiments.Select(sentiment => WrapPhrase(sentiment)));
+			if (transcript.StartsWith(Dash))
+			{
+				transcript = transcript.Substring(Dash.Length, transcript.Length - Dash.Length);
+			}
 			Text.SetText(transcript);
 		}
 	}
@@ -35,6 +44,7 @@ public class Transcript : MonoBehaviour
 		while (PlayedColor.a > 0)
 		{
 			PlayedColor.a -= .01f / textFadeSpeed;
+			DefaultColor.a -= .01f / textFadeSpeed;
 			yield return new WaitForSeconds(.01f);
 		}
 	}
@@ -53,16 +63,16 @@ public class Transcript : MonoBehaviour
 	{
 		if (sentiment.Recorded)
 		{
-			return "<color=#" + ColorUtility.ToHtmlStringRGBA(RecordedColor) + ">" + sentiment.Phrase + "</color>";
+			return Dash + "<color=#" + ColorUtility.ToHtmlStringRGBA(RecordedColor) + ">" + sentiment.Phrase + "</color>";
 		}
 		else if (sentiment.Played)
 		{
-			return "<color=#" + ColorUtility.ToHtmlStringRGBA(PlayedColor) + ">" + sentiment.Phrase + "</color>";
+			return Dash + "<color=#" + ColorUtility.ToHtmlStringRGBA(PlayedColor) + ">" + sentiment.Phrase + "</color>";
 		}
 		else if (!sentiment.Demoed)
 		{
-			return "<color=#" + ColorUtility.ToHtmlStringRGBA(HiddenColor) + ">" + sentiment.Phrase + "</color>";
+			return "<color=#" + ColorUtility.ToHtmlStringRGBA(HiddenColor) + "> - " + sentiment.Phrase + "</color>";
 		}
-		return sentiment.Phrase;
+		return Dash + "<color=#" + ColorUtility.ToHtmlStringRGBA(DefaultColor) + ">" + sentiment.Phrase + "</color>";
 	}
 }

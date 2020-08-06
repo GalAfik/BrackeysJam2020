@@ -32,13 +32,13 @@
         },
         {
             "ID": 6,
-            "Phrase": "help her, she will go to jail. You don't want",
+            "Phrase": "help her, she will go to jail. You don't",
             "Timestamp": 6
         },
         {
-            "ID": 7,
-            "Phrase": "anyone",
-            "Timestamp": 7
+          "ID": 7,
+          "Phrase": "want anyone",
+          "Timestamp": 7
         },
         {
             "ID": 8,
@@ -62,7 +62,7 @@
         },
         {
             "ID": 12,
-            "Phrase": " friends on the force, there must be some",
+            "Phrase": "friends on the force, there must be some",
             "Timestamp": 12
         },
         {

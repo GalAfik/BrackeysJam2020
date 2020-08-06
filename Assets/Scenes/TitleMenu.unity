@@ -1559,76 +1559,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Thank you for playing our game!
-
-
-
-    "The Case of the Deviant Detective"
+  m_text: "Thank you for playing our game!\n\n\n\"The Case of the Deviant Detective\"
     was created during the Brackeys Game Jam 2020.2 over the course of one week.
-    The jam''s theme was "Rewind".
-
-
-
-
-
-
-
-
-
-
-    Programming
-
-    -
-
-    Gal Afik
-
-    Matthew
-    Hill
-
-
-
-
-
-
-
-
-
-    Bid Idea Person
-
-    -
-
-    Joshua Connor
-
-
-
-
-
-
-
-
-
-    Testing
-    & Design
-
-    -
-
-    Shifra Afik
-
-
-
-
-
-
-
-
-
-
-
-    The big advantage of a book is
-    that it''s very easy to rewind. Close it and you''re right back at the beginning.
-
-    -
-    Jerry Seinfeld'
+    The jam's theme was \"Rewind\".\n\n\n\n\n\n\nProgramming\n-\nGal Afik\nMatthew
+    Hill\n\n\n\n\n\n\nBid Idea Person \n-\nJoshua Connor\n\n\n\n\n\n\nTesting & Design\n-\nShifra
+    Afik\n\n\n\n\n\n\nVoice Acting\n-\nMoriah Jackson\nKatherine Laffoon\n\n\n\n\n\n\n\nThe
+    big advantage of a book is that it's very easy to rewind. Close it and you're
+    right back at the beginning.\n- Jerry Seinfeld"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c0aae9be0bc508b4db943d66f4eff3f1, type: 2}
   m_sharedMaterial: {fileID: 6939341076292745606, guid: c0aae9be0bc508b4db943d66f4eff3f1, type: 2}
@@ -5598,7 +5535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5627643003846636620, guid: dc8c1630fe1006c4c9429fde0ae8963f, type: 3}
       propertyPath: SwayAmount
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5627643003846636657, guid: dc8c1630fe1006c4c9429fde0ae8963f, type: 3}
       propertyPath: m_IsActive
@@ -5957,7 +5894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2566901005208551963, guid: b468238b29106a84f91ba3df5d207cce, type: 3}
       propertyPath: scenePath
-      value: Assets/Scenes/Level 1.unity
+      value: Assets/Scenes/Tutorial.unity
       objectReference: {fileID: 0}
     - target: {fileID: 3098037572706654763, guid: b468238b29106a84f91ba3df5d207cce, type: 3}
       propertyPath: m_Materials.Array.data[0]
