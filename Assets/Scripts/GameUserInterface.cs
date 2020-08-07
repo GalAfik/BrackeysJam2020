@@ -13,11 +13,16 @@ public class GameUserInterface : MonoBehaviour
 	public TMP_Text NumberPhrasesRecorded;
 
 	// Start is called before the first frame update
-	void Start()
+	private void Start()
     {
 		Animator = GetComponent<Animator>();
 		Player = Resources.Load<Player>("Player");
 		Player.AddListener(SetButtonPosition);
+	}
+
+	private void Update()
+    {
+		SetPhrasesRecordedText();
 	}
 
 	private void SetButtonPosition(PlayerState newState, PlayerState oldState)
