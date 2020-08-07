@@ -735,7 +735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &292421773
 Transform:
   m_ObjectHideFlags: 0
@@ -2288,13 +2288,131 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Thank you for playing our game!\n\n\n\"The Case of the Deviant Detective\"
+  m_text: 'Thank you for playing our game!
+
+
+
+    "The Case of the Deviant Detective"
     was created during the Brackeys Game Jam 2020.2 over the course of one week.
-    The jam's theme was \"Rewind\".\n\n\n\n\n\n\nProgramming\n-\nGal Afik\nMatthew
-    Hill\n\n\n\n\n\n\nBid Idea Person \n-\nJoshua Connor\n\n\n\n\n\n\nTesting & Design\n-\nShifra
-    Afik\n\n\n\n\n\n\nVoice Acting\n-\nMoriah Jackson\nKatherine Laffoon\n\n\n\n\n\n\n\nThe
-    big advantage of a book is that it's very easy to rewind. Close it and you're
-    right back at the beginning.\n- Jerry Seinfeld"
+    The jam''s theme was "Rewind".
+
+
+
+
+
+
+
+    Programming
+
+    -
+
+    Gal Afik
+
+    Matthew
+    Hill
+
+
+
+
+
+
+
+    Production
+
+    -
+
+    Joshua Connor
+
+
+
+
+
+
+
+    Design & Testing
+
+    -
+
+    Shifra
+    Afik
+
+
+
+
+
+
+
+    Voice Acting
+
+    -
+
+    Gal Afik
+
+    Joshua Connor
+
+    Katherine
+    Laffoon
+
+    Matthew Hill
+
+    Moriah Jackson
+
+
+
+
+
+
+
+    Music
+
+    -
+
+    Walking
+    Along
+
+    by Kevin MacLeod
+
+
+    I Knew a Guy
+
+    by Kevin MacLeod
+
+
+    Hard
+    Boiled
+
+    by Kevin MacLeod
+
+
+    Fast Talkin
+
+    by Kevin MacLeod
+
+
+    https://incompetech.filmmusic.io/song/3895-i-knew-a-guy
+
+    https://incompetech.filmmusic.io/song/4603-walking-along
+
+    https://incompetech.filmmusic.io/song/3857-hard-boiled
+
+    https://incompetech.filmmusic.io/song/3740-fast-talkin
+
+
+    License:
+
+    http://creativecommons.org/licenses/by/4.0/
+
+
+
+
+
+
+
+    The
+    big advantage of a book is that it''s very easy to rewind. Close it and you''re
+    right back at the beginning.
+
+    - Jerry Seinfeld'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c0aae9be0bc508b4db943d66f4eff3f1, type: 2}
   m_sharedMaterial: {fileID: 6939341076292745606, guid: c0aae9be0bc508b4db943d66f4eff3f1, type: 2}
@@ -6203,9 +6321,7 @@ PrefabInstance:
         2020 - Icons by Adriend Coquet, Aldric Rodrigues, Ainsley Agatha, P Thanga
         Vignesh, Rizky Mapat Waluya, and Aleksandr Vector from the Noun Project -
         Bolina font by ClaudeP - 3D models by Vincent Boichut and tdubic - photos
-        from Unsplash.com - Cat courtesy of pngimg.com\n\nWalking Along by Kevin
-        MacLeod\r\nLink: https://incompetech.filmmusic.io/song/4603-walking-along\r\nLicense:
-        http://creativecommons.org/licenses/by/4.0/"
+        from Unsplash.com - Cat courtesy of pngimg.com"
       objectReference: {fileID: 0}
     - target: {fileID: 3262038854303834828, guid: ea2c78b4365742c43913c3d934aeb7f1, type: 3}
       propertyPath: m_Color.a
