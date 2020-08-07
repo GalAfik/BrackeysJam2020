@@ -46,6 +46,10 @@ public class GameController : MonoBehaviour
 
 	public IEnumerator StartLevel()
 	{
+		// Fade in the theme
+		AudioManager AM = FindObjectOfType<AudioManager>();
+		StartCoroutine(AM.StartFade("level_theme", .5f, 0, AM.GetInitialVolume("level_theme")));
+
 		yield return new WaitForSeconds(1);
 
 		Player.State = PlayerState.Demo;
@@ -58,6 +62,10 @@ public class GameController : MonoBehaviour
 
 	public void Exit()
 	{
+		// Fade out the theme
+		AudioManager AM = FindObjectOfType<AudioManager>();
+		StartCoroutine(AM.StartFade("level_theme", .5f, AM.GetInitialVolume("level_theme"), 0));
+
 		FindObjectOfType<FadeCanvas>().FadeOut();
 		// Exit to level select
 		Invoke("GoToLevelMenu", 1);
@@ -71,6 +79,10 @@ public class GameController : MonoBehaviour
 		Menu.transform.position = new Vector3(0, 0, 0);
 		Menu.transform.Find("UI").GetComponent<Canvas>().enabled = true;
 		FindObjectOfType<FadeCanvas>()?.FadeIn();
+
+		// Fade in the theme
+		AudioManager AM = FindObjectOfType<AudioManager>();
+		StartCoroutine(AM.StartFade("title_theme", .5f, 0, AM.GetInitialVolume("title_theme")));
 	}
 
 	private void HandleInputs()

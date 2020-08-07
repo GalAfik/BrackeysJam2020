@@ -42,8 +42,6 @@ public class AudioManager : MonoBehaviour
 	{
 		Player = Resources.Load<Player>("Player");
 		Player.AddListener(OnStateChange);
-
-		Play("Theme");
 	}
 
 	public void Play(string name)
@@ -137,5 +135,31 @@ public class AudioManager : MonoBehaviour
 	public void ToggleSpeech()
 	{
 		SpeechEnabled = !SpeechEnabled;
+	}
+
+	public float GetInitialVolume(string name)
+	{
+		return Sounds.Single(sound => sound.name == name).volume;
+	}
+
+	public IEnumerator StartFade(string name, float duration, float startVolume, float targetVolume)
+	{
+		float currentTime = 0;
+		AudioSource audioSource = Sounds.Single(sound => sound.name == name).source;
+		float start = startVolume;
+
+		// Start playing the audiosource if it was silent before
+		if (startVolume == 0) audioSource.Play();
+
+		while (currentTime < duration)
+		{
+			currentTime += Time.deltaTime;
+			audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+			yield return null;
+		}
+
+		// Stop the audiosource if it gets to 0
+		if (targetVolume == 0) audioSource.Stop();
+		yield break;
 	}
 }

@@ -73,6 +73,10 @@ public class MenuController : MonoBehaviour
 	{
 		// Set the initial state
 		SetState(TitleState);
+
+		// Fade in the theme
+		AudioManager AM = FindObjectOfType<AudioManager>();
+		StartCoroutine(AM.StartFade("title_theme", .5f, 0, AM.GetInitialVolume("title_theme")));
 	}
 
 	public void SetState(IMenuState state)
@@ -110,6 +114,10 @@ public class MenuController : MonoBehaviour
 
 	private IEnumerator LoadScene(string sceneName)
 	{
+		// Fade out the theme audio
+		AudioManager AM = FindObjectOfType<AudioManager>();
+		StartCoroutine(AM.StartFade("title_theme", .5f, AM.GetInitialVolume("title_theme"), 0));
+
 		FindObjectOfType<FadeCanvas>().FadeOut();
 		yield return new WaitForSecondsRealtime(1);
 		SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);

@@ -1,0 +1,180 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7947050659554206104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7947050659554206087}
+  - component: {fileID: 7947050659554206086}
+  - component: {fileID: 7947050659554206105}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7947050659554206087
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7947050659554206104}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7947050659554206086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7947050659554206104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56fc4f3af48a9694d9aac5586133354c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7947050659554206105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7947050659554206104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b72c5ec546cb3c14896a03a7000f17be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - name: cat1
+    soundCategory: 4
+    clip: {fileID: 8300000, guid: 60528a501aa5f0d4f8be079b611ec189, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: cat2
+    soundCategory: 4
+    clip: {fileID: 8300000, guid: a60e819ec32632b46a1e41d1241d71b4, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: cat3
+    soundCategory: 4
+    clip: {fileID: 8300000, guid: 81b3346522a901948b73c10654d3d315, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: cat4
+    soundCategory: 4
+    clip: {fileID: 8300000, guid: 35f034bcc544fe048b1445b5ae7b5219, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: cat5
+    soundCategory: 4
+    clip: {fileID: 8300000, guid: db5a5cadbccdcbe45a235e48d3839458, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: cat6
+    soundCategory: 4
+    clip: {fileID: 8300000, guid: afd451f76de35f44b96f5b675b46f8ad, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: cat7
+    soundCategory: 4
+    clip: {fileID: 8300000, guid: 286cf72afedc8a54e91514d7e34a0079, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: cat8
+    soundCategory: 4
+    clip: {fileID: 8300000, guid: b777680da94b3e44c81e16cb7a1f4b35, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: tape_play
+    soundCategory: 3
+    clip: {fileID: 8300000, guid: fbcbf3fdcc97bb848bbb24016c47f61a, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: tape_stop
+    soundCategory: 3
+    clip: {fileID: 8300000, guid: 5395a7626bb2d4247a5bdcbbd9347467, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: button1
+    soundCategory: 1
+    clip: {fileID: 8300000, guid: 1ba807ffe205bdf45925d2eccbbdbb0f, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: button2
+    soundCategory: 1
+    clip: {fileID: 8300000, guid: cfbf54a77ec78f14d9f14a712b3b02a3, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: theme
+    soundCategory: 0
+    clip: {fileID: 8300000, guid: ac2594556af0e6c428d0857d808a84d4, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    mute: 0
+    source: {fileID: 0}
+  - name: cat9
+    soundCategory: 4
+    clip: {fileID: 8300000, guid: 83c1b1b33b7de3440a69a0e965280821, type: 3}
+    volume: 0.55
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: level_theme
+    soundCategory: 0
+    clip: {fileID: 8300000, guid: 2032838aaf282954cb3cd0d153df9066, type: 3}
+    volume: 0.55
+    pitch: 1
+    loop: 1
+    mute: 0
+    source: {fileID: 0}
+  SpeechEnabled: 1
