@@ -142,10 +142,27 @@ public class AudioManager : MonoBehaviour
 		return Sounds.Single(sound => sound.name == name).volume;
 	}
 
-	public void SetAudioPitch(string name, float pitch)
+	public void SetAudioPitch(Sound.Category category, float pitch)
     {
-		AudioSource audioSource = Sounds.Single(sound => sound.name == name).source;
-		audioSource.pitch = pitch;
+		foreach (Sound sound in Sounds)
+		{
+			if (sound.soundCategory == category)
+			{
+				AudioSource audioSource = Sounds.Single(snd => snd.name == name).source;
+				audioSource.pitch = pitch;
+			}
+		}
+	}
+
+	public void StartFade(Sound.Category category, float duration, bool isFadeIn)
+	{
+		// Pick a random audio track to fade in/out
+		Sound[] soundsMatchingCategory = Sounds.Where(sound => sound.soundCategory == category).ToArray();
+		int randomIndex = UnityEngine.Random.Range(0, soundsMatchingCategory.Length - 1);
+
+		Sound randomSound = soundsMatchingCategory[randomIndex];
+		if (isFadeIn) StartCoroutine(StartFade(randomSound.name, duration, 0, randomSound.volume));
+		else StartCoroutine(StartFade(randomSound.name, duration, randomSound.volume, 0));
 	}
 
 	public IEnumerator StartFade(string name, float duration, float startVolume, float targetVolume)

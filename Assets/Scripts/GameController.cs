@@ -49,7 +49,7 @@ public class GameController : MonoBehaviour
 	{
 		// Fade in the theme
 		AudioManager AM = FindObjectOfType<AudioManager>();
-		StartCoroutine(AM.StartFade("level_theme", .5f, 0, AM.GetInitialVolume("level_theme")));
+		AM.StartFade(Sound.Category.LevelTheme, .5f, true);
 
 		yield return new WaitForSeconds(1);
 
@@ -84,10 +84,10 @@ public class GameController : MonoBehaviour
 		AudioManager AM = FindObjectOfType<AudioManager>();
 		if (newState == PlayerState.Rewinding)
         {
-			AM.SetAudioPitch("level_theme", -1);
+			AM.SetAudioPitch(Sound.Category.LevelTheme, -1);
 			return;
 		}
-		AM.SetAudioPitch("level_theme", 1);
+		AM.SetAudioPitch(Sound.Category.LevelTheme, 1);
 	}
 
 	private void OnSubmit(PlayerState newState, PlayerState oldState)
@@ -155,8 +155,8 @@ public class GameController : MonoBehaviour
 	{
 		// Fade out the theme
 		AudioManager AM = FindObjectOfType<AudioManager>();
-		AM.SetAudioPitch("level_theme", 1);
-		StartCoroutine(AM.StartFade("level_theme", .5f, AM.GetInitialVolume("level_theme"), 0));
+		AM.SetAudioPitch(Sound.Category.LevelTheme, 1);
+		AM.StartFade(Sound.Category.LevelTheme, .5f, false);
 		StartCoroutine(FadeRecording(.5f, 1, 0));
 
 		FindObjectOfType<FadeCanvas>().FadeOut();
