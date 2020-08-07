@@ -36,7 +36,6 @@ public class Recording : MonoBehaviour
 
 	private Player Player;
 	public AudioSource AudioSource { get; private set; }
-	private float Timer = 0;
 
 	private void Start()
 	{
@@ -51,26 +50,14 @@ public class Recording : MonoBehaviour
 		switch (Player.State)
 		{
 			case PlayerState.Demo:
-				Timer += Time.deltaTime;
 				if (sentiment != null)
 				{
 					sentiment.Demoed = true;
-					sentiment.Played = true;
 				}
-
-				if (!IsAudioSourcePlaying())
-				{
-					Player.State = PlayerState.Done;
-				}
-
-				break;
-
-			case PlayerState.FastForward:
-				Timer += Time.deltaTime * (FastForwardSpeed - 1);
 				goto case PlayerState.Playing;
 
+			case PlayerState.FastForward:
 			case PlayerState.Playing:
-				Timer += Time.deltaTime;
 				if (sentiment != null)
 				{
 					sentiment.Played = true;
@@ -80,24 +67,23 @@ public class Recording : MonoBehaviour
 				if (!IsAudioSourcePlaying())
 				{
 					Player.State = PlayerState.Done;
+					AudioSource.timeSamples = AudioSource.clip.samples - 1;
 				}
 
 				break;
 
 			case PlayerState.Rewinding:
-				Timer -= Time.deltaTime * AudioReverseSpeed;
 				if (sentiment != null)
 				{
 					sentiment.Played = false;
 					sentiment.Recorded = false;
 				}
 
-				if (Timer < 0)
+				if (!IsAudioSourcePlaying())
 				{
 					Player.State = PlayerState.Ready;
-					Timer = 0;
-					AudioSource.timeSamples = 0;
-				}
+                    AudioSource.timeSamples = 0;
+                }
 
 				break;
 		}
@@ -111,7 +97,6 @@ public class Recording : MonoBehaviour
 		Player.AddListener(ControlAudio);
 		AudioSource = GetComponent<AudioSource>();
 		AudioSource.timeSamples = 0;
-		Timer = 0;
 
 		Recording recording = gameObject.GetComponent<Recording>();
 		string jsonString = ((TextAsset)Resources.Load(recording.LevelResource)).text;
@@ -133,7 +118,7 @@ public class Recording : MonoBehaviour
 	{
 		for (int i = Sentiments.Length; i-- > 0;)
 		{
-			if (Timer >= Sentiments[i].Timestamp)
+			if (AudioSource.time >= Sentiments[i].Timestamp)
 			{
 				return Sentiments[i];
 			}
@@ -170,8 +155,8 @@ public class Recording : MonoBehaviour
 
 	private void Play()
 	{
-		AudioSource.timeSamples = AudioSource.timeSamples;
-		if (Player.State == PlayerState.Playing) AudioSource.pitch = 1;
+        AudioSource.timeSamples = AudioSource.timeSamples;
+        if (Player.State == PlayerState.Playing) AudioSource.pitch = 1;
 		else if (Player.State == PlayerState.FastForward) AudioSource.pitch = FastForwardSpeed;
 		AudioSource.Play();
 	}
@@ -183,8 +168,8 @@ public class Recording : MonoBehaviour
 
 	private void Rewind()
 	{
-		AudioSource.timeSamples = AudioSource.timeSamples == 0 ? AudioSource.clip.samples - 1 : AudioSource.timeSamples;
-		AudioSource.pitch = -AudioReverseSpeed;
+        AudioSource.timeSamples = AudioSource.timeSamples;
+        AudioSource.pitch = -AudioReverseSpeed;
 		AudioSource.Play();
 	}
 
