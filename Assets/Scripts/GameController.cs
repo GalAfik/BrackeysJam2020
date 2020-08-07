@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour
 	private void HandleInputs()
 	{
 		if (Input.GetButtonDown("Exit")) Exit();
-		if (Input.GetButtonUp("FastForward")) Player.FastForward(false);
+		if (Input.GetButtonUp("FastForward")) Player.Play();
 
 		if (Player.State == PlayerState.Demo ||
 			Player.State == PlayerState.Off ||
@@ -72,10 +72,11 @@ public class GameController : MonoBehaviour
 
 		if (Input.GetButtonDown("Play")) Player.Play();
 		if (Input.GetButtonDown("Rewind")) Player.Rewind();
+		if (Input.GetButtonUp("Rewind")) Player.Play();
 		if (Input.GetButtonDown("Record")) Player.Record();
 		if (Input.GetButtonUp("Record")) Player.Record();
 		if (Input.GetButtonDown("Submit")) Player.Submit();
-		if (Input.GetButtonDown("FastForward")) Player.FastForward(true);
+		if (Input.GetButtonDown("FastForward")) Player.FastForward();
 	}
 
 	private void ReverseAudio(PlayerState newState, PlayerState oldState)
