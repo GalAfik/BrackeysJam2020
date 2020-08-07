@@ -50,7 +50,8 @@ public class Player : ScriptableObject
 	public void Play()
 	{
 		if (State == PlayerState.Ready ||
-			State == PlayerState.Paused)
+			State == PlayerState.Paused ||
+			State == PlayerState.FastForward)
 		{
 			State = PlayerState.Playing;
 		}
@@ -70,16 +71,13 @@ public class Player : ScriptableObject
 		State = PlayerState.Rewinding;
 	}
 
-	public void FastForward(bool enabled)
+	public void FastForward()
 	{
-		if (State == PlayerState.Playing && enabled)
-		{
-			State = PlayerState.FastForward;
-		}
-		else if (State == PlayerState.FastForward && !enabled)
-		{
-			State = PlayerState.Playing;
-		}
+		if (State != PlayerState.Playing &&
+			State != PlayerState.Paused &&
+			State != PlayerState.Ready) return;
+
+		State = PlayerState.FastForward;
 	}
 
 	public void Record()

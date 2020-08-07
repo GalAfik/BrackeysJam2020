@@ -142,6 +142,12 @@ public class AudioManager : MonoBehaviour
 		return Sounds.Single(sound => sound.name == name).volume;
 	}
 
+	public void SetAudioPitch(string name, float pitch)
+    {
+		AudioSource audioSource = Sounds.Single(sound => sound.name == name).source;
+		audioSource.pitch = pitch;
+	}
+
 	public IEnumerator StartFade(string name, float duration, float startVolume, float targetVolume)
 	{
 		float currentTime = 0;
