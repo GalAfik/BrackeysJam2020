@@ -47,10 +47,13 @@ public class FinalLevelController : MonoBehaviour
 		// Exit to the credits screen
 		MenuController menuController = FindObjectOfType<MenuController>();
 		menuController.SetState(menuController.TitleState);
+		yield return new WaitForSeconds(.5f);
 		SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(gameObject.scene.name));
 		Menu.transform.position = new Vector3(0, 0, 0);
 
 		menuController.ToggleCredits();
+
+
 		FindObjectOfType<FadeCanvas>().FadeIn();
 		Menu.transform.Find("UI").GetComponent<Canvas>().enabled = true;
 	}

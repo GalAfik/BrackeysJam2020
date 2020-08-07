@@ -148,7 +148,7 @@ public class AudioManager : MonoBehaviour
 		{
 			if (sound.soundCategory == category)
 			{
-				AudioSource audioSource = Sounds.Single(snd => snd.name == name).source;
+				AudioSource audioSource = sound.source;
 				audioSource.pitch = pitch;
 			}
 		}
@@ -160,9 +160,19 @@ public class AudioManager : MonoBehaviour
 		Sound[] soundsMatchingCategory = Sounds.Where(sound => sound.soundCategory == category).ToArray();
 		int randomIndex = UnityEngine.Random.Range(0, soundsMatchingCategory.Length - 1);
 
-		Sound randomSound = soundsMatchingCategory[randomIndex];
-		if (isFadeIn) StartCoroutine(StartFade(randomSound.name, duration, 0, randomSound.volume));
-		else StartCoroutine(StartFade(randomSound.name, duration, randomSound.volume, 0));
+		if (isFadeIn)
+		{
+			Sound randomSound = soundsMatchingCategory[randomIndex];
+			if (isFadeIn) StartCoroutine(StartFade(randomSound.name, duration, 0, randomSound.volume));
+			else StartCoroutine(StartFade(randomSound.name, duration, randomSound.volume, 0));
+		}
+		else
+		{
+			foreach (Sound sound in soundsMatchingCategory)
+			{
+				StartCoroutine(StartFade(sound.name, duration, sound.volume, 0));
+			}
+		}
 	}
 
 	public IEnumerator StartFade(string name, float duration, float startVolume, float targetVolume)
