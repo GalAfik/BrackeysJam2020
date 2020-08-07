@@ -10,6 +10,7 @@ public class GameUserInterface : MonoBehaviour
 	private Animator Animator;
 	private Player Player;
 	public TMP_Text NumberPhrasesRequired;
+	public TMP_Text NumberPhrasesRecorded;
 
 	// Start is called before the first frame update
 	void Start()
@@ -51,5 +52,13 @@ public class GameUserInterface : MonoBehaviour
 	{
 		// Set the number of phrases required in the UI
 		NumberPhrasesRequired?.SetText(phrasesRequired.ToString());
+	}
+
+	public void SetPhrasesRecordedText()
+	{
+		// Set the number of phrases recorded in the UI
+		int numRecorded = Player.Recording.Sentiments.Count(sentiment => sentiment.Recorded);
+		// Set the number of phrases required in the UI
+		NumberPhrasesRecorded?.SetText(numRecorded.ToString());
 	}
 }

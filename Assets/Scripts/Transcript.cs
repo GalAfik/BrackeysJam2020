@@ -30,6 +30,7 @@ public class Transcript : MonoBehaviour
 		Dash = "<color=#" + ColorUtility.ToHtmlStringRGBA(DefaultColor) + "> - </color>";
 		if (Player.Recording != null)
 		{
+			// Set the transcript text
 			string transcript = string.Join("", Player.Recording.Sentiments.Select(sentiment => WrapPhrase(sentiment)));
 			if (transcript.StartsWith(Dash))
 			{

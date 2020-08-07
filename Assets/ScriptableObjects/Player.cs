@@ -85,6 +85,8 @@ public class Player : ScriptableObject
 	public void Record()
 	{
 		IsRecording = !IsRecording;
+		// Set the UI number of phrases recorded
+		FindObjectOfType<GameUserInterface>().SetPhrasesRecordedText();
 	}
 
 	public void Submit()

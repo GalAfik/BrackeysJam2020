@@ -7,41 +7,51 @@
     },
     {
       "ID": 1,
-      "Phrase": "but from a workplace accident. I work at the knife shop, you see.",
+      "Phrase": "but from a workplace accident.",
       "Timestamp": 2.75
     },
     {
       "ID": 2,
+      "Phrase": "I work at the knife shop, you see.",
+      "Timestamp": 4.77
+    },
+    {
+      "ID": 3,
       "Phrase": "I",
       "Timestamp": 6.8
     },
     {
-      "ID": 3,
+      "ID": 4,
       "Phrase": "used to",
       "Timestamp": 7.53
     },
     {
-      "ID": 4,
+      "ID": 5,
       "Phrase": "hate the bossman so much,",
       "Timestamp": 7.74
     },
     {
-      "ID": 5,
+      "ID": 6,
       "Phrase": "two weeks ago I dreamed",
       "Timestamp": 9.72
     },
     {
-      "ID": 6,
+      "ID": 7,
       "Phrase": "that I stabbed him,",
       "Timestamp": 10.74
     },
     {
-      "ID": 7,
-      "Phrase": "but I tell you he saved my life. He wrapped up the wounds and stopped the bleeding.",
+      "ID": 8,
+      "Phrase": "but I tell you he saved my life.",
       "Timestamp": 11.82
+    },
+    {
+      "ID": 9,
+      "Phrase": "He wrapped up the wounds and stopped the bleeding.",
+      "Timestamp": 14.09
     }
   ],
-  "Solution": [ 0, 2, 4, 6 ],
+  "Solution": [ 0, 3, 5, 7 ],
   "Hints": [
     "I can't let the jury know it was an accident.",
     "He dreamt that he STABBED him?",

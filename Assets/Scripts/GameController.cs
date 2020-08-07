@@ -125,12 +125,12 @@ public class GameController : MonoBehaviour
 	private IEnumerator FinishLevel()
 	{
 		// Mark level as complete
-		FindObjectOfType<LevelUnlockController>().CurrentLevel.CompleteLevel();
+		FindObjectOfType<LevelUnlockController>()?.CurrentLevel.CompleteLevel();
 
 		yield return new WaitForSecondsRealtime(.5f);
 
 		// Fade all non-recorded text
-		StartCoroutine(FindObjectOfType<Transcript>().FadeOutNonRecordedWords(1.5f));
+		StartCoroutine(FindObjectOfType<Transcript>()?.FadeOutNonRecordedWords(1.5f));
 
 		// Play the guilty recording
 		Player.Recording.PlayEndingAudioClip();

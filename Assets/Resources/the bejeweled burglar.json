@@ -12,26 +12,31 @@
     },
     {
       "ID": 2,
-      "Phrase": "steal that necklace. It looked like the one my mother gave me",
+      "Phrase": "steal that necklace. It looked",
       "Timestamp": 1.71
     },
     {
       "ID": 3,
+      "Phrase": "like the one my mother gave me",
+      "Timestamp": 3.87
+    },
+    {
+      "ID": 4,
       "Phrase": "but I was already wearing it, I swear!",
       "Timestamp": 6
     },
     {
-      "ID": 4,
+      "ID": 5,
       "Phrase": "I love that necklace with all my heart!",
       "Timestamp": 9
     },
     {
-      "ID": 5,
+      "ID": 6,
       "Phrase": "It’s not stolen!",
       "Timestamp": 11.89
     }
   ],
-  "Solution": [ 0, 2, 4 ],
+  "Solution": [ 0, 2, 3, 5 ],
   "Hints": [
     "I need her to take the fall for the theft.",
     "Why would she steal the necklace? I need a convincing reason.",

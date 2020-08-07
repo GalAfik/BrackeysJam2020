@@ -27,26 +27,46 @@
     },
     {
       "ID": 5,
-      "Phrase": "to see my wife. She's buried in the cemetery near there. You know, we got married fifty years ago on this very day. Let me tell you, that night",
+      "Phrase": "to see my wife.",
       "Timestamp": 3.65
     },
     {
       "ID": 6,
+      "Phrase": "She's buried in the cemetery near there.",
+      "Timestamp": 5.04
+    },
+    {
+      "ID": 7,
+      "Phrase": "You know, we got married",
+      "Timestamp": 7.79
+    },
+    {
+      "ID": 8,
+      "Phrase": "fifty years ago on this very day.",
+      "Timestamp": 9.03
+    },
+    {
+      "ID": 9,
+      "Phrase": "Let me tell you, that night",
+      "Timestamp": 12.22
+    },
+    {
+      "ID": 10,
       "Phrase": "the drinks were flowing,",
       "Timestamp": 13.00
     },
     {
-      "ID": 7,
+      "ID": 11,
       "Phrase": "my wife was beaming. Folks were generous,",
       "Timestamp": 14.8
     },
     {
-      "ID": 8,
+      "ID": 12,
       "Phrase": "and we left richer than we'd every been!",
       "Timestamp": 18.28
     }
   ],
-  "Solution": [ 0, 2, 4, 6, 8 ],
+  "Solution": [ 0, 2, 4, 10, 12 ],
   "Hints": [
     "I need to place the old man at the speakeasy.",
     "I need to pin the alcohol sale on the old man.",

@@ -2,41 +2,66 @@
   "Sentiments": [
     {
       "ID": 0,
-      "Phrase": "It was late at night, and I was",
+      "Phrase": "It was late at night,",
       "Timestamp": 0.91
     },
     {
       "ID": 1,
-      "Phrase": "in the office finishing up some paperwork for Mr. Davenshire.",
-      "Timestamp": 2.42
+      "Phrase": "and I was",
+      "Timestamp": 2.10
     },
     {
       "ID": 2,
+      "Phrase": "in the office",
+      "Timestamp": 2.42
+    },
+    {
+      "ID": 3,
+      "Phrase": "finishing up some paperwork for Mr. Davenshire.",
+      "Timestamp": 3.20
+    },
+    {
+      "ID": 4,
       "Phrase": "Out on the street",
       "Timestamp": 5.69
     },
     {
-      "ID": 3,
-      "Phrase": "I heard some gunshots, so I rushed to the window.",
+      "ID": 5,
+      "Phrase": "I heard some gunshots,",
       "Timestamp": 6.64
     },
     {
-      "ID": 4,
-      "Phrase": "There he was, lifeless at my feet. My",
+      "ID": 6,
+      "Phrase": "so I rushed to the window.",
+      "Timestamp": 8.05
+    },
+    {
+      "ID": 7,
+      "Phrase": "There he was,",
       "Timestamp": 9.84
     },
     {
-      "ID": 5,
+      "ID": 8,
+      "Phrase": "lifeless at my feet. My",
+      "Timestamp": 11.39
+    },
+    {
+      "ID": 9,
       "Phrase": "gosh, I couldn’t believe it,",
       "Timestamp": 13
     },
     {
-      "ID": 6,
-      "Phrase": "three bullets in his back.",
+      "ID": 10,
+      "Phrase": "three bullets",
       "Timestamp": 15.32
+    },
+    {
+      "ID": 11,
+      "Phrase": "in his back.",
+      "Timestamp": 15.94
     }
   ],
-  "Solution": [ 0, 2, 4, 6 ],
+  "Solution": [ 0, 1, 4, 7, 8, 10, 11 ],
   "Hints": [
     "I need it to seem like she shot Mr. Davenshire.",
     "I can combine phrases to form new sentences...",
