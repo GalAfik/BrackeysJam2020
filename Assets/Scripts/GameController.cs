@@ -38,6 +38,7 @@ public class GameController : MonoBehaviour
 
 		Player = Resources.Load<Player>("Player");
 		Player.Reset(Recording, true);
+		Player.AddListener(ReverseAudio);
 		Player.AddListener(OnSubmit);
 
 		// Set the UI phrases required textbox
@@ -60,45 +61,6 @@ public class GameController : MonoBehaviour
 		HandleInputs();
 	}
 
-	public void Exit()
-	{
-		// Fade out the theme
-		AudioManager AM = FindObjectOfType<AudioManager>();
-		StartCoroutine(AM.StartFade("level_theme", .5f, AM.GetInitialVolume("level_theme"), 0));
-		StartCoroutine(FadeRecording(.5f, 1, 0));
-
-		FindObjectOfType<FadeCanvas>().FadeOut();
-		// Exit to level select
-		Invoke("GoToLevelMenu", 1);
-	}
-
-	private IEnumerator FadeRecording(float duration, float startVolume, float targetVolume)
-	{
-		float currentTime = 0;
-		AudioSource audioSource = Player.Recording.AudioSource;
-		float start = startVolume;
-
-		while (currentTime < duration)
-		{
-			currentTime += Time.deltaTime;
-			audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
-			yield return null;
-		}
-
-		yield break;
-	}
-
-	private void GoToLevelMenu()
-    {
-		MenuController menuController = FindObjectOfType<MenuController>();
-		menuController.SetState(menuController.LevelsState);
-		SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(gameObject.scene.name));
-		Menu.transform.position = new Vector3(0, 0, 0);
-		Menu.transform.Find("UI").GetComponent<Canvas>().enabled = true;
-		FindObjectOfType<FadeCanvas>()?.FadeIn();
-		menuController.ReturnToMenu();
-	}
-
 	private void HandleInputs()
 	{
 		if (Input.GetButtonDown("Exit")) Exit();
@@ -114,6 +76,17 @@ public class GameController : MonoBehaviour
 		if (Input.GetButtonUp("Record")) Player.Record();
 		if (Input.GetButtonDown("Submit")) Player.Submit();
 		if (Input.GetButtonDown("FastForward")) Player.FastForward(true);
+	}
+
+	private void ReverseAudio(PlayerState newState, PlayerState oldState)
+    {
+		AudioManager AM = FindObjectOfType<AudioManager>();
+		if (newState == PlayerState.Rewinding)
+        {
+			AM.SetAudioPitch("level_theme", -1);
+			return;
+		}
+		AM.SetAudioPitch("level_theme", 1);
 	}
 
 	private void OnSubmit(PlayerState newState, PlayerState oldState)
@@ -174,5 +147,46 @@ public class GameController : MonoBehaviour
 
 		// Go back to the level select screen
 		Exit();
+	}
+
+
+	private void Exit()
+	{
+		// Fade out the theme
+		AudioManager AM = FindObjectOfType<AudioManager>();
+		AM.SetAudioPitch("level_theme", 1);
+		StartCoroutine(AM.StartFade("level_theme", .5f, AM.GetInitialVolume("level_theme"), 0));
+		StartCoroutine(FadeRecording(.5f, 1, 0));
+
+		FindObjectOfType<FadeCanvas>().FadeOut();
+		// Exit to level select
+		Invoke("GoToLevelMenu", 1);
+	}
+
+	private IEnumerator FadeRecording(float duration, float startVolume, float targetVolume)
+	{
+		float currentTime = 0;
+		AudioSource audioSource = Player.Recording.AudioSource;
+		float start = startVolume;
+
+		while (currentTime < duration)
+		{
+			currentTime += Time.deltaTime;
+			audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+			yield return null;
+		}
+
+		yield break;
+	}
+
+	private void GoToLevelMenu()
+	{
+		MenuController menuController = FindObjectOfType<MenuController>();
+		menuController.SetState(menuController.LevelsState);
+		SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(gameObject.scene.name));
+		Menu.transform.position = new Vector3(0, 0, 0);
+		Menu.transform.Find("UI").GetComponent<Canvas>().enabled = true;
+		FindObjectOfType<FadeCanvas>()?.FadeIn();
+		menuController.ReturnToMenu();
 	}
 }
