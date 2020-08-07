@@ -56,6 +56,12 @@ public class GameController : MonoBehaviour
 		Player.State = PlayerState.Demo;
 	}
 
+	public void PlayButtonSound()
+    {
+		AudioManager AM = FindObjectOfType<AudioManager>();
+		AM.Play(Sound.Category.Button);
+	}
+
 	private void Update()
 	{
 		HandleInputs();
@@ -64,19 +70,27 @@ public class GameController : MonoBehaviour
 	private void HandleInputs()
 	{
 		if (Input.GetButtonDown("Exit")) Exit();
-		if (Input.GetButtonUp("FastForward")) Player.Play();
 
 		if (Player.State == PlayerState.Demo ||
 			Player.State == PlayerState.Off ||
 			Player.State == PlayerState.Submitted) return;
 
 		if (Input.GetButtonDown("Play")) Player.Play();
-		if (Input.GetButtonDown("Rewind")) Player.Rewind();
-		if (Input.GetButtonUp("Rewind")) Player.Play();
 		if (Input.GetButtonDown("Record")) Player.Record();
 		if (Input.GetButtonUp("Record")) Player.Record();
-		if (Input.GetButtonDown("Submit")) Player.Submit();
+		if (Input.GetButtonDown("Rewind")) Player.Rewind();
+		if (Input.GetButtonUp("Rewind")) Player.Play();
 		if (Input.GetButtonDown("FastForward")) Player.FastForward();
+		if (Input.GetButtonUp("FastForward")) Player.Play();
+		if (Input.GetButtonDown("Submit")) Player.Submit();
+
+		if (Input.GetButtonDown("Play") ||
+			Input.GetButtonDown("Record") ||
+			Input.GetButtonUp("Record") ||
+			Input.GetButtonDown("Rewind") ||
+			Input.GetButtonUp("Rewind") ||
+			Input.GetButtonDown("FastForward") ||
+			Input.GetButtonUp("FastForward")) PlayButtonSound();
 	}
 
 	private void ReverseAudio(PlayerState newState, PlayerState oldState)
