@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public interface IMenuState
 {
@@ -58,6 +59,16 @@ public class MenuController : MonoBehaviour
 
 	public Animator MenuAnimator;
 
+	public Texture SoundOnSprite;
+	public Texture SoundOffSprite;
+
+	public RawImage ToggleMusicIcon;
+	private bool Music = true;
+	public RawImage ToggleSFXIcon;
+	private bool SFX = true;
+	public RawImage ToggleSpeechIcon;
+	private bool Speech = true;
+
 	private void Start()
 	{
 		// Set the initial state
@@ -109,9 +120,25 @@ public class MenuController : MonoBehaviour
 		Application.Quit();
 	}
 
-	public static void ToggleMuteMusic()
+	public void ToggleMusic()
 	{
+		Music = !Music;
+		ToggleMusicIcon.texture = (Music ? SoundOnSprite : SoundOffSprite);
+		FindObjectOfType<AudioManager>().ToggleMusic();
+	}
 
+	public void ToggleSFX()
+	{
+		SFX = !SFX;
+		ToggleSFXIcon.texture = (SFX ? SoundOnSprite : SoundOffSprite);
+		FindObjectOfType<AudioManager>().ToggleSFX();
+	}
+
+	public void ToggleSpeech()
+	{
+		Speech = !Speech;
+		ToggleSpeechIcon.texture = (Speech ? SoundOnSprite : SoundOffSprite);
+		FindObjectOfType<AudioManager>().ToggleSpeech();
 	}
 
 	public void Website()
