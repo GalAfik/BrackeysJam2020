@@ -91,7 +91,7 @@ public class AudioManager : MonoBehaviour
 		if (matchingSounds.Length <= 0) return null;
 
 		// Pick a sound at random
-		int randomIndex = UnityEngine.Random.Range(0, matchingSounds.Length - 1);
+		int randomIndex = UnityEngine.Random.Range(0, matchingSounds.Length);
 		return matchingSounds[randomIndex];
 	}
 
@@ -165,7 +165,7 @@ public class AudioManager : MonoBehaviour
 	{
 		// Pick a random audio track to fade in/out
 		Sound[] soundsMatchingCategory = Sounds.Where(sound => sound.soundCategory == category).ToArray();
-		int randomIndex = UnityEngine.Random.Range(0, soundsMatchingCategory.Length - 1);
+		int randomIndex = UnityEngine.Random.Range(0, soundsMatchingCategory.Length);
 
 		if (isFadeIn)
 		{
