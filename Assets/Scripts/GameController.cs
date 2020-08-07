@@ -79,10 +79,7 @@ public class GameController : MonoBehaviour
 		Menu.transform.position = new Vector3(0, 0, 0);
 		Menu.transform.Find("UI").GetComponent<Canvas>().enabled = true;
 		FindObjectOfType<FadeCanvas>()?.FadeIn();
-
-		// Fade in the theme
-		AudioManager AM = FindObjectOfType<AudioManager>();
-		StartCoroutine(AM.StartFade("title_theme", .5f, 0, AM.GetInitialVolume("title_theme")));
+		menuController.ReturnToMenu();
 	}
 
 	private void HandleInputs()
