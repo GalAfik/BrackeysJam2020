@@ -79,6 +79,13 @@ public class MenuController : MonoBehaviour
 		StartCoroutine(AM.StartFade("title_theme", .5f, 0, AM.GetInitialVolume("title_theme")));
 	}
 
+	public void ReturnToMenu()
+    {
+		// Fade in the theme
+		AudioManager AM = FindObjectOfType<AudioManager>();
+		StartCoroutine(AM.StartFade("title_theme", .5f, 0, AM.GetInitialVolume("title_theme")));
+	}
+
 	public void SetState(IMenuState state)
 	{
 		CurrentState?.Exit(MenuAnimator);
