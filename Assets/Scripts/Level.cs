@@ -9,7 +9,7 @@ public class Level : MonoBehaviour
 {
 	public int NumberNeededToUnlock = 1;
 	public bool Locked { get; set; }
-	public bool Completed;// { get; private set; }
+	public bool Completed { get; private set; }
 	public TMP_Text CaptionLabel;
 	public string Caption;
 	public string UnlockedCaption;

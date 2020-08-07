@@ -770,10 +770,52 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 481617732, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 481617732, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Caption, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 481617732, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 481617732, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 515731130, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1071913930}
+    - target: {fileID: 967867429, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+      propertyPath: m_Name
+      value: Press Rewind
+      objectReference: {fileID: 0}
+    - target: {fileID: 967867432, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+      propertyPath: m_text
+      value: 'Hold
+
+        Rewind'
+      objectReference: {fileID: 0}
+    - target: {fileID: 479960092069101796, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 479960092069101796, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Player, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 479960092069101796, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 479960092069101796, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 479960093434400258, guid: ee5c5d08b1dbc4a4ab6efd0c72d5db7c, type: 3}
       propertyPath: m_Name
       value: UI

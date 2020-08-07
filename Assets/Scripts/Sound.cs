@@ -6,7 +6,7 @@ using UnityEngine;
 public class Sound
 {
 	public string name;
-	public enum Category { Theme, Button, MenuButton, Tape, Cat, LevelTheme }
+	public enum Category { Theme, Button, MenuButton, Tape, Cat, LevelTheme, Pop }
 	public Category soundCategory;
 
 	public AudioClip clip;
