@@ -2,111 +2,107 @@
   "Sentiments": [
     {
       "ID": 0,
-      "Phrase": "My sister was wrongly accused!",
+      "Phrase": "My sister was wrongly accused! You know",
       "Timestamp": 0.99
     },
     {
       "ID": 1,
-      "Phrase": "You know",
-      "Timestamp": 2.97
-    },
-    {
-      "ID": 2,
       "Phrase": "as well as I do,",
       "Timestamp": 3.35
     },
     {
-      "ID": 3,
+      "ID": 2,
       "Phrase": "she didn't kill him.",
       "Timestamp": 4.3
     },
     {
-      "ID": 4,
+      "ID": 3,
       "Phrase": "she wasn't even around him when it happened.",
       "Timestamp": 5.93
     },
     {
-      "ID": 5,
+      "ID": 4,
       "Phrase": "You better get",
       "Timestamp": 8
     },
     {
-      "ID": 6,
+      "ID": 5,
       "Phrase": "your facts right, and let",
       "Timestamp": 8.64
     },
     {
-      "ID": 7,
+      "ID": 6,
       "Phrase": "her off the hook.",
       "Timestamp": 9.91
     },
     {
-      "ID": 8,
+      "ID": 7,
       "Phrase": "If you don't",
       "Timestamp": 11.23
     },
     {
-      "ID": 9,
+      "ID": 8,
       "Phrase": "help her, she will go to jail.",
       "Timestamp": 11.67
     },
     {
-      "ID": 10,
+      "ID": 9,
       "Phrase": "You don't",
       "Timestamp": 13.72
     },
     {
-      "ID": 11,
+      "ID": 10,
       "Phrase": "want anyone",
       "Timestamp": 13.96
     },
     {
-      "ID": 12,
+      "ID": 11,
       "Phrase": "innocent behind bars,",
       "Timestamp": 14.72
     },
     {
-      "ID": 13,
+      "ID": 12,
       "Phrase": "do you?",
       "Timestamp": 15.98
     },
     {
-      "ID": 14,
+      "ID": 13,
       "Phrase": "Knowing",
       "Timestamp": 16.68
     },
     {
-      "ID": 15,
+      "ID": 14,
       "Phrase": "you and",
       "Timestamp": 17.2
     },
     {
-      "ID": 16,
+      "ID": 15,
       "Phrase": "your",
       "Timestamp": 17.4
     },
     {
-      "ID": 17,
+      "ID": 16,
       "Phrase": "friends on the force, there must be some",
       "Timestamp": 17.8
     },
     {
-      "ID": 18,
+      "ID": 17,
       "Phrase": "secret",
       "Timestamp": 19.8
     },
     {
-      "ID": 19,
+      "ID": 18,
       "Phrase": "to freeing her.",
       "Timestamp": 20.43
     }
   ],
-  "Solution": [ 1, 5, 7, 8, 11, 14, 16, 18 ],
+  "Solution": [ 4, 6, 7, 10, 13, 15, 17 ],
   "Hints": [
     "I need to make him sound like he's threatening me.",
     "Is this guy threatening me?",
     "Maybe he should threaten to reveal my secret?",
-    "Let's not mention his sister's innocence."
+    "Let's not mention his sister's innocence.",
+    "This could be tough. I'll have to switch quickly."
   ],
   "FailureMessages": [
     "No, no! I need to try again.",

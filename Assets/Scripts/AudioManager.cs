@@ -1,71 +1,141 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine.Audio;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using System;
+using System.Linq;
 
 public class AudioManager : MonoBehaviour
 {
-	public AudioClip BackgroundTrack;
-	public AudioClip[] ButtonSFX;
-	public AudioClip[] TapeSFX;
-	public AudioClip[] CatSFX;
+	public Sound[] Sounds;
+	public static AudioManager Instance;
 
-	public enum SFX { Button, Tape, Cat }
+	private Player Player;
+	[HideInInspector]
+	public bool SpeechEnabled = true;
 
-	private AudioSource BackgroundAudioSource;
-	private AudioSource SFXAudioSource;
+	private int CatCount;
+
+	private void Awake()
+	{
+		// Persistent
+		if (Instance == null) Instance = this;
+		else
+		{
+			Destroy(gameObject);
+			return;
+		}
+
+		// Create an audio source for each sound
+		foreach (Sound sound in Sounds)
+		{
+			sound.source = gameObject.AddComponent<AudioSource>();
+			sound.source.clip = sound.clip;
+			sound.source.volume = sound.volume;
+			sound.source.pitch = sound.pitch;
+			sound.source.loop = sound.loop;
+			sound.source.mute = sound.mute;
+		}
+	}
 
 	private void Start()
 	{
-		BackgroundAudioSource = new AudioSource();
-		SFXAudioSource = new AudioSource();
+		Player = Resources.Load<Player>("Player");
+		Player.AddListener(OnStateChange);
+
+		Play("Theme");
 	}
 
-	public void Play(SFX soundEffect)
+	public void Play(string name)
 	{
-		try
+		Sound sound = Array.Find(Sounds, s => s.name == name);
+		if (sound == null)
 		{
-			int randomIndex;
-			switch (soundEffect)
+			Debug.Log("Sound: " + name + " not found!");
+			return;
+		}
+		sound?.source.Play();
+	}
+
+	public void Play(Sound.Category category)
+	{
+		// Play a special cat sound on every fourth click
+		if (category == Sound.Category.Cat)
+			CatCount++;
+		if (CatCount >= UnityEngine.Random.Range(4, 6))
+		{
+			Play("cat9");
+			CatCount = 0;
+		}
+		else
+		{
+			// Cat mode
+			if (FindObjectOfType<Catvas>().Cat)
 			{
-				case SFX.Button:
-					randomIndex = Random.Range(0, ButtonSFX.Length - 1);
-					AudioSource.PlayClipAtPoint(ButtonSFX[randomIndex], Camera.main.transform.position);
-					break;
-
-				case SFX.Tape:
-					randomIndex = Random.Range(0, TapeSFX.Length - 1);
-					AudioSource.PlayClipAtPoint(TapeSFX[randomIndex], Camera.main.transform.position);
-					break;
-
-				case SFX.Cat:
-					randomIndex = Random.Range(0, CatSFX.Length - 1);
-					AudioSource.PlayClipAtPoint(CatSFX[randomIndex], Camera.main.transform.position);
-					break;
+				// Make all button presses cat sounds
+				if (category == Sound.Category.Button ||
+					category == Sound.Category.MenuButton)
+				{
+					category = Sound.Category.Cat;
+				}
 			}
-		}
-		catch (System.Exception)
-		{
-			throw;
+			// Play sounds normally
+			Play(GetRandomSound(category).name);
 		}
 	}
 
-	public void PlayMusic()
+	private Sound GetRandomSound(Sound.Category category)
 	{
-		AudioSource.PlayClipAtPoint(BackgroundTrack, Camera.main.transform.position);
+		// Get all sounds that match the category
+		Sound[] matchingSounds = Sounds.Where(sound => sound.soundCategory == category).ToArray();
+
+		if (matchingSounds.Length <= 0) return null;
+
+		// Pick a sound at random
+		int randomIndex = UnityEngine.Random.Range(0, matchingSounds.Length - 1);
+		return matchingSounds[randomIndex];
+	}
+
+	private void OnStateChange(PlayerState newState, PlayerState oldState)
+	{
+		if (newState == PlayerState.Demo ||
+			newState == PlayerState.Ready ||
+			newState == PlayerState.Done)
+		{
+			Play(Sound.Category.Tape);
+		}
+		else
+		{
+			// TODO
+		}
 	}
 
 	public void ToggleMusic()
 	{
-		BackgroundAudioSource.mute = !BackgroundAudioSource.mute;
+		foreach (Sound sound in Sounds)
+		{
+			if (sound.soundCategory == Sound.Category.Theme)
+			{
+				sound.mute = !sound.mute;
+				sound.source.mute = sound.mute;
+				if (sound.source.isPlaying) sound.source.Pause();
+				else sound.source.UnPause();
+			}
+		}
 	}
 
 	public void ToggleSFX()
 	{
-		SFXAudioSource.mute = !SFXAudioSource.mute;
+		foreach (Sound sound in Sounds)
+		{
+			if (sound.soundCategory == Sound.Category.Button ||
+				sound.soundCategory == Sound.Category.Cat)
+				sound.mute = !sound.mute;
+		}
 	}
 
 	public void ToggleSpeech()
 	{
-		//BackgroundAudioSource.mute = !BackgroundAudioSource.mute;
+		SpeechEnabled = !SpeechEnabled;
 	}
 }

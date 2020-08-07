@@ -173,6 +173,9 @@ public class Recording : MonoBehaviour
 		AudioSource.timeSamples = AudioSource.timeSamples;
 		if (Player.State == PlayerState.Playing) AudioSource.pitch = 1;
 		else if (Player.State == PlayerState.FastForward) AudioSource.pitch = FastForwardSpeed;
+		// Mute the speech source if required
+		AudioSource.mute = !FindObjectOfType<AudioManager>().SpeechEnabled;
+		// Play the speech recording
 		AudioSource.Play();
 	}
 
@@ -185,6 +188,8 @@ public class Recording : MonoBehaviour
 	{
 		AudioSource.timeSamples = AudioSource.timeSamples == 0 ? AudioSource.clip.samples - 1 : AudioSource.timeSamples;
 		AudioSource.pitch = -AudioReverseSpeed;
+		// Mute the speech source if required
+		AudioSource.mute = !FindObjectOfType<AudioManager>().SpeechEnabled;
 		AudioSource.Play();
 	}
 
@@ -192,6 +197,8 @@ public class Recording : MonoBehaviour
 	{
 		if (AudioClip != null) GetComponent<AudioSource>().clip = EndingAudioClip;
 		AudioSource.timeSamples = 0;
+		// Mute the speech source if required
+		AudioSource.mute = !FindObjectOfType<AudioManager>().SpeechEnabled;
 		AudioSource.Play();
 	}
 }

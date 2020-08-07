@@ -8,14 +8,15 @@ public class Catvas : MonoBehaviour
 	public GameObject ObjectToShow;
 	public GameObject ObjectToHide;
 
-	private bool Cat = false;
+	[HideInInspector]
+	public bool Cat = false;
 
     public void ToggleCat()
 	{
 		Cat = !Cat;
 		GetComponent<Animator>().SetBool("Cat", Cat);
 		// Play Cat sound
-		if (Cat) FindObjectOfType<AudioManager>().Play(AudioManager.SFX.Cat);
+		if (Cat) FindObjectOfType<AudioManager>().Play(Sound.Category.Cat);
 
 		// Display/Hide taglines
 		ObjectToShow?.SetActive(Cat);

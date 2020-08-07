@@ -70,13 +70,13 @@ public class Player : ScriptableObject
 		State = PlayerState.Rewinding;
 	}
 
-	public void FastForward()
+	public void FastForward(bool enabled)
 	{
-		if (State == PlayerState.Playing)
+		if (State == PlayerState.Playing && enabled)
 		{
 			State = PlayerState.FastForward;
 		}
-		else if (State == PlayerState.FastForward)
+		else if (State == PlayerState.FastForward && !enabled)
 		{
 			State = PlayerState.Playing;
 		}
@@ -85,8 +85,6 @@ public class Player : ScriptableObject
 	public void Record()
 	{
 		IsRecording = !IsRecording;
-		// Set the UI number of phrases recorded
-		FindObjectOfType<GameUserInterface>().SetPhrasesRecordedText();
 	}
 
 	public void Submit()
