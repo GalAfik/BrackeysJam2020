@@ -8313,7 +8313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7947050659554206105, guid: e82359e101d2c414c9a9db8cdcc4f481, type: 3}
       propertyPath: Sounds.Array.size
-      value: 21
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 7947050659554206105, guid: e82359e101d2c414c9a9db8cdcc4f481, type: 3}
       propertyPath: Sounds.Array.data[12].name
@@ -8393,7 +8393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7947050659554206105, guid: e82359e101d2c414c9a9db8cdcc4f481, type: 3}
       propertyPath: Sounds.Array.data[17].soundCategory
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7947050659554206105, guid: e82359e101d2c414c9a9db8cdcc4f481, type: 3}
       propertyPath: Sounds.Array.data[17].clip
@@ -8469,6 +8469,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7947050659554206105, guid: e82359e101d2c414c9a9db8cdcc4f481, type: 3}
       propertyPath: Sounds.Array.data[20].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947050659554206105, guid: e82359e101d2c414c9a9db8cdcc4f481, type: 3}
+      propertyPath: Sounds.Array.data[21].name
+      value: menu_button1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947050659554206105, guid: e82359e101d2c414c9a9db8cdcc4f481, type: 3}
+      propertyPath: Sounds.Array.data[21].soundCategory
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947050659554206105, guid: e82359e101d2c414c9a9db8cdcc4f481, type: 3}
+      propertyPath: Sounds.Array.data[21].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 427c786944377844b935b1ec63f80842, type: 3}
+    - target: {fileID: 7947050659554206105, guid: e82359e101d2c414c9a9db8cdcc4f481, type: 3}
+      propertyPath: Sounds.Array.data[21].volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947050659554206105, guid: e82359e101d2c414c9a9db8cdcc4f481, type: 3}
+      propertyPath: Sounds.Array.data[21].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947050659554206105, guid: e82359e101d2c414c9a9db8cdcc4f481, type: 3}
+      propertyPath: Sounds.Array.data[22].name
+      value: menu_button2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947050659554206105, guid: e82359e101d2c414c9a9db8cdcc4f481, type: 3}
+      propertyPath: Sounds.Array.data[22].soundCategory
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947050659554206105, guid: e82359e101d2c414c9a9db8cdcc4f481, type: 3}
+      propertyPath: Sounds.Array.data[22].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 62d39ef9db91c464d82bf312367b5a27, type: 3}
+    - target: {fileID: 7947050659554206105, guid: e82359e101d2c414c9a9db8cdcc4f481, type: 3}
+      propertyPath: Sounds.Array.data[22].volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947050659554206105, guid: e82359e101d2c414c9a9db8cdcc4f481, type: 3}
+      propertyPath: Sounds.Array.data[22].pitch
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
