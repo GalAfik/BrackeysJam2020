@@ -72,7 +72,8 @@ public class AudioManager : MonoBehaviour
 			{
 				// Make all button presses cat sounds
 				if (category == Sound.Category.Button ||
-					category == Sound.Category.MenuButton)
+					category == Sound.Category.MenuButton ||
+					category == Sound.Category.Pop)
 				{
 					category = Sound.Category.Cat;
 				}
@@ -96,15 +97,12 @@ public class AudioManager : MonoBehaviour
 
 	private void OnStateChange(PlayerState newState, PlayerState oldState)
 	{
+		// Play the tape sound at the start and end of each recording
 		if (newState == PlayerState.Demo ||
 			newState == PlayerState.Ready ||
 			newState == PlayerState.Done)
 		{
 			Play(Sound.Category.Tape);
-		}
-		else
-		{
-			// TODO
 		}
 	}
 
@@ -112,12 +110,18 @@ public class AudioManager : MonoBehaviour
 	{
 		foreach (Sound sound in Sounds)
 		{
-			if (sound.soundCategory == Sound.Category.Theme)
+			if (sound.soundCategory == Sound.Category.Theme ||
+				sound.soundCategory == Sound.Category.LevelTheme)
 			{
 				sound.mute = !sound.mute;
 				sound.source.mute = sound.mute;
-				if (sound.source.isPlaying) sound.source.Pause();
-				else sound.source.UnPause();
+			}
+
+			// Pause / Play the song
+			if (sound.soundCategory == Sound.Category.Theme)
+			{
+				if (sound.mute) sound.source.Pause();
+				else sound.source.Play();
 			}
 		}
 	}
@@ -127,7 +131,10 @@ public class AudioManager : MonoBehaviour
 		foreach (Sound sound in Sounds)
 		{
 			if (sound.soundCategory == Sound.Category.Button ||
+				sound.soundCategory == Sound.Category.MenuButton ||
+				sound.soundCategory == Sound.Category.Pop ||
 				sound.soundCategory == Sound.Category.Cat)
+
 				sound.mute = !sound.mute;
 		}
 	}
