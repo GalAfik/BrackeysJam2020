@@ -82,6 +82,16 @@ public class AudioManager : MonoBehaviour
 		}
 	}
 
+	public void PlayButtonSound()
+	{
+		Play(Sound.Category.Button);
+	}
+
+	public void PlayMenuButtonSound()
+	{
+		Play(Sound.Category.MenuButton);
+	}
+
 	private Sound GetRandomSound(Sound.Category category)
 	{
 		// Get all sounds that match the category

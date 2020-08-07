@@ -59,7 +59,13 @@ public class GameController : MonoBehaviour
 	public void PlayButtonSound()
     {
 		AudioManager AM = FindObjectOfType<AudioManager>();
-		AM.Play(Sound.Category.Button);
+		AM.PlayButtonSound();
+	}
+
+	public void PlayMenuButtonSound()
+	{
+		AudioManager AM = FindObjectOfType<AudioManager>();
+		AM.PlayMenuButtonSound();
 	}
 
 	private void Update()
@@ -91,6 +97,7 @@ public class GameController : MonoBehaviour
 			Input.GetButtonUp("Rewind") ||
 			Input.GetButtonDown("FastForward") ||
 			Input.GetButtonUp("FastForward")) PlayButtonSound();
+		if (Input.GetButtonDown("Submit")) PlayMenuButtonSound();
 	}
 
 	private void ReverseAudio(PlayerState newState, PlayerState oldState)
