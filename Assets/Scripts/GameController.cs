@@ -65,10 +65,27 @@ public class GameController : MonoBehaviour
 		// Fade out the theme
 		AudioManager AM = FindObjectOfType<AudioManager>();
 		StartCoroutine(AM.StartFade("level_theme", .5f, AM.GetInitialVolume("level_theme"), 0));
+		StartCoroutine(FadeRecording(.5f, 1, 0));
 
 		FindObjectOfType<FadeCanvas>().FadeOut();
 		// Exit to level select
 		Invoke("GoToLevelMenu", 1);
+	}
+
+	private IEnumerator FadeRecording(float duration, float startVolume, float targetVolume)
+	{
+		float currentTime = 0;
+		AudioSource audioSource = Player.Recording.AudioSource;
+		float start = startVolume;
+
+		while (currentTime < duration)
+		{
+			currentTime += Time.deltaTime;
+			audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+			yield return null;
+		}
+
+		yield break;
 	}
 
 	private void GoToLevelMenu()
