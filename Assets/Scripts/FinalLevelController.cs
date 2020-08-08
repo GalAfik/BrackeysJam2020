@@ -48,6 +48,12 @@ public class FinalLevelController : MonoBehaviour
 		MenuController menuController = FindObjectOfType<MenuController>();
 		menuController.SetState(menuController.TitleState);
 		yield return new WaitForSeconds(.5f);
+
+		// Fade in the theme
+		AudioManager AM = FindObjectOfType<AudioManager>();
+		AM.StartFade(Sound.Category.Theme, .5f, true);
+
+		// Destroy this level
 		SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(gameObject.scene.name));
 		Menu.transform.position = new Vector3(0, 0, 0);
 
