@@ -21,6 +21,7 @@ public class Recording : MonoBehaviour
 
 	public string LevelResource;
 	public AudioClip AudioClip;
+	public AudioClip ReverseClip;
 	public AudioClip EndingAudioClip;
 
 	[HideInInspector]
@@ -121,7 +122,12 @@ public class Recording : MonoBehaviour
 	{
 		for (int i = Sentiments.Length; i-- > 0;)
 		{
-			if (AudioSource.time >= Sentiments[i].Timestamp)
+			float currentTime = AudioSource.time;
+			if (Player.State == PlayerState.Rewinding)
+            {
+				currentTime = AudioSource.clip.length - currentTime;
+            }
+			if (currentTime >= Sentiments[i].Timestamp)
 			{
 				return i;
 			}
@@ -136,6 +142,21 @@ public class Recording : MonoBehaviour
 
 	private void ControlAudio(PlayerState newState, PlayerState oldState)
     {
+		if (newState == PlayerState.Rewinding)
+        {
+			int current = AudioSource.clip.samples - AudioSource.timeSamples;
+			GetComponent<AudioSource>().clip = ReverseClip;
+			AudioSource.timeSamples = current;
+			AudioSource.pitch = AudioReverseSpeed;
+		}
+		else if (oldState == PlayerState.Rewinding)
+        {
+			int current = AudioSource.clip.samples - AudioSource.timeSamples;
+			GetComponent<AudioSource>().clip = AudioClip;
+			AudioSource.timeSamples = current;
+			AudioSource.pitch = 1;
+		}
+
 		if (newState == PlayerState.Demo ||
 			newState == PlayerState.Playing ||
 			newState == PlayerState.FastForward)
@@ -158,8 +179,8 @@ public class Recording : MonoBehaviour
 
 	private void Play()
 	{
-        AudioSource.timeSamples = AudioSource.timeSamples;
-        if (Player.State == PlayerState.Playing) AudioSource.pitch = 1;
+		AudioSource.timeSamples = AudioSource.timeSamples;
+		if (Player.State == PlayerState.Playing) AudioSource.pitch = 1;
 		else if (Player.State == PlayerState.FastForward) AudioSource.pitch = FastForwardSpeed;
 		// Mute the speech source if required
 		AudioSource.mute = !FindObjectOfType<AudioManager>().SpeechEnabled;
@@ -176,8 +197,6 @@ public class Recording : MonoBehaviour
 	{
 		// Mute the speech source if required
 		AudioSource.mute = !FindObjectOfType<AudioManager>().SpeechEnabled;
-        AudioSource.timeSamples = AudioSource.timeSamples;
-        AudioSource.pitch = -AudioReverseSpeed;
 		AudioSource.Play();
 	}
 

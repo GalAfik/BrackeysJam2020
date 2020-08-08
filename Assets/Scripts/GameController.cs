@@ -38,7 +38,6 @@ public class GameController : MonoBehaviour
 
 		Player = Resources.Load<Player>("Player");
 		Player.Reset(Recording, true);
-		Player.AddListener(ReverseAudio);
 		Player.AddListener(OnSubmit);
 
 		// Set the UI phrases required textbox
@@ -98,17 +97,6 @@ public class GameController : MonoBehaviour
 			Input.GetButtonDown("FastForward") ||
 			Input.GetButtonUp("FastForward")) PlayButtonSound();
 		if (Input.GetButtonDown("Submit")) PlayMenuButtonSound();
-	}
-
-	private void ReverseAudio(PlayerState newState, PlayerState oldState)
-    {
-		AudioManager AM = FindObjectOfType<AudioManager>();
-		if (newState == PlayerState.Rewinding)
-        {
-			AM.SetAudioPitch(Sound.Category.LevelTheme, -1);
-			return;
-		}
-		AM.SetAudioPitch(Sound.Category.LevelTheme, 1);
 	}
 
 	private void OnSubmit(PlayerState newState, PlayerState oldState)
