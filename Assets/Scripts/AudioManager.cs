@@ -146,8 +146,11 @@ public class AudioManager : MonoBehaviour
 				sound.soundCategory == Sound.Category.MenuButton ||
 				sound.soundCategory == Sound.Category.Pop ||
 				sound.soundCategory == Sound.Category.Cat)
-
+			{
 				sound.mute = !sound.mute;
+				sound.source.mute = sound.mute;
+			}
+
 		}
 	}
 

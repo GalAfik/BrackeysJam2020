@@ -5921,6 +5921,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 844825207269260905, guid: 286db7731ffbbaf4db2c605a22e2534d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -220
+      objectReference: {fileID: 0}
     - target: {fileID: 844825207903766496, guid: 286db7731ffbbaf4db2c605a22e2534d, type: 3}
       propertyPath: ObjectToShow
       value: 
@@ -6312,6 +6316,10 @@ PrefabInstance:
     - target: {fileID: 1570212188948172869, guid: 90a19a5ac42300b48ad0add28914e70a, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1570212188948172869, guid: 90a19a5ac42300b48ad0add28914e70a, type: 3}
+      propertyPath: m_Sprite
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3747202795681524839, guid: 90a19a5ac42300b48ad0add28914e70a, type: 3}
       propertyPath: m_ReferenceResolution.x
