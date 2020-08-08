@@ -45,23 +45,23 @@ public class Recording : MonoBehaviour
 
 	private void Update()
 	{
-		Sentiment sentiment = GetCurrentSentiment();
+		int sentimentIndex = GetCurrentSentiment();
 
 		switch (Player.State)
 		{
 			case PlayerState.Demo:
-				if (sentiment != null)
+				if (sentimentIndex >= 0)
 				{
-					sentiment.Demoed = true;
+					Sentiments[sentimentIndex].Demoed = true;
 				}
 				goto case PlayerState.Playing;
 
 			case PlayerState.FastForward:
 			case PlayerState.Playing:
-				if (sentiment != null)
+				if (sentimentIndex >= 0)
 				{
-					sentiment.Played = true;
-					sentiment.Recorded = sentiment.Recorded || Player.IsRecording;
+					Sentiments[sentimentIndex].Played = true;
+					Sentiments[sentimentIndex].Recorded = Sentiments[sentimentIndex].Recorded || Player.IsRecording;
 				}
 
 				if (!IsAudioSourcePlaying())
@@ -73,10 +73,13 @@ public class Recording : MonoBehaviour
 				break;
 
 			case PlayerState.Rewinding:
-				if (sentiment != null)
+				if (sentimentIndex >= 0)
 				{
-					sentiment.Played = false;
-					sentiment.Recorded = false;
+					for (int i = sentimentIndex; i < Sentiments.Length; i++)
+					{
+						Sentiments[sentimentIndex].Played = false;
+						Sentiments[sentimentIndex].Recorded = false;
+					}
 				}
 
 				if (!IsAudioSourcePlaying())
@@ -114,16 +117,16 @@ public class Recording : MonoBehaviour
 		gameObject.SetActive(false);
 	}
 
-	private Sentiment GetCurrentSentiment()
+	private int GetCurrentSentiment()
 	{
 		for (int i = Sentiments.Length; i-- > 0;)
 		{
 			if (AudioSource.time >= Sentiments[i].Timestamp)
 			{
-				return Sentiments[i];
+				return i;
 			}
 		}
-		return null;
+		return -1;
 	}
 
 	private bool IsAudioSourcePlaying()

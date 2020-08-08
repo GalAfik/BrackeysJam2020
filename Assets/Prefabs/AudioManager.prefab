@@ -153,9 +153,9 @@ MonoBehaviour:
     loop: 0
     mute: 0
     source: {fileID: 0}
-  - name: theme
+  - name: title_theme
     soundCategory: 0
-    clip: {fileID: 8300000, guid: ac2594556af0e6c428d0857d808a84d4, type: 3}
+    clip: {fileID: 8300000, guid: dd7a8b877aa07b546b9fde5ed701cbcd, type: 3}
     volume: 0.2
     pitch: 1
     loop: 1
@@ -169,12 +169,76 @@ MonoBehaviour:
     loop: 0
     mute: 0
     source: {fileID: 0}
-  - name: level_theme
-    soundCategory: 0
-    clip: {fileID: 8300000, guid: 2032838aaf282954cb3cd0d153df9066, type: 3}
+  - name: level_theme1
+    soundCategory: 5
+    clip: {fileID: 8300000, guid: 3d74501478a37bc42b4842a284ea3748, type: 3}
     volume: 0.55
     pitch: 1
     loop: 1
+    mute: 0
+    source: {fileID: 0}
+  - name: level_theme2
+    soundCategory: 5
+    clip: {fileID: 8300000, guid: c56433f68865c444ba290f124af50479, type: 3}
+    volume: 0.55
+    pitch: 1
+    loop: 1
+    mute: 0
+    source: {fileID: 0}
+  - name: level_theme3
+    soundCategory: 5
+    clip: {fileID: 8300000, guid: 1f05c931aae35ce4d94594ecc4ff4977, type: 3}
+    volume: 0.55
+    pitch: 1
+    loop: 1
+    mute: 0
+    source: {fileID: 0}
+  - name: button3
+    soundCategory: 1
+    clip: {fileID: 8300000, guid: f2af48c3b1ffb2f429c170e731c8396d, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: pop1
+    soundCategory: 6
+    clip: {fileID: 8300000, guid: 35e5ec1c52aa4574c928cb015888cff6, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: pop2
+    soundCategory: 6
+    clip: {fileID: 8300000, guid: 65901569d48e24e43a3bff0a03478be6, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: pop3
+    soundCategory: 6
+    clip: {fileID: 8300000, guid: eaee2de29a4f8b6428b8500fc04002ec, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: menu_button1
+    soundCategory: 2
+    clip: {fileID: 8300000, guid: 427c786944377844b935b1ec63f80842, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: menu_button2
+    soundCategory: 2
+    clip: {fileID: 8300000, guid: 62d39ef9db91c464d82bf312367b5a27, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
     mute: 0
     source: {fileID: 0}
   SpeechEnabled: 1

@@ -52,7 +52,8 @@ public class AudioManager : MonoBehaviour
 			Debug.Log("Sound: " + name + " not found!");
 			return;
 		}
-		sound?.source.Play();
+		Debug.Assert(sound.source != null);
+		sound.source.Play();
 	}
 
 	public void Play(Sound.Category category)
@@ -85,12 +86,12 @@ public class AudioManager : MonoBehaviour
 
 	public void PlayButtonSound()
 	{
-		Play(Sound.Category.Button);
+		FindObjectOfType<AudioManager>().Play(Sound.Category.Button);
 	}
 
 	public void PlayMenuButtonSound()
 	{
-		Play(Sound.Category.MenuButton);
+		FindObjectOfType<AudioManager>().Play(Sound.Category.MenuButton);
 	}
 
 	private Sound GetRandomSound(Sound.Category category)
