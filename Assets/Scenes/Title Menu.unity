@@ -5929,6 +5929,10 @@ PrefabInstance:
       propertyPath: ObjectToHide
       value: 
       objectReference: {fileID: 1141438637}
+    - target: {fileID: 844825207903766500, guid: 286db7731ffbbaf4db2c605a22e2534d, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 844825207903766502, guid: 286db7731ffbbaf4db2c605a22e2534d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

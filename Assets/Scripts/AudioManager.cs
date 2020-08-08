@@ -59,7 +59,8 @@ public class AudioManager : MonoBehaviour
 	public void Play(Sound.Category category)
 	{
 		// Play a special cat sound on every fourth click
-		if (category == Sound.Category.Cat)
+		bool catMode = FindObjectOfType<Catvas>().Cat;
+		if (category == Sound.Category.Cat && !catMode)
 			CatCount++;
 		if (CatCount >= UnityEngine.Random.Range(4, 6))
 		{
@@ -69,7 +70,7 @@ public class AudioManager : MonoBehaviour
 		else
 		{
 			// Cat mode
-			if (FindObjectOfType<Catvas>().Cat)
+			if (catMode)
 			{
 				// Make all button presses cat sounds
 				if (category == Sound.Category.Button ||
