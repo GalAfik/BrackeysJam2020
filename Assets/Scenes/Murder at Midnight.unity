@@ -220,6 +220,10 @@ PrefabInstance:
       propertyPath: EndingAudioClip
       value: 
       objectReference: {fileID: 8300000, guid: cc14728e05a5dc041be3e9110775ae61, type: 3}
+    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
+      propertyPath: ReverseClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d85bd8e64d84d49f394b44f50441fb0a, type: 3}
     - target: {fileID: 7406946656307094015, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

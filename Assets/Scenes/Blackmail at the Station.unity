@@ -220,6 +220,10 @@ PrefabInstance:
       propertyPath: LevelResource
       value: blackmail at the station
       objectReference: {fileID: 0}
+    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
+      propertyPath: ReverseClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9164cb3bda7e4447390287615b587df2, type: 3}
     - target: {fileID: 7406946656307094015, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

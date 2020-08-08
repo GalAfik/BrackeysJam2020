@@ -220,6 +220,10 @@ PrefabInstance:
       propertyPath: LevelResource
       value: the bejeweled burglar
       objectReference: {fileID: 0}
+    - target: {fileID: 6289823535812094702, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
+      propertyPath: ReverseClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f11fbde11436a479b9a5d6c262a4da7a, type: 3}
     - target: {fileID: 7406946656307094015, guid: b3bbc4d582d92484cb411dd03681fda1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
